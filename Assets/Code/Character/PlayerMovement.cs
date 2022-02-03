@@ -8,8 +8,12 @@ public class PlayerMovement : MonoBehaviour {
     
     Rigidbody rb;
     Inputs inputs;
-    Vector2 movement;
-    public float speed = 3;
+    Vector2 direction;
+    public float speed = 5;
+    public float accelSpeed = 0.0025f;
+    public float decelSpeed = 0.005f;
+    private float accel = 0;
+    private bool moving;
 
     void Start() {
         rb = GetComponent<Rigidbody>();
@@ -27,11 +31,21 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void ApplyMovement() {
-        rb.velocity = new Vector3(movement.x, 0, movement.y);
+        if (moving) {
+            Debug.Log("Accelerating");
+            accel += accelSpeed;
+            if (accel >= 1) accel = 1;
+        } else {
+            Debug.Log("Decelerating");
+            accel -= decelSpeed;
+            if (accel <= 0) accel = 0;
+        }
+        rb.velocity = new Vector3(direction.x, 0, direction.y) * accel;
     }
 
     void ReadMovement(InputAction.CallbackContext context) {
-        movement = context.ReadValue<Vector2>() * speed;
+        moving = context.performed;
+        if (context.performed) direction = context.ReadValue<Vector2>() * speed;
     }
 
     void Jump(InputAction.CallbackContext context) {
