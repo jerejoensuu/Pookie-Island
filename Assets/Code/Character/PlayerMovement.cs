@@ -100,7 +100,6 @@ public class PlayerMovement : MonoBehaviour {
         grounded = Physics.BoxCast(center, size, Vector3.down, out rayHit, player.transform.rotation, 0.2f);
         if (grounded) {
             jumping = false;
-            Debug.Log("Hit : " + rayHit.collider.name);
         }
     }
 
