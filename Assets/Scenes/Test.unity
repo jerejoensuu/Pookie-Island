@@ -414,27 +414,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8215064959659085505, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
   m_PrefabInstance: {fileID: 8215064960728038125}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1777055235 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8215064959487701045, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
-  m_PrefabInstance: {fileID: 8215064960728038125}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1777055236
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1777055235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e991b592ec173841a68cab9d6b4ee1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nozzleSize: 0.1
-  rayDensity: 20
-  spread: 9
-  distance: 6
 --- !u!1 &2056349536
 GameObject:
   m_ObjectHideFlags: 0
