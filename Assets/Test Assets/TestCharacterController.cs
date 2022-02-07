@@ -22,7 +22,7 @@ public class TestCharacterController : MonoBehaviour {
     }
 
     private void FixedUpdate() {
-        body.AddForce(transform.forward * Input.GetAxis("Vertical") * forwardSensitivity);
+        body.AddForce(transform.forward * Input.GetAxis("Vertical") * forwardSensitivity * body.mass);
         Vector3 planetNormal = transform.localPosition.normalized * -1;
         body.AddForce(planetNormal * gravity, ForceMode.Acceleration);
         transform.rotation = Quaternion.LookRotation(Vector3.ProjectOnPlane(transform.forward, planetNormal), transform.localPosition);

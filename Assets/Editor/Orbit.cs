@@ -24,20 +24,17 @@ public class Orbit : Editor {
     
     public void OnSceneGUI() {
         var transform = target as Transform;
+        if (transform == null) return;
         if (EditorWindow.HasOpenInstances<OrbitWindow>()) {
             OrbitWindow window = EditorWindow.GetWindow<OrbitWindow>(OrbitWindow.windowName,false);
             Event currentEvent = Event.current;
-            
             Transform pivot = window.pivot != null ? window.pivot : transform.parent;
-            
-            Vector3 YVector = (transform.position - pivot.position).normalized;
-            if (YVector.magnitude == 0) return;
-            Quaternion viewRotation = SceneView.lastActiveSceneView.rotation;
-            Vector3 XVector = Vector3.Cross(YVector, viewRotation * Vector3.left).normalized;
-            Vector3 ZVector = Vector3.Cross(XVector, YVector).normalized;
-
-            
             if (window.orbitTool && pivot != null) {
+                Vector3 YVector = (transform.position - pivot.position).normalized;
+                if (YVector.magnitude == 0) return;
+                Quaternion viewRotation = SceneView.lastActiveSceneView.rotation;
+                Vector3 XVector = Vector3.Cross(YVector, viewRotation * Vector3.left).normalized;
+                Vector3 ZVector = Vector3.Cross(XVector, YVector).normalized;
                 //ROTATION
                 Quaternion rotation = Handles.Disc(transform.localRotation, transform.position, YVector,
                     HandleUtility.GetHandleSize(transform.position) * 0.7f, false, 0);
