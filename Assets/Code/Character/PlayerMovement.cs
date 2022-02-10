@@ -13,18 +13,16 @@ public class PlayerMovement : MonoBehaviour {
     Inputs inputs;
 
     public float speed = 5;
+    public float stickSensitivity = 2;
     public float mouseSensitivity = 2;
     public float accelSpeed = 0.0025f;
     public float decelSpeed = 0.005f;
 
     Vector2 direction;
     private float accel = 0;
-    private bool moving;
-    private bool jumping;
-
+    private bool turningCamera, moving, jumping;
     private Vector2 cameraRotation;
     public float cameraHeight;
-    private bool rotatingCamera;
 
     RaycastHit rayHit;
     bool grounded;
@@ -39,6 +37,10 @@ public class PlayerMovement : MonoBehaviour {
 
         inputs = new Inputs();
         inputs.Enable();
+        inputs.Player.LookStick.performed += ReadCameraInputStick;
+        inputs.Player.LookStick.canceled += ReadCameraInputStick;
+        inputs.Player.LookMouse.performed += ReadCameraInputMouse;
+        inputs.Player.LookMouse.canceled += ReadCameraInputMouse;
         inputs.Player.Move.performed += ReadMovement;
         inputs.Player.Move.canceled += ReadMovement;
         inputs.Player.Jump.performed += Jump;
@@ -46,7 +48,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void Update() {
-        rotatingCamera = RotateCamera();
+        RotateCamera();
         ApplyMovement();
         GroundCheck();
     }
@@ -69,7 +71,8 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void RotatePlayer() {
-        // rotate player based on movement direction
+        Vector3 lookDirection = Quaternion.AngleAxis(camTarget.transform.eulerAngles.y, Vector3.up) * new Vector3(direction.x, 0, direction.y);
+        player.transform.forward = Vector3.Lerp(player.transform.forward, lookDirection, 20 * Time.deltaTime);
     }
 
     void ReadMovement(InputAction.CallbackContext context) {
@@ -83,15 +86,20 @@ public class PlayerMovement : MonoBehaviour {
         // jumping mechanic
     }
 
-    bool RotateCamera() {
-        cameraRotation.x += mouseSensitivity * Input.GetAxis("Mouse X");
+    void ReadCameraInputStick(InputAction.CallbackContext context) {
+        turningCamera = context.performed;
+        cameraRotation.x = stickSensitivity * context.ReadValue<Vector2>().x;
+    }
 
-        cameraRotation.y -= mouseSensitivity * Input.GetAxis("Mouse Y");
-        cameraRotation.y = Mathf.Clamp (cameraRotation.y, -70, 80); // limits vertical rotation
+    void ReadCameraInputMouse(InputAction.CallbackContext context) {
+        turningCamera = context.performed;
+        cameraRotation.x = mouseSensitivity * context.ReadValue<Vector2>().x;
+    }
 
-        camTarget.transform.eulerAngles = new Vector3(cameraRotation.y, cameraRotation.x, 0.0f);
-
-        return Input.GetAxis("Mouse X") != 0 ? true : false;
+    void RotateCamera() {
+        if (!turningCamera) return;
+        
+        camTarget.transform.eulerAngles += new Vector3(0, cameraRotation.x, 0) * Time.deltaTime;
     }
 
     void GroundCheck() {

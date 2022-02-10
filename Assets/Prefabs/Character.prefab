@@ -335,10 +335,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
-  mouseSensitivity: 2
-  accelSpeed: 0.0035
-  decelSpeed: 0.005
-  cameraHeight: 1.5
+  stickSensitivity: 100
+  mouseSensitivity: 10
+  accelSpeed: 0.005
+  decelSpeed: 0.01
+  cameraHeight: 2
 --- !u!114 &8215064960512089257
 MonoBehaviour:
   m_ObjectHideFlags: 0
