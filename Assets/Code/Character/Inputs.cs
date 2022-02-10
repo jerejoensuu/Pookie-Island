@@ -71,6 +71,15 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""CenterCamera"",
+                    ""type"": ""Button"",
+                    ""id"": ""1f1ef4dd-0e0f-45d6-b5fb-4d70c7fe0555"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -302,6 +311,50 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse;Touch"",
                     ""action"": ""LookMouse"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""50efd746-1750-4764-a9b5-9a80f5b1455f"",
+                    ""path"": ""<DualShockGamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""CenterCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""019b8fe4-339e-4169-bb51-8c107df4241e"",
+                    ""path"": ""<DualShockGamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""CenterCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3ca7122c-df36-41a2-b0ee-a64be543cb68"",
+                    ""path"": ""<XInputController>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""CenterCamera"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""85e1d047-23d0-49ea-9985-74661699f42f"",
+                    ""path"": ""<XInputController>/rightTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""CenterCamera"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -894,6 +947,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         m_Player_LookMouse = m_Player.FindAction("LookMouse", throwIfNotFound: true);
         m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
+        m_Player_CenterCamera = m_Player.FindAction("CenterCamera", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -970,6 +1024,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_LookMouse;
     private readonly InputAction m_Player_Fire;
     private readonly InputAction m_Player_Jump;
+    private readonly InputAction m_Player_CenterCamera;
     public struct PlayerActions
     {
         private @Inputs m_Wrapper;
@@ -979,6 +1034,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         public InputAction @LookMouse => m_Wrapper.m_Player_LookMouse;
         public InputAction @Fire => m_Wrapper.m_Player_Fire;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
+        public InputAction @CenterCamera => m_Wrapper.m_Player_CenterCamera;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1003,6 +1059,9 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
+                @CenterCamera.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCenterCamera;
+                @CenterCamera.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCenterCamera;
+                @CenterCamera.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCenterCamera;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1022,6 +1081,9 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
+                @CenterCamera.started += instance.OnCenterCamera;
+                @CenterCamera.performed += instance.OnCenterCamera;
+                @CenterCamera.canceled += instance.OnCenterCamera;
             }
         }
     }
@@ -1183,6 +1245,7 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         void OnLookMouse(InputAction.CallbackContext context);
         void OnFire(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
+        void OnCenterCamera(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
