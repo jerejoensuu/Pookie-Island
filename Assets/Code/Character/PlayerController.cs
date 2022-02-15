@@ -138,10 +138,11 @@ public class PlayerController : MonoBehaviour {
     void GroundCheck() {
         center = new Vector3(player.transform.position.x, col.bounds.min.y + 0.1f, player.transform.position.z);
         size = new Vector3(player.transform.localScale.x, 0, player.transform.localScale.z) * 0.9f;
-        grounded = Physics.BoxCast(center, size, Vector3.down, out rayHit, player.transform.rotation, 0.2f);
+        grounded = Physics.BoxCast(center, size/2, Vector3.down, out rayHit, player.transform.rotation, 0.2f);
         if (grounded) {
             jumping = false;
         }
+        Debug.Log(rayHit.collider);
     }
 
     void OnDrawGizmos() {
@@ -154,7 +155,7 @@ public class PlayerController : MonoBehaviour {
         //Draw a Ray forward from GameObject toward the hit
         Gizmos.DrawRay(center, Vector3.down * rayHit.distance);
         //Draw a cube that extends to where the hit exists
-        Gizmos.DrawWireCube(center + Vector3.down * rayHit.distance, size);
+        Gizmos.DrawWireCube(center + Vector3.down * (rayHit.distance / 2), new Vector3(size.x, rayHit.distance, size.z));
     }
 
     void OnDisable() {
