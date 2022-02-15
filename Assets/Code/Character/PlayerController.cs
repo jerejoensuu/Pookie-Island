@@ -4,25 +4,29 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class PlayerMovement : MonoBehaviour {
+public class PlayerController : MonoBehaviour {
     
     GameObject player;
-    Rigidbody rb;
     Collider col;
     GameObject camTarget;
     Inputs inputs;
+    CharacterController controller;
 
+    public float gravity = 10;
     public float speed = 5;
-    public float stickSensitivity = 2;
-    public float mouseSensitivity = 2;
+    public float jumpSpeed = 2;
     public float accelSpeed = 0.0025f;
     public float decelSpeed = 0.005f;
 
+    Vector3 movementDirection;
     Vector2 directionInput;
     Vector2 trueDirection;
     private float accel = 0;
     private bool turningCamera, moving, jumping;
     private Vector2 cameraRotation;
+    public float stickSensitivity = 2;
+    public float mouseSensitivity = 2;
+    public float autoRotateSpeed;
     public float cameraHeight;
 
     RaycastHit rayHit;
@@ -32,9 +36,9 @@ public class PlayerMovement : MonoBehaviour {
 
     void Start() {
         player = transform.Find("Model").gameObject;
-        rb = player.GetComponent<Rigidbody>();
         col = player.GetComponent<Collider>();
         camTarget = transform.Find("Camera Target").gameObject;
+        controller = GetComponent<CharacterController>();
 
         inputs = new Inputs();
         inputs.Enable();
@@ -67,10 +71,15 @@ public class PlayerMovement : MonoBehaviour {
             if (accel <= 0) accel = 0;
         }
         // change player velocity based on input and camera rotation:
-        Vector3 vel = new Vector3(directionInput.x, 0, directionInput.y) * accel;
-        rb.velocity = Quaternion.AngleAxis(camTarget.transform.eulerAngles.y, Vector3.up) * vel;
-        // move camera to player:
-        camTarget.transform.position = player.transform.position + (Vector3.up * cameraHeight);
+        movementDirection.x = directionInput.x * accel;
+        movementDirection.z = directionInput.y * accel;
+        if (grounded && movementDirection.y < 0) {
+            movementDirection.y = 0;
+        } else {
+            movementDirection.y -= gravity * Time.deltaTime;
+        }
+        controller.Move(Quaternion.AngleAxis(camTarget.transform.eulerAngles.y, Vector3.up) * movementDirection * Time.deltaTime);
+        camTarget.transform.position = player.transform.position + (Vector3.up * cameraHeight); // move camera to player:
     }
 
     Vector3 GetTrueDirection() {
@@ -88,9 +97,8 @@ public class PlayerMovement : MonoBehaviour {
 
     void Jump(InputAction.CallbackContext context) {
         if (!grounded || jumping) return;
-        Debug.Log("adf");
         jumping = context.performed;
-        rb.AddForce(Vector3.up * 10, ForceMode.Impulse);
+        movementDirection.y = jumpSpeed;
     }
 
     void ReadCameraInputStick(InputAction.CallbackContext context) {
@@ -111,8 +119,8 @@ public class PlayerMovement : MonoBehaviour {
 
     void AutoRotateCamera() {
         if (turningCamera || !moving) return;
-        // float angle = Vector3.SignedAngle()
-        camTarget.transform.forward = Vector3.Slerp(camTarget.transform.forward, GetTrueDirection(), 0.2f * Time.deltaTime);
+        float rotateFactor = Vector3.Dot(camTarget.transform.right, Vector3.Normalize(GetTrueDirection()));
+        camTarget.transform.eulerAngles += new Vector3(0, rotateFactor * autoRotateSpeed, 0) * Time.deltaTime;
     }
 
     void CenterCamera(InputAction.CallbackContext context) {
@@ -131,7 +139,6 @@ public class PlayerMovement : MonoBehaviour {
         center = new Vector3(player.transform.position.x, col.bounds.min.y + 0.1f, player.transform.position.z);
         size = new Vector3(player.transform.localScale.x, 0, player.transform.localScale.z) * 0.9f;
         grounded = Physics.BoxCast(center, size, Vector3.down, out rayHit, player.transform.rotation, 0.2f);
-        Debug.Log(grounded);
         if (grounded) {
             jumping = false;
         }

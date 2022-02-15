@@ -525,6 +525,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1140295679879795353, guid: e24c0ce0ffaf8a047bc4248f12653c6f, type: 3}
+      propertyPath: Damping.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1140295679879795353, guid: e24c0ce0ffaf8a047bc4248f12653c6f, type: 3}
       propertyPath: Damping.z
       value: 0
       objectReference: {fileID: 0}
@@ -649,9 +653,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 8215064959344594743, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
-      propertyPath: m_Enabled
-      value: 1
+    - target: {fileID: 8215064960512089256, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: gravity
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8215064960512089256, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: jumpSpeed
+      value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 8215064960512089262, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
       propertyPath: m_RootOrder
