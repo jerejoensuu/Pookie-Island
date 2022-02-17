@@ -63,7 +63,11 @@ public class PlayerController : MonoBehaviour {
     void ApplyMovement() {
         // dampen movement:
         if (moving) {
-            accel += accelSpeed;
+            if (grounded) {
+                accel += accelSpeed;
+            } else {
+                accel += accelSpeed * .7f;
+            }
             if (accel >= 1) accel = 1;
             RotatePlayer();
         } else {
