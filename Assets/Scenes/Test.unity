@@ -554,15 +554,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1140295680208423687, guid: e24c0ce0ffaf8a047bc4248f12653c6f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.15695
+      value: -19.15695
       objectReference: {fileID: 0}
     - target: {fileID: 1140295680208423687, guid: e24c0ce0ffaf8a047bc4248f12653c6f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9669597
+      value: 0.97988033
       objectReference: {fileID: 0}
     - target: {fileID: 1140295680208423687, guid: e24c0ce0ffaf8a047bc4248f12653c6f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.2549292
+      value: 0.19958593
       objectReference: {fileID: 0}
     - target: {fileID: 1140295680208423687, guid: e24c0ce0ffaf8a047bc4248f12653c6f, type: 3}
       propertyPath: m_LocalRotation.y
@@ -582,15 +582,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1140295681224806765, guid: e24c0ce0ffaf8a047bc4248f12653c6f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -17.15695
+      value: -19.15695
       objectReference: {fileID: 0}
     - target: {fileID: 1140295681224806765, guid: e24c0ce0ffaf8a047bc4248f12653c6f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9669597
+      value: 0.97988033
       objectReference: {fileID: 0}
     - target: {fileID: 1140295681224806765, guid: e24c0ce0ffaf8a047bc4248f12653c6f, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.2549292
+      value: 0.19958593
       objectReference: {fileID: 0}
     - target: {fileID: 1140295681224806765, guid: e24c0ce0ffaf8a047bc4248f12653c6f, type: 3}
       propertyPath: m_LocalRotation.y
@@ -653,6 +653,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1957144517359179968, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6810729289419029443, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: m_Radius
+      value: 0.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 7108577051053906940, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: m_Name
+      value: Model
+      objectReference: {fileID: 0}
     - target: {fileID: 8215064960512089256, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
       propertyPath: gravity
       value: 30

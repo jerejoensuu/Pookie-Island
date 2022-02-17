@@ -7,10 +7,10 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour {
     
     GameObject player;
-    Collider col;
     GameObject camTarget;
     Inputs inputs;
     CharacterController controller;
+    Animator anim;
 
     public float gravity = 10;
     public float speed = 5;
@@ -36,9 +36,9 @@ public class PlayerController : MonoBehaviour {
 
     void Start() {
         player = transform.Find("Model").gameObject;
-        col = player.GetComponent<Collider>();
         camTarget = transform.Find("Camera Target").gameObject;
         controller = GetComponent<CharacterController>();
+        anim = player.GetComponent<Animator>();
 
         inputs = new Inputs();
         inputs.Enable();
@@ -92,12 +92,14 @@ public class PlayerController : MonoBehaviour {
 
     void ReadMovement(InputAction.CallbackContext context) {
         moving = context.performed;
+        anim.SetBool("walking", context.performed);
         if (context.performed) directionInput = context.ReadValue<Vector2>() * speed;
     }
 
     void Jump(InputAction.CallbackContext context) {
         if (!grounded || jumping) return;
         jumping = context.performed;
+        anim.SetTrigger("jump");
         movementDirection.y = jumpSpeed;
     }
 
@@ -136,11 +138,12 @@ public class PlayerController : MonoBehaviour {
     }
 
     void GroundCheck() {
-        center = new Vector3(player.transform.position.x, col.bounds.min.y + 0.1f, player.transform.position.z);
-        size = new Vector3(player.transform.localScale.x, 0, player.transform.localScale.z) * 0.9f;
+        center = new Vector3(player.transform.position.x, controller.bounds.min.y + 0.1f, player.transform.position.z);
+        size = new Vector3(controller.bounds.extents.x * 1.95f, 0, controller.bounds.extents.z * 1.95f) * 0.9f;
         grounded = Physics.BoxCast(center, size/2, Vector3.down, out rayHit, player.transform.rotation, 0.2f);
-        if (grounded) {
+        if (grounded && controller.velocity.y >= 0) {
             jumping = false;
+            anim.SetTrigger("grounded");
         }
     }
 
