@@ -142,7 +142,6 @@ public class PlayerController : MonoBehaviour {
         if (grounded) {
             jumping = false;
         }
-        Debug.Log(rayHit.collider);
     }
 
     void OnDrawGizmos() {
