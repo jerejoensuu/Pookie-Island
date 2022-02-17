@@ -78,14 +78,16 @@ public class VacuumController : MonoBehaviour {
                     nozzlePos.y + radius * Mathf.Cos(angle * Mathf.Deg2Rad),
                     nozzlePos.z
                 ));
+                Vector3 dir = points[points.Count - 1] - points[0];
+                points[points.Count - 1] = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * dir + points[0];
+
                 targets.Add(new Vector3(
                     nozzlePos.x + radius * spread * Mathf.Sin(angle * Mathf.Deg2Rad),
                     nozzlePos.y + radius * spread * Mathf.Cos(angle * Mathf.Deg2Rad),
                     nozzlePos.z
                 ));
-                Vector3 dir = targets[targets.Count - 1] - points[points.Count - 1];
-                dir = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * dir;
-                targets[targets.Count - 1] = Quaternion.AngleAxis(test, Vector3.up) * dir + points[points.Count - 1];
+                dir = targets[targets.Count - 1] - points[points.Count - 1];
+                targets[targets.Count - 1] = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * dir + points[points.Count - 1];
             }
         }
     }
