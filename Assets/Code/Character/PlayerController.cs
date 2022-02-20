@@ -111,11 +111,13 @@ public class PlayerController : MonoBehaviour {
     void Jump(InputAction.CallbackContext context) {
         if (!grounded || jumping) return;
         jumping = context.performed;
+        vacuumController.pull = !context.performed;
         anim.SetTrigger("jump");
         movementDirection.y = jumpSpeed;
     }
 
     void ReadPullInput(InputAction.CallbackContext context) {
+        if (!grounded) return;
         vacuumController.pull = aimMode = context.performed;
         if (manualAiming) aimMode = true;
     }
