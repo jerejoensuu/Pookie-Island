@@ -225,7 +225,8 @@ MonoBehaviour:
   rayDensity: 20
   spread: 8
   distance: 6
-  pullForce: 5
+  pullForce: 6
+  pull: 0
 --- !u!1 &8215064959659085510
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,13 +306,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vacuumController: {fileID: 1583464846962008809}
-  gravity: 10
+  gravity: 30
   speed: 10
-  jumpSpeed: 2
+  playerSpeedModifier: 0.5
+  jumpSpeed: 15
   accelSpeed: 0.005
   decelSpeed: 0.025
-  stickSensitivity: 110
-  mouseSensitivity: 10
+  stickSensitivity: 130
+  mouseSensitivity: 12.5
+  cameraSpeedModifier: 0.7
   autoRotateSpeed: 30
   cameraHeight: 2
 --- !u!114 &8215064960512089257

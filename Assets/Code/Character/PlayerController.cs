@@ -14,7 +14,8 @@ public class PlayerController : MonoBehaviour {
     public VacuumController vacuumController;
 
     public float gravity = 10;
-    public float speed = 5;
+    public float speed = 15;
+    public float playerSpeedModifier = 0.5f;
     public float jumpSpeed = 2;
     public float accelSpeed = 0.0025f;
     public float decelSpeed = 0.005f;
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour {
     private Vector2 cameraRotation;
     public float stickSensitivity = 2;
     public float mouseSensitivity = 2;
+    public float cameraSpeedModifier = 0.75f;
     public float autoRotateSpeed;
     public float cameraHeight;
     bool aimMode, manualAiming;
@@ -89,6 +91,10 @@ public class PlayerController : MonoBehaviour {
         } else {
             movementDirection.y -= gravity * Time.deltaTime;
         }
+        if (vacuumController.pull) {
+            movementDirection.x *= playerSpeedModifier;
+            movementDirection.z *= playerSpeedModifier;
+        }
         controller.Move(Quaternion.AngleAxis(camTarget.transform.eulerAngles.y, Vector3.up) * movementDirection * Time.deltaTime);
         camTarget.transform.position = player.transform.position + (Vector3.up * cameraHeight); // move camera to player:
     }
@@ -138,13 +144,8 @@ public class PlayerController : MonoBehaviour {
     void Aim() {
         if (!aimMode) return;
         Vector3 angles;
-        if (!manualAiming || vacuumController.pull) {
-            angles = new Vector3(0, Mathf.LerpAngle(camTarget.transform.eulerAngles.y, player.transform.eulerAngles.y, 25 * Time.deltaTime), 0);
-            camTarget.transform.eulerAngles = angles;
-        } else {
-            angles = new Vector3(0, Mathf.LerpAngle(player.transform.eulerAngles.y, camTarget.transform.eulerAngles.y, 25 * Time.deltaTime), 0);
-            player.transform.eulerAngles = angles;
-        }
+        angles = new Vector3(0, Mathf.LerpAngle(player.transform.eulerAngles.y, camTarget.transform.eulerAngles.y, 25 * Time.deltaTime), 0);
+        player.transform.eulerAngles = angles;
         
     }
 
@@ -155,13 +156,8 @@ public class PlayerController : MonoBehaviour {
 
     void RotateCamera() {
         if (!turningCamera) return;
-        
-        if (!aimMode) {
-            camTarget.transform.eulerAngles += new Vector3(0, cameraRotation.x, 0) * Time.deltaTime;
-        } else {
-            player.transform.eulerAngles += new Vector3(0, cameraRotation.x, 0) * Time.deltaTime;
-        }
-        
+        float modifier = vacuumController.pull ? cameraSpeedModifier : 1;
+        camTarget.transform.eulerAngles += new Vector3(0, cameraRotation.x, 0) * modifier * Time.deltaTime;
     }
 
     void AutoRotateCamera() {

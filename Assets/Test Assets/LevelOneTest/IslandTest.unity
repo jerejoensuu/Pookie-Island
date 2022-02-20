@@ -9291,10 +9291,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1583464846962008809, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
-      propertyPath: pullForce
-      value: 6
-      objectReference: {fileID: 0}
     - target: {fileID: 1957144517359179968, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -9306,26 +9302,6 @@ PrefabInstance:
     - target: {fileID: 7108577051053906940, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
       propertyPath: m_Name
       value: Model
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215064960512089256, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
-      propertyPath: gravity
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215064960512089256, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
-      propertyPath: jumpSpeed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215064960512089256, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
-      propertyPath: accelSpeed
-      value: 0.005
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215064960512089256, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
-      propertyPath: mouseSensitivity
-      value: 12.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8215064960512089256, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
-      propertyPath: stickSensitivity
-      value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 8215064960512089262, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
       propertyPath: m_RootOrder
