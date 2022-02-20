@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour {
     public float mouseSensitivity = 2;
     public float autoRotateSpeed;
     public float cameraHeight;
-    bool aimMode;
+    bool aimMode, aiming;
 
     RaycastHit rayHit;
     bool grounded;
@@ -55,6 +55,8 @@ public class PlayerController : MonoBehaviour {
         inputs.Player.Jump.canceled += Jump;
         inputs.Player.Pull.performed += ReadPullInput;
         inputs.Player.Pull.canceled += ReadPullInput;
+        inputs.Player.Aim.performed += ReadAimInput;
+        inputs.Player.Aim.canceled += ReadAimInput;
     }
 
     void Update() {
@@ -114,7 +116,16 @@ public class PlayerController : MonoBehaviour {
     }
 
     void ReadPullInput(InputAction.CallbackContext context) {
-        vacuumController.pull = aimMode  = context.performed;
+        vacuumController.pull = aimMode = context.performed;
+        if (aiming) aimMode = true;
+    }
+
+    void ReadAimInput(InputAction.CallbackContext context) {
+        if (vacuumController.pull) {
+            aiming = context.performed;
+        } else {
+            aimMode = aiming = context.performed;
+        }
     }
 
     void ReadCameraInputStick(InputAction.CallbackContext context) {
@@ -124,7 +135,8 @@ public class PlayerController : MonoBehaviour {
 
     void Aim() {
         if (!aimMode) return;
-        camTarget.transform.eulerAngles = Vector3.Lerp(camTarget.transform.eulerAngles, player.transform.eulerAngles, 25 * Time.deltaTime);
+        Vector3 angles = new Vector3(0, Mathf.LerpAngle(camTarget.transform.eulerAngles.y, player.transform.eulerAngles.y, 25 * Time.deltaTime), 0);
+        camTarget.transform.eulerAngles = angles;
     }
 
     void ReadCameraInputMouse(InputAction.CallbackContext context) {
