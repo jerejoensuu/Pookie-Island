@@ -30,11 +30,11 @@ public class VacuumController : MonoBehaviour {
         if (pull) {
             CastRays();
             PullObjects();
+            ClearList();
         }
     }
 
     void CastRays() {
-        ClearList();
         PlotRayPoints();
         Vector3 dir;
         for (int i = 0; i < points.Count; i++) {
@@ -55,18 +55,23 @@ public class VacuumController : MonoBehaviour {
     void PullObjects() {
         Rigidbody rb;
         Vector3 center;
+        List<GameObject> toRemove = new List<GameObject>();
         foreach (GameObject hitObject in hitObjects) {
             rb = hitObject.GetComponent<Rigidbody>();
             rb.useGravity = false;
             rb.velocity = Vector3.zero;
 
             center = nozzle.transform.position + -transform.up * Vector3.Distance(hitObject.transform.position, nozzle.transform.position);
-                hitObject.transform.position = Vector3.MoveTowards(hitObject.transform.position, center, pullForce * Time.deltaTime);
-                hitObject.transform.position = Vector3.MoveTowards(hitObject.transform.position, nozzle.transform.position, pullForce * Time.deltaTime);
+            hitObject.transform.position = Vector3.MoveTowards(hitObject.transform.position, center, pullForce * Time.deltaTime);
+            hitObject.transform.position = Vector3.MoveTowards(hitObject.transform.position, nozzle.transform.position, pullForce * Time.deltaTime);
             
             if (Vector3.Distance(hitObject.transform.position, nozzle.transform.position) < 0.5f) {
-                ClearItem(hitObject);
+                toRemove.Add(hitObject);
             }
+        }
+
+        foreach (GameObject obj in toRemove) {
+            ClearItem(obj);
         }
     }
 
