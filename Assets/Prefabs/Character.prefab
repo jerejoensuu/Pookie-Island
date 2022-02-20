@@ -59,8 +59,7 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 8215064959487701044}
+  m_Children: []
   m_Father: {fileID: 8215064960512089262}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -138,8 +137,7 @@ GameObject:
   - component: {fileID: 8215064959487701044}
   - component: {fileID: 8215064959487701041}
   - component: {fileID: 8215064959487701046}
-  - component: {fileID: 8215064959487701047}
-  - component: {fileID: 5750607837528712510}
+  - component: {fileID: 1583464846962008809}
   m_Layer: 0
   m_Name: Vacuum
   m_TagString: Untagged
@@ -154,13 +152,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8215064959487701045}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 0.871}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 0.4}
+  m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: 0, y: 0.435, z: 0.241}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 5728086555753525504}
-  m_Father: {fileID: 8215064959344594736}
-  m_RootOrder: 0
+  m_Father: {fileID: 7632877369383944518}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &8215064959487701041
 MeshFilter:
@@ -211,21 +209,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!136 &8215064959487701047
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8215064959487701045}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
---- !u!114 &5750607837528712510
+--- !u!114 &1583464846962008809
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -237,10 +221,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e991b592ec173841a68cab9d6b4ee1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nozzleSize: 0.1
+  nozzleSize: 0.2
   rayDensity: 20
-  spread: 9
+  spread: 8
   distance: 6
+  pullForce: 6
+  pull: 0
 --- !u!1 &8215064959659085510
 GameObject:
   m_ObjectHideFlags: 0
@@ -319,13 +305,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e44b937104974db41adcdba714570729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gravity: 10
+  vacuumController: {fileID: 1583464846962008809}
+  gravity: 30
   speed: 10
-  jumpSpeed: 2
+  playerSpeedModifier: 0.5
+  jumpSpeed: 15
   accelSpeed: 0.005
   decelSpeed: 0.025
-  stickSensitivity: 110
-  mouseSensitivity: 10
+  stickSensitivity: 130
+  mouseSensitivity: 12.5
+  cameraSpeedModifier: 0.7
   autoRotateSpeed: 30
   cameraHeight: 2
 --- !u!114 &8215064960512089257
