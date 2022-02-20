@@ -343,7 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ab9174f50803e14b90fe16fbaa8bd5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testPookie: {fileID: 0}
+  testPookie: {fileID: 2213930513361296029, guid: de891f749c3c0a64e96fd455bc279088, type: 3}
 --- !u!4 &734159309
 Transform:
   m_ObjectHideFlags: 0
@@ -814,6 +814,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1583464846962008809, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: pullForce
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 1957144517359179968, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -888,4 +892,5 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 2040568506742315120, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+    - {fileID: 8215064959487701047, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
