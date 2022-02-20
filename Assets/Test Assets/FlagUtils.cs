@@ -11,13 +11,16 @@ public class FlagUtils {
     private static bool iterating;
 
     public static bool IsFlagOn(String flagName) {
-        return false;
+        return SaveUtils.currentSaveGame.Flags.Contains(flagName);
     }
 
     public static void SetFlag(String flagName) {
         iterating = true;
-        foreach (GameObject listener in listeners) {
-            CustomEvent.Trigger(listener, "OnFlagChanged", flagName);
+        if (!SaveUtils.currentSaveGame.Flags.Contains(flagName)) {
+            SaveUtils.currentSaveGame.Flags.Add(flagName);
+            foreach (GameObject listener in listeners) {
+                CustomEvent.Trigger(listener, "OnFlagChanged", flagName);
+            }
         }
         foreach (GameObject toBeRemoved in listenersToBeRemoved) {
             listeners.Remove(toBeRemoved);
