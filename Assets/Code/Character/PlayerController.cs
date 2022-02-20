@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour {
     public float mouseSensitivity = 2;
     public float autoRotateSpeed;
     public float cameraHeight;
-    bool aimMode, aiming;
+    bool aimMode, manualAiming;
 
     RaycastHit rayHit;
     bool grounded;
@@ -117,14 +117,14 @@ public class PlayerController : MonoBehaviour {
 
     void ReadPullInput(InputAction.CallbackContext context) {
         vacuumController.pull = aimMode = context.performed;
-        if (aiming) aimMode = true;
+        if (manualAiming) aimMode = true;
     }
 
     void ReadAimInput(InputAction.CallbackContext context) {
         if (vacuumController.pull) {
-            aiming = context.performed;
+            manualAiming = context.performed;
         } else {
-            aimMode = aiming = context.performed;
+            aimMode = manualAiming = context.performed;
         }
     }
 
@@ -135,8 +135,15 @@ public class PlayerController : MonoBehaviour {
 
     void Aim() {
         if (!aimMode) return;
-        Vector3 angles = new Vector3(0, Mathf.LerpAngle(camTarget.transform.eulerAngles.y, player.transform.eulerAngles.y, 25 * Time.deltaTime), 0);
-        camTarget.transform.eulerAngles = angles;
+        Vector3 angles;
+        if (!manualAiming || vacuumController.pull) {
+            angles = new Vector3(0, Mathf.LerpAngle(camTarget.transform.eulerAngles.y, player.transform.eulerAngles.y, 25 * Time.deltaTime), 0);
+            camTarget.transform.eulerAngles = angles;
+        } else {
+            angles = new Vector3(0, Mathf.LerpAngle(player.transform.eulerAngles.y, camTarget.transform.eulerAngles.y, 25 * Time.deltaTime), 0);
+            player.transform.eulerAngles = angles;
+        }
+        
     }
 
     void ReadCameraInputMouse(InputAction.CallbackContext context) {
@@ -158,7 +165,7 @@ public class PlayerController : MonoBehaviour {
     void AutoRotateCamera() {
         if (turningCamera || !moving || aimMode) return;
         float rotateFactor = Vector3.Dot(camTarget.transform.right, Vector3.Normalize(GetTrueDirection()));
-        camTarget.transform.eulerAngles += new Vector3(0, rotateFactor * autoRotateSpeed, 0) * Time.deltaTime;
+        camTarget.transform.eulerAngles += new Vector3(0, rotateFactor * autoRotateSpeed * Mathf.Abs(directionInput.x / speed), 0) * Time.deltaTime;
     }
 
     void CenterCamera(InputAction.CallbackContext context) {
