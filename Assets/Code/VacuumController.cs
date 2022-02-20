@@ -19,14 +19,18 @@ public class VacuumController : MonoBehaviour {
     List<GameObject> hitObjects = new List<GameObject>();
     List<Vector3> hitPositions = new List<Vector3>();
 
+    public bool pull;
+
 
     void Start() {
         nozzle = transform.Find("Nozzle").gameObject;
     }
 
     void Update() {
-        CastRays();
-        PullObjects();
+        if (pull) {
+            CastRays();
+            PullObjects();
+        }
     }
 
     void CastRays() {
@@ -72,7 +76,6 @@ public class VacuumController : MonoBehaviour {
         foreach (GameObject oldHitObject in hitObjects) {
             if (oldHitObject == newHitObject) return;
         }
-        Debug.Log("sdf");
         hitObjects.Add(newHitObject);
         hitPositions.Add(hit.point);
     }

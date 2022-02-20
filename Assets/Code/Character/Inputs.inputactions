@@ -58,6 +58,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Aim",
+                    "type": "Button",
+                    "id": "8d8601f5-ba3a-4900-a02f-5502efbb011b",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Pull",
+                    "type": "Button",
+                    "id": "c5c4cddb-6af3-4a31-99dd-bb18f7b9329f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -338,23 +356,34 @@
                 },
                 {
                     "name": "",
-                    "id": "3ca7122c-df36-41a2-b0ee-a64be543cb68",
-                    "path": "<XInputController>/leftTrigger",
+                    "id": "9dc1c7ef-414c-4e77-836b-691d47178ef1",
+                    "path": "<Gamepad>/leftTrigger",
                     "interactions": "",
                     "processors": "",
                     "groups": "Gamepad",
-                    "action": "CenterCamera",
+                    "action": "Aim",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "85e1d047-23d0-49ea-9985-74661699f42f",
-                    "path": "<XInputController>/rightTrigger",
+                    "id": "cbe727a3-c771-4437-aa83-2c1037923aed",
+                    "path": "<Mouse>/rightButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Gamepad",
-                    "action": "CenterCamera",
+                    "groups": "",
+                    "action": "Pull",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d0e98546-edeb-4531-8c4b-7db897fbf24e",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pull",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
