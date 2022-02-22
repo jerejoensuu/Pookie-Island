@@ -137,7 +137,6 @@ GameObject:
   - component: {fileID: 8215064959487701044}
   - component: {fileID: 8215064959487701041}
   - component: {fileID: 8215064959487701046}
-  - component: {fileID: 1583464846962008809}
   m_Layer: 0
   m_Name: Vacuum
   m_TagString: Untagged
@@ -209,24 +208,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &1583464846962008809
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8215064959487701045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7e991b592ec173841a68cab9d6b4ee1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  nozzleSize: 0.2
-  rayDensity: 20
-  spread: 8
-  distance: 6
-  pullForce: 6
-  pull: 0
 --- !u!1 &8215064959659085510
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,6 +248,11 @@ GameObject:
   m_Component:
   - component: {fileID: 8215064960512089262}
   - component: {fileID: 8215064960512089256}
+  - component: {fileID: 7244901970205329936}
+  - component: {fileID: 204443768600281358}
+  - component: {fileID: 2370099968389096281}
+  - component: {fileID: 8144045051850122752}
+  - component: {fileID: 2831179270947530452}
   - component: {fileID: 8215064960512089257}
   - component: {fileID: 6810729289419029443}
   m_Layer: 0
@@ -305,10 +291,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e44b937104974db41adcdba714570729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vacuumController: {fileID: 1583464846962008809}
+  input: {fileID: 7244901970205329936}
+  movement: {fileID: 204443768600281358}
+  vcamera: {fileID: 2370099968389096281}
+  anim: {fileID: 8144045051850122752}
+  vacuum: {fileID: 2831179270947530452}
+  model: {fileID: 7108577051053906940}
   gravity: 30
   speed: 10
-  playerSpeedModifier: 0.5
   jumpSpeed: 15
   accelSpeed: 0.005
   decelSpeed: 0.025
@@ -316,7 +306,78 @@ MonoBehaviour:
   mouseSensitivity: 12.5
   cameraSpeedModifier: 0.7
   autoRotateSpeed: 30
-  cameraHeight: 2
+--- !u!114 &7244901970205329936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8215064960512089263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1dd72e0f1dc380041a30318027c4f886, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 8215064960512089256}
+--- !u!114 &204443768600281358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8215064960512089263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da69ecbcd244b6d4b9d8b1363631ffd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 8215064960512089256}
+--- !u!114 &2370099968389096281
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8215064960512089263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 44b549c68445f9240a721f259e711733, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 8215064960512089256}
+  camTarget: {fileID: 8215064959659085510}
+--- !u!114 &8144045051850122752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8215064960512089263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfff6d9e1c3f9374683cb1ffe694e070, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 8215064960512089256}
+--- !u!114 &2831179270947530452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8215064960512089263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e991b592ec173841a68cab9d6b4ee1f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nozzle: {fileID: 3585240006895901283}
+  nozzleSize: 0.2
+  rayDensity: 20
+  spread: 8
+  distance: 6
+  pullForce: 6
+  pull: 0
 --- !u!114 &8215064960512089257
 MonoBehaviour:
   m_ObjectHideFlags: 0

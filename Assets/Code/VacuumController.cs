@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class VacuumController : MonoBehaviour {
     
-    GameObject nozzle;
+    [SerializeField] GameObject nozzle;
 
     public float nozzleSize = 0.3f;
     public float rayDensity = 20;
@@ -23,7 +23,6 @@ public class VacuumController : MonoBehaviour {
 
 
     void Start() {
-        nozzle = transform.Find("Nozzle").gameObject;
     }
 
     void Update() {
@@ -39,7 +38,7 @@ public class VacuumController : MonoBehaviour {
         Vector3 dir;
         for (int i = 0; i < points.Count; i++) {
             Vector3 origin = points[i];
-            Vector3 target = targets[i] + (Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * Vector3.forward * distance);
+            Vector3 target = targets[i] + (Quaternion.AngleAxis(nozzle.transform.eulerAngles.y, Vector3.up) * Vector3.forward * distance);
             dir = Vector3.Normalize(target - origin);
 
             Debug.DrawRay(origin, dir * distance, new Color(0.5f, 0.5f, 0.5f, 0.03f));
@@ -61,7 +60,7 @@ public class VacuumController : MonoBehaviour {
             rb.useGravity = false;
             rb.velocity = Vector3.zero;
 
-            center = nozzle.transform.position + -transform.up * Vector3.Distance(hitObject.transform.position, nozzle.transform.position);
+            center = nozzle.transform.position + -nozzle.transform.up * Vector3.Distance(hitObject.transform.position, nozzle.transform.position);
             hitObject.transform.position = Vector3.MoveTowards(hitObject.transform.position, center, pullForce * Time.deltaTime);
             hitObject.transform.position = Vector3.MoveTowards(hitObject.transform.position, nozzle.transform.position, pullForce * Time.deltaTime);
             
@@ -107,7 +106,7 @@ public class VacuumController : MonoBehaviour {
 
         // Center points:
         points.Add(nozzlePos);
-        targets.Add(nozzlePos + (Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * Vector3.forward * distance));
+        targets.Add(nozzlePos + (Quaternion.AngleAxis(nozzle.transform.eulerAngles.y, Vector3.up) * Vector3.forward * distance));
 
         for (int ring = 1; ring < ringNum + 1; ring++) {
             float radius = nozzleSize / ringNum * ring;
@@ -121,7 +120,7 @@ public class VacuumController : MonoBehaviour {
                     nozzlePos.z
                 ));
                 Vector3 dir = points[points.Count - 1] - points[0];
-                points[points.Count - 1] = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * dir + points[0];
+                points[points.Count - 1] = Quaternion.AngleAxis(nozzle.transform.eulerAngles.y, Vector3.up) * dir + points[0];
 
                 targets.Add(new Vector3(
                     nozzlePos.x + radius * spread * Mathf.Sin(angle * Mathf.Deg2Rad),
@@ -129,7 +128,7 @@ public class VacuumController : MonoBehaviour {
                     nozzlePos.z
                 ));
                 dir = targets[targets.Count - 1] - points[points.Count - 1];
-                targets[targets.Count - 1] = Quaternion.AngleAxis(transform.eulerAngles.y, Vector3.up) * dir + points[points.Count - 1];
+                targets[targets.Count - 1] = Quaternion.AngleAxis(nozzle.transform.eulerAngles.y, Vector3.up) * dir + points[points.Count - 1];
             }
         }
     }
