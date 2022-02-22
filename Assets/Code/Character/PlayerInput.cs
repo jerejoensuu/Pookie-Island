@@ -41,7 +41,7 @@ public class PlayerInput : MonoBehaviour {
     }
 
     void ReadJump(InputAction.CallbackContext context) {
-        player.movement.Jump(context);
+        player.movement.jumpPressed = context.performed;
     }
 
     void ReadPullInput(InputAction.CallbackContext context) {

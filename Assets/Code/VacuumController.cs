@@ -19,7 +19,7 @@ public class VacuumController : MonoBehaviour {
     List<GameObject> hitObjects = new List<GameObject>();
     List<Vector3> hitPositions = new List<Vector3>();
 
-    public bool pull;
+    internal bool pull;
 
 
     void Start() {
