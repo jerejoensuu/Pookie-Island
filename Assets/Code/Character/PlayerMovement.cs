@@ -40,6 +40,7 @@ public class PlayerMovement : MonoBehaviour {
         ApplyGravity();
         HandleJump();
         HandleWalk();
+        camTarget.transform.position = player.transform.position + (Vector3.up * player.cameraHeight); // move camera to player:
     }
 
     void ApplyGravity() {
@@ -54,7 +55,6 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void HandleJump() {
-        Debug.Log(jumps);
         if (jumpPressed && (controller.isGrounded || jumps > 0)) {
             jumpPressed = false;
             movement.y = jumps == 2 ? player.jumpSpeed : player.jumpSpeed * 0.75f;
@@ -68,29 +68,31 @@ public class PlayerMovement : MonoBehaviour {
     
     void HandleWalk() {
         // dampen movement:
+        Debug.Log(player.input.rawInput.magnitude);
         if (moving) {
             if (grounded) {
                 accel += player.accelSpeed;
             } else {
                 accel += player.accelSpeed * .3f;
             }
-            if (accel >= 1) accel = 1;
+            if (accel > 1) accel = 1;
+            if (accel > player.input.rawInput.magnitude) accel = player.input.rawInput.magnitude;
             RotatePlayer();
         } else {
             accel -= player.decelSpeed;
             if (accel <= 0) accel = 0;
         }
-        // change player velocity based on input:
         movement.x = player.input.directionInput.x * accel;
         movement.z = player.input.directionInput.y * accel;
         
+        // Slow movement when vacuuming:
         if (player.vacuum.pull) {
             movement.x *= player.vacuumSpeedMod;
             movement.z *= player.vacuumSpeedMod;
         }
 
+        // Movement in relation to the camera:
         movement = Quaternion.AngleAxis(camTarget.transform.eulerAngles.y, Vector3.up) * movement;
-        camTarget.transform.position = player.transform.position + (Vector3.up * player.cameraHeight); // move camera to player:
     }
 
     public Vector3 GetTrueDirection() {

@@ -8,6 +8,7 @@ public class PlayerInput : MonoBehaviour {
     [SerializeField] PlayerController player;
     Inputs inputs;
     internal Vector2 directionInput;
+    internal Vector2 rawInput;
     
 
     void Start() {
@@ -37,7 +38,8 @@ public class PlayerInput : MonoBehaviour {
     void ReadMovement(InputAction.CallbackContext context) {
         player.movement.moving = context.performed;
         player.anim.animator.SetBool("walking", context.performed);
-        if (context.performed) directionInput = context.ReadValue<Vector2>() * player.speed;
+        if (context.performed) directionInput = Vector2.ClampMagnitude(context.ReadValue<Vector2>(), 1) * player.speed;
+        if (context.performed) rawInput = Vector2.ClampMagnitude(context.ReadValue<Vector2>(), 1);
     }
 
     void ReadJump(InputAction.CallbackContext context) {
