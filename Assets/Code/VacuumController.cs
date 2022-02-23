@@ -26,6 +26,7 @@ public class VacuumController : MonoBehaviour {
     }
 
     void Update() {
+        Debug.Log(pull);
         if (pull) {
             CastRays();
             PullObjects();
@@ -41,12 +42,11 @@ public class VacuumController : MonoBehaviour {
             Vector3 target = targets[i] + (Quaternion.AngleAxis(nozzle.transform.eulerAngles.y, Vector3.up) * Vector3.forward * distance);
             dir = Vector3.Normalize(target - origin);
 
-            Debug.DrawRay(origin, dir * distance, new Color(0.5f, 0.5f, 0.5f, 0.03f));
+            Debug.DrawRay(origin, dir * distance, new Color(0.5f, 0.5f, 0.5f, 0.04f));
             rayHits = Physics.RaycastAll(origin, dir, distance);
             for (int hit = 0; hit < rayHits.Length; hit++) {
                 StoreHit(rayHits[hit]);
             }
-
 
         }
     }
@@ -61,7 +61,7 @@ public class VacuumController : MonoBehaviour {
             rb.velocity = Vector3.zero;
 
             center = nozzle.transform.position + -nozzle.transform.up * Vector3.Distance(hitObject.transform.position, nozzle.transform.position);
-            hitObject.transform.position = Vector3.MoveTowards(hitObject.transform.position, center, pullForce * Time.deltaTime);
+            hitObject.transform.position = Vector3.Lerp(hitObject.transform.position, center, pullForce * 0.5f * Time.deltaTime);
             hitObject.transform.position = Vector3.MoveTowards(hitObject.transform.position, nozzle.transform.position, pullForce * Time.deltaTime);
             
             if (Vector3.Distance(hitObject.transform.position, nozzle.transform.position) < 0.5f) {

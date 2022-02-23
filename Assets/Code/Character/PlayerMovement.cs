@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour {
     
     [SerializeField] PlayerController player;
     
-    CharacterController controller;
+    internal CharacterController controller;
     GameObject camTarget;
 
     Vector3 movement;
@@ -68,7 +68,6 @@ public class PlayerMovement : MonoBehaviour {
     
     void HandleWalk() {
         // dampen movement:
-        Debug.Log(player.input.rawInput.magnitude);
         if (moving) {
             if (grounded) {
                 accel += player.accelSpeed;
@@ -103,8 +102,6 @@ public class PlayerMovement : MonoBehaviour {
         if (player.vcamera.aimingMode) return;
         player.model.transform.forward = Vector3.Slerp(player.model.transform.forward, GetTrueDirection(), 20 * Time.deltaTime);
     }
-
-
 
 
 

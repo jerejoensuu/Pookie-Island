@@ -47,7 +47,7 @@ public class PlayerInput : MonoBehaviour {
     }
 
     void ReadPullInput(InputAction.CallbackContext context) {
-        if (!player.movement.grounded) return;
+        if (!player.movement.controller.isGrounded) return;
         player.vacuum.pull = player.vcamera.aimingMode = context.performed;
         if (player.vcamera.manualAiming) player.vcamera.aimingMode = true;
     }
