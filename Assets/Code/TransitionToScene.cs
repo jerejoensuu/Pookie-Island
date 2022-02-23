@@ -1,7 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using UnityEditor.Events;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.UI;
@@ -9,6 +6,7 @@ using UnityEngine.UI;
 public class TransitionToScene : MonoBehaviour
 {
     public SceneRoot root;
+    public SceneLoader.GameState transitionToState = SceneLoader.GameState.MENU;
     
     [AssetsOnly, ValidateInput("@TransitionTo.AssetGUID.Length != 0")]
     public AssetReference TransitionTo;
@@ -18,7 +16,7 @@ public class TransitionToScene : MonoBehaviour
         Button btn = GetComponent<Button>();
         GetSceneRoot();
         if(btn != null) {
-            UnityEventTools.AddVoidPersistentListener(btn.onClick, DoTransition);
+            UnityEditor.Events.UnityEventTools.AddVoidPersistentListener(btn.onClick, DoTransition);
         }
     }
 
@@ -32,6 +30,6 @@ public class TransitionToScene : MonoBehaviour
 #endif
 
     public void DoTransition() {
-        if (TransitionTo != null && root != null) root.LoadScene(TransitionTo);
+        if (TransitionTo != null && root != null) root.LoadScene(TransitionTo, transitionToState);
     }
 }
