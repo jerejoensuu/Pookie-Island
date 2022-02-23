@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour {
     private float accel = 0;
 
     internal bool moving, jumping, jumpPressed;
+    int jumps = 2;
 
     // GroundCheck:
     internal RaycastHit rayHit;
@@ -34,8 +35,8 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     internal void HandleMovement() {
+        if (!controller.isGrounded && jumps > 1) jumps = 1;
         controller.Move(movement * Time.deltaTime);
-        Debug.Log(player.gravity);
         ApplyGravity();
         HandleJump();
         HandleWalk();
@@ -53,13 +54,16 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void HandleJump() {
-        if (!jumping && controller.isGrounded && jumpPressed) {
-            Debug.Log("jump");
-            jumping = true;
-            movement.y = player.jumpSpeed;
-        } else if (jumping && controller.isGrounded && !jumpPressed) {
-            jumping = false;
+        Debug.Log(jumps);
+        if (jumpPressed && (controller.isGrounded || jumps > 0)) {
+            jumpPressed = false;
+            movement.y = jumps == 2 ? player.jumpSpeed : player.jumpSpeed * 0.75f;
+            jumps--;
+        } else if (controller.isGrounded && !jumpPressed) {
+            jumps = 2;
         }
+
+        
     }
     
     void HandleWalk() {

@@ -297,10 +297,11 @@ MonoBehaviour:
   anim: {fileID: 8144045051850122752}
   vacuum: {fileID: 2831179270947530452}
   model: {fileID: 7108577051053906940}
-  gravity: 30
+  maxJumpHeight: 4
+  maxJumpTime: 0.7
+  fallMultiplier: 1
   speed: 10
-  jumpSpeed: 15
-  accelSpeed: 0.005
+  accelSpeed: 0.01
   decelSpeed: 0.025
   stickSensitivity: 130
   mouseSensitivity: 12.5
@@ -377,7 +378,6 @@ MonoBehaviour:
   spread: 8
   distance: 6
   pullForce: 6
-  pull: 0
 --- !u!114 &8215064960512089257
 MonoBehaviour:
   m_ObjectHideFlags: 0
