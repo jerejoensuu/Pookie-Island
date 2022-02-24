@@ -26,7 +26,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -57,7 +57,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FlowTexture:
-        m_Texture: {fileID: 2800000, guid: bbca77d2098221048809acf31bef1c70, type: 3}
+        m_Texture: {fileID: 2800000, guid: 15ea35a96dd4c904c9bcda060aecb30f, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FoamTexture:
@@ -110,8 +110,8 @@ Material:
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _FlowSpeed: 0.03
-    - _FlowStrength: 0.003
-    - _FoamDistance: 0.4
+    - _FlowStrength: 0.0003
+    - _FoamDistance: 0.2
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -120,7 +120,7 @@ Material:
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Size: 5
+    - _Size: 4
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -131,9 +131,9 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DarkFoamColor: {r: 0.17475078, g: 0.32088697, b: 0.7264151, a: 0}
+    - _DarkFoamColor: {r: 0.11454255, g: 0.413603, b: 0.6226415, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _LightFoamColor: {r: 0.8944464, g: 0.9196205, b: 0.9433962, a: 0}
+    - _LightFoamColor: {r: 1, g: 1, b: 1, a: 0.29803923}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _WaterColor: {r: 0.27429688, g: 0.6443611, b: 0.8679245, a: 0}
+    - _WaterColor: {r: 0.21960783, g: 0.5522518, b: 0.7647059, a: 1}
   m_BuildTextureStacks: []
