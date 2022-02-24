@@ -36,9 +36,15 @@ public class PlayerInput : MonoBehaviour {
     }
 
     void ReadMovement(InputAction.CallbackContext context) {
-        player.movement.moving = context.performed;
-        player.anim.animator.SetBool("walking", context.performed);
-        if (context.performed) directionInput = Vector2.ClampMagnitude(context.ReadValue<Vector2>(), 1) * player.speed;
+        if (context.ReadValue<Vector2>().magnitude < 0.15f) {
+            directionInput = Vector2.zero;
+            player.movement.moving = false;
+            player.anim.animator.SetBool("walking", false);
+        } else {
+            directionInput = Vector2.ClampMagnitude(context.ReadValue<Vector2>(), 1) * player.speed;
+            player.movement.moving = true;
+            player.anim.animator.SetBool("walking", true);
+        }
         if (context.performed) rawInput = Vector2.ClampMagnitude(context.ReadValue<Vector2>(), 1);
     }
 
@@ -48,21 +54,22 @@ public class PlayerInput : MonoBehaviour {
 
     void ReadPullInput(InputAction.CallbackContext context) {
         if (!player.movement.controller.isGrounded) return;
-        player.vacuum.pull = player.vcamera.aimingMode = context.performed;
-        if (player.vcamera.manualAiming) player.vcamera.aimingMode = true;
+        player.vacuum.pull = player.vcamera.aiming = context.performed;
+        if (context.performed) StartCoroutine(player.vcamera.PointCameraAt(player.model.transform.forward));
     }
 
     void ReadAimInput(InputAction.CallbackContext context) {
-        if (player.vacuum.pull) {
-            player.vcamera.manualAiming = context.performed;
-        } else {
-            player.vcamera.aimingMode = player.vcamera.manualAiming = context.performed;
-        }
+        
     }
 
     void ReadCameraInputStick(InputAction.CallbackContext context) {
-        player.vcamera.turningCamera = context.performed;
-        player.vcamera.cameraRotation.x = player.stickSensitivity * context.ReadValue<Vector2>().x;
+        if (context.ReadValue<Vector2>().magnitude < 0.2f) {
+            player.vcamera.turningCamera = false;
+            player.vcamera.cameraRotation.x = 0;
+        } else {
+            player.vcamera.turningCamera = true;
+            player.vcamera.cameraRotation.x = player.stickSensitivity * context.ReadValue<Vector2>().x;
+        }
     }
 
     void ReadCameraInputMouse(InputAction.CallbackContext context) {

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class VacuumController : MonoBehaviour {
     
+    [SerializeField] PlayerController player;
     [SerializeField] GameObject nozzle;
 
     public float nozzleSize = 0.3f;
@@ -26,7 +27,6 @@ public class VacuumController : MonoBehaviour {
     }
 
     void Update() {
-        Debug.Log(pull);
         if (pull) {
             CastRays();
             PullObjects();

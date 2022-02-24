@@ -7,20 +7,20 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour {
 
     [Header("Helper scripts")]
-    [SerializeField] internal PlayerInput input;
-    [SerializeField] internal PlayerMovement movement;
-    [SerializeField] internal PlayerCamera vcamera;
-    [SerializeField] internal PlayerAnimation anim;
-    [SerializeField] internal VacuumController vacuum;
+    public PlayerInput input;
+    public PlayerMovement movement;
+    public PlayerCamera vcamera;
+    public PlayerAnimation anim;
+    public VacuumController vacuum;
 
     [Header("Movement")]
     public GameObject model;
     internal float gravity;
     internal float groudedGravity = -0.5f;
     internal float jumpSpeed;
-    [SerializeField] internal float maxJumpHeight;
-    [SerializeField] internal float maxJumpTime;
-    [SerializeField] internal float fallMultiplier = 2;
+    public float maxJumpHeight;
+    public float maxJumpTime;
+    public float fallMultiplier = 2;
     public float speed = 15;
     internal float vacuumSpeedMod = 0.5f;
     
