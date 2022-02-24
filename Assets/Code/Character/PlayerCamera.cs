@@ -40,7 +40,7 @@ public class PlayerCamera : MonoBehaviour {
     }
 
     public void CenterCamera() {
-        if (autoTurningCamera) return;
+        if (autoTurningCamera || turningCamera) return;
         StopCoroutine("PointCameraAt");
         StartCoroutine(PointCameraAt(player.model.transform.forward));
     }
@@ -48,8 +48,8 @@ public class PlayerCamera : MonoBehaviour {
     public IEnumerator PointCameraAt(Vector3 direction) {
         autoTurningCamera = true;
         Quaternion targetRotation = Quaternion.LookRotation(direction);
-        while(Quaternion.Angle(targetRotation, camTarget.transform.rotation) > 0.5f) {
-            camTarget.transform.rotation = Quaternion.RotateTowards(camTarget.transform.rotation, targetRotation, 100 * Time.deltaTime);
+        while(Quaternion.Angle(targetRotation, camTarget.transform.rotation) > 1f) {
+            camTarget.transform.rotation = Quaternion.Slerp(camTarget.transform.rotation, targetRotation, 15 * Time.deltaTime);
             yield return new WaitForSeconds(Time.deltaTime);
         }
         autoTurningCamera = false;
