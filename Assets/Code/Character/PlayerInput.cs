@@ -9,7 +9,8 @@ public class PlayerInput : MonoBehaviour {
     Inputs inputs;
     internal Vector2 directionInput;
     internal Vector2 rawInput;
-    
+    bool manualAiming;
+
 
     void Start() {
         inputs = new Inputs();
@@ -54,12 +55,15 @@ public class PlayerInput : MonoBehaviour {
 
     void ReadPullInput(InputAction.CallbackContext context) {
         if (!player.movement.controller.isGrounded) return;
-        player.vacuum.pull = player.vcamera.aiming = context.performed;
-        if (context.performed) StartCoroutine(player.vcamera.PointCameraAt(player.model.transform.forward));
+
+        player.vacuum.pull = context.performed;
+        if (!manualAiming) player.vcamera.aiming = context.performed;
+        if (context.performed && !manualAiming) StartCoroutine(player.vcamera.PointCameraAt(player.model.transform.forward));
     }
 
     void ReadAimInput(InputAction.CallbackContext context) {
-        
+        if (!player.vacuum.pull) player.vcamera.aiming = context.performed;
+        manualAiming = context.performed;
     }
 
     void ReadCameraInputStick(InputAction.CallbackContext context) {

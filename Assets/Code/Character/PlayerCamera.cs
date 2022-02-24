@@ -46,6 +46,7 @@ public class PlayerCamera : MonoBehaviour {
     }
 
     public IEnumerator PointCameraAt(Vector3 direction) {
+        if (autoTurningCamera) yield break;
         autoTurningCamera = true;
         Quaternion targetRotation = Quaternion.LookRotation(direction);
         while(Quaternion.Angle(targetRotation, camTarget.transform.rotation) > 1f) {

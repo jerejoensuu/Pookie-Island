@@ -13,7 +13,7 @@ public class PlayerMovement : MonoBehaviour {
     Vector3 movement;
     private float accel = 0;
 
-    internal bool moving, jumping, jumpPressed;
+    internal bool moving, jumping, jumpPressed, autoTurningPlayer;
     int jumps = 2;
 
     // GroundCheck:
@@ -101,5 +101,16 @@ public class PlayerMovement : MonoBehaviour {
     void RotatePlayer() {
         if (player.vcamera.aiming) return;
         player.model.transform.forward = Vector3.Slerp(player.model.transform.forward, GetTrueDirection(), 20 * Time.deltaTime);
+    }
+
+    public IEnumerator PointPlayerAt(Vector3 direction) {
+        if (autoTurningPlayer) yield break;
+        autoTurningPlayer = true;
+        Quaternion targetRotation = Quaternion.LookRotation(direction);
+        while(Quaternion.Angle(targetRotation, player.model.transform.rotation) > 1f) {
+            player.model.transform.rotation = Quaternion.Slerp(player.model.transform.rotation, targetRotation, 15 * Time.deltaTime);
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+        autoTurningPlayer = false;
     }
 }
