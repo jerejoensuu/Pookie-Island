@@ -181,7 +181,7 @@ public class PlayerController : MonoBehaviour {
     void GroundCheck() {
         center = new Vector3(player.transform.position.x, controller.bounds.min.y + 0.1f, player.transform.position.z);
         size = new Vector3(controller.bounds.extents.x * 1.95f, 0, controller.bounds.extents.z * 1.95f) * 0.9f;
-        grounded = Physics.BoxCast(center, size/2, Vector3.down, out rayHit, player.transform.rotation, 0.2f);
+        grounded = Physics.BoxCast(center, size/2, Vector3.down, out rayHit, player.transform.rotation, 0.2f, Physics.DefaultRaycastLayers, QueryTriggerInteraction.Ignore);
         if (grounded && controller.velocity.y >= 0) {
             jumping = false;
             anim.SetTrigger("grounded");

@@ -10,11 +10,11 @@ public class FlagUtils {
     private static HashSet<GameObject> listenersToBeRemoved = new HashSet<GameObject>();
     private static bool iterating;
 
-    public static bool IsFlagOn(String flagName) {
+    public static bool IsFlagOn(string flagName) {
         return SaveUtils.currentSaveGame.Flags.Contains(flagName);
     }
 
-    public static void SetFlag(String flagName) {
+    public static void SetFlag(string flagName) {
         iterating = true;
         if (!SaveUtils.currentSaveGame.Flags.Contains(flagName)) {
             SaveUtils.currentSaveGame.Flags.Add(flagName);
