@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using System.IO;
 using UnityEditor;
 using UnityEditor.AddressableAssets;
@@ -126,3 +127,4 @@ public class SceneInstantiation : ISceneTemplatePipeline {
         return (length < value.Length) ? value.Substring(value.Length - length) : value;
     }
 }
+#endif
