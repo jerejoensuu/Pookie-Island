@@ -19,6 +19,18 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Albedo_:
+        m_Texture: {fileID: 2800000, guid: f397939766646454b9788f899647530e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Emission_:
+        m_Texture: {fileID: 2800000, guid: 3a15685caf367e04c8bbe36ece868e20, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Normal_:
+        m_Texture: {fileID: 2800000, guid: da6f6459068eadb44888114ea671bf32, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -31,6 +43,11 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors: []
+    m_Floats:
+    - Fresnel_Size_: 0.622
+    - Fresnel_Strength_: 0.2
+    - Metallic_: 0.188
+    - Smoothness_: 0.373
+    m_Colors:
+    - Color_: {r: 0, g: 0.45965448, b: 5.791773, a: 1}
   m_BuildTextureStacks: []
