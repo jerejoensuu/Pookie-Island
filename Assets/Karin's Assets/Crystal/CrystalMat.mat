@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CrystalMat
+  m_Shader: {fileID: -6465566751694194690, guid: 52e58e4da2bdf57479c0c42b347afae1, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _SampleTexture2D_e6cafbf0bdb64663b3979bf620f99cc2_Texture_1:
+        m_Texture: {fileID: 2800000, guid: df9e8fde5863f2842a0596a298b275bb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - BottomLine_: 0.559
+    - Metallic_: 0.016
+    - Smoothness_: 0.091
+    - TopLine_: 0.511
+    m_Colors:
+    - BottomColor_: {r: 0, g: 0.3090873, b: 0.17831959, a: 1}
+    - Color_8207897c99e2437e90cb75fb16645d8d: {r: 0.61798626, g: 0.048280176, b: 1.8443027, a: 1}
+    - TopColor_: {r: 0, g: 0.8117478, b: 2.3693724, a: 1}
+  m_BuildTextureStacks: []
