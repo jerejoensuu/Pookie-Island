@@ -3,10 +3,10 @@ using UnityEngine;
 
 public class VacuumController : MonoBehaviour {
     
-    [SerializeField] PlayerController player;
+    public PlayerController player;
 
-    [SerializeField] GameObject nozzle;
-    [SerializeField] VacuumTank tank;
+    public GameObject nozzle;
+    public VacuumTank tank;
 
     public float nozzleSize = 0.3f;
     public float rayDensity = 20;
@@ -75,13 +75,17 @@ public class VacuumController : MonoBehaviour {
             if (tank.AddToTank(obj)) {
                 Destroy(obj);
             } else {
-                RejectObject();
+                RejectObject(obj);
             }
         }
     }
 
-    void RejectObject() {
-        Debug.Log("Reject pookie");
+    void RejectObject(GameObject obj) {
+        hitObjects.Remove(obj);
+        Rigidbody rb = obj.GetComponent<Rigidbody>();
+        rb.useGravity = true;
+        float force = 1;
+        rb.AddForce(new Vector3(Random.Range(0, 1), Random.Range(0, 1), Random.Range(0, 1)) * force, ForceMode.Impulse);
     }
 
     void StoreHit(RaycastHit hit) {
@@ -100,11 +104,6 @@ public class VacuumController : MonoBehaviour {
         }
         hitObjects = new List<GameObject>();
         hitPositions = new List<Vector3>();
-    }
-
-    void ClearItem(GameObject obj) {
-        hitObjects.Remove(obj);
-        Destroy(obj);
     }
 
     void PlotRayPoints() {

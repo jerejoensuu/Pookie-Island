@@ -55,9 +55,18 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Fire"",
+                    ""name"": ""Pull"",
                     ""type"": ""Button"",
-                    ""id"": ""19aa89f4-36c6-468a-920c-9632a9182afb"",
+                    ""id"": ""c5c4cddb-6af3-4a31-99dd-bb18f7b9329f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Eject"",
+                    ""type"": ""Button"",
+                    ""id"": ""2a11de2c-ad39-43a6-aa5f-d345fb89abcb"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -85,15 +94,6 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""name"": ""Aim"",
                     ""type"": ""Button"",
                     ""id"": ""8d8601f5-ba3a-4900-a02f-5502efbb011b"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Pull"",
-                    ""type"": ""Button"",
-                    ""id"": ""c5c4cddb-6af3-4a31-99dd-bb18f7b9329f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -257,61 +257,6 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""143bb1cd-cc10-4eca-a2f0-a3664166fe91"",
-                    ""path"": ""<Gamepad>/rightTrigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Gamepad"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""05f6913d-c316-48b2-a6bb-e225f14c7960"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""886e731e-7071-4ae4-95c0-e61739dad6fd"",
-                    ""path"": ""<Touchscreen>/primaryTouch/tap"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Touch"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ee3d0cd2-254e-47a7-a8cb-bc94d9658c54"",
-                    ""path"": ""<Joystick>/trigger"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Joystick"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8255d333-5683-4943-a58a-ccb207ff1dce"",
-                    ""path"": ""<XRController>/{PrimaryAction}"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""XR"",
-                    ""action"": ""Fire"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""62122d2f-387c-40d5-bf8d-47d7df544573"",
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
@@ -384,6 +329,39 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Aim"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3ba09b20-551b-4bef-89af-56330b76f57c"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Eject"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ce080db4-cd60-4b2e-acb4-c92629e86510"",
+                    ""path"": ""<DualShockGamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Eject"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9cae787d-7998-4370-b2e3-5e4d466e4fbe"",
+                    ""path"": ""<XInputController>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Eject"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -996,11 +974,11 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_LookStick = m_Player.FindAction("LookStick", throwIfNotFound: true);
         m_Player_LookMouse = m_Player.FindAction("LookMouse", throwIfNotFound: true);
-        m_Player_Fire = m_Player.FindAction("Fire", throwIfNotFound: true);
+        m_Player_Pull = m_Player.FindAction("Pull", throwIfNotFound: true);
+        m_Player_Eject = m_Player.FindAction("Eject", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_CenterCamera = m_Player.FindAction("CenterCamera", throwIfNotFound: true);
         m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
-        m_Player_Pull = m_Player.FindAction("Pull", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1075,11 +1053,11 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_LookStick;
     private readonly InputAction m_Player_LookMouse;
-    private readonly InputAction m_Player_Fire;
+    private readonly InputAction m_Player_Pull;
+    private readonly InputAction m_Player_Eject;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_CenterCamera;
     private readonly InputAction m_Player_Aim;
-    private readonly InputAction m_Player_Pull;
     public struct PlayerActions
     {
         private @Inputs m_Wrapper;
@@ -1087,11 +1065,11 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @LookStick => m_Wrapper.m_Player_LookStick;
         public InputAction @LookMouse => m_Wrapper.m_Player_LookMouse;
-        public InputAction @Fire => m_Wrapper.m_Player_Fire;
+        public InputAction @Pull => m_Wrapper.m_Player_Pull;
+        public InputAction @Eject => m_Wrapper.m_Player_Eject;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @CenterCamera => m_Wrapper.m_Player_CenterCamera;
         public InputAction @Aim => m_Wrapper.m_Player_Aim;
-        public InputAction @Pull => m_Wrapper.m_Player_Pull;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1110,9 +1088,12 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @LookMouse.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLookMouse;
                 @LookMouse.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLookMouse;
                 @LookMouse.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLookMouse;
-                @Fire.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-                @Fire.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
-                @Fire.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnFire;
+                @Pull.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPull;
+                @Pull.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPull;
+                @Pull.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPull;
+                @Eject.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEject;
+                @Eject.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEject;
+                @Eject.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEject;
                 @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
@@ -1122,9 +1103,6 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @Aim.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAim;
                 @Aim.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAim;
                 @Aim.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAim;
-                @Pull.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPull;
-                @Pull.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPull;
-                @Pull.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPull;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1138,9 +1116,12 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @LookMouse.started += instance.OnLookMouse;
                 @LookMouse.performed += instance.OnLookMouse;
                 @LookMouse.canceled += instance.OnLookMouse;
-                @Fire.started += instance.OnFire;
-                @Fire.performed += instance.OnFire;
-                @Fire.canceled += instance.OnFire;
+                @Pull.started += instance.OnPull;
+                @Pull.performed += instance.OnPull;
+                @Pull.canceled += instance.OnPull;
+                @Eject.started += instance.OnEject;
+                @Eject.performed += instance.OnEject;
+                @Eject.canceled += instance.OnEject;
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
@@ -1150,9 +1131,6 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @Aim.started += instance.OnAim;
                 @Aim.performed += instance.OnAim;
                 @Aim.canceled += instance.OnAim;
-                @Pull.started += instance.OnPull;
-                @Pull.performed += instance.OnPull;
-                @Pull.canceled += instance.OnPull;
             }
         }
     }
@@ -1312,11 +1290,11 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnLookStick(InputAction.CallbackContext context);
         void OnLookMouse(InputAction.CallbackContext context);
-        void OnFire(InputAction.CallbackContext context);
+        void OnPull(InputAction.CallbackContext context);
+        void OnEject(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnCenterCamera(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
-        void OnPull(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

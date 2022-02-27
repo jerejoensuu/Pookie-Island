@@ -20,6 +20,7 @@ public class PlayerInput : MonoBehaviour {
 
         inputs.Player.Pull.performed += ReadPullInput;
         inputs.Player.Pull.canceled += ReadPullInput;
+        inputs.Player.Eject.performed += Eject;
         inputs.Player.Aim.performed += ReadAimInput;
         inputs.Player.Aim.canceled += ReadAimInput;
 
@@ -57,6 +58,10 @@ public class PlayerInput : MonoBehaviour {
         player.vacuum.pull = context.performed;
         if (!manualAiming) player.vcamera.aiming = context.performed;
         if (context.performed && !manualAiming) StartCoroutine(player.vcamera.PointCameraAt(player.model.transform.forward));
+    }
+
+    void Eject(InputAction.CallbackContext context) {
+        player.vacuum.tank.Eject();
     }
 
     void ReadAimInput(InputAction.CallbackContext context) {
