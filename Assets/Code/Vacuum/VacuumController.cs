@@ -1,11 +1,12 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class VacuumController : MonoBehaviour {
     
     [SerializeField] PlayerController player;
+
     [SerializeField] GameObject nozzle;
+    [SerializeField] VacuumTank tank;
 
     public float nozzleSize = 0.3f;
     public float rayDensity = 20;
@@ -54,7 +55,7 @@ public class VacuumController : MonoBehaviour {
     void PullObjects() {
         Rigidbody rb;
         Vector3 center;
-        List<GameObject> toRemove = new List<GameObject>();
+        List<GameObject> forTank = new List<GameObject>();
         foreach (GameObject hitObject in hitObjects) {
             rb = hitObject.GetComponent<Rigidbody>();
             rb.useGravity = false;
@@ -64,14 +65,23 @@ public class VacuumController : MonoBehaviour {
             hitObject.transform.position = Vector3.Lerp(hitObject.transform.position, center, pullForce * 0.5f * Time.deltaTime);
             hitObject.transform.position = Vector3.MoveTowards(hitObject.transform.position, nozzle.transform.position, pullForce * Time.deltaTime);
             
+            // Transition to tank:
             if (Vector3.Distance(hitObject.transform.position, nozzle.transform.position) < 0.5f) {
-                toRemove.Add(hitObject);
+                forTank.Add(hitObject);
             }
         }
 
-        foreach (GameObject obj in toRemove) {
-            ClearItem(obj);
+        foreach (GameObject obj in forTank) {
+            if (tank.AddToTank(obj)) {
+                Destroy(obj);
+            } else {
+                RejectObject();
+            }
         }
+    }
+
+    void RejectObject() {
+        Debug.Log("Reject pookie");
     }
 
     void StoreHit(RaycastHit hit) {
