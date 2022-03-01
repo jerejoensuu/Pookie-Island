@@ -41,7 +41,6 @@ public class VacuumController : MonoBehaviour {
         }
 
         if (onCooldown.Count > 0 && !counting) StartCoroutine(CountCooldown());
-        Debug.Log(tank.GetGauge());
     }
 
     void CastRays() {
