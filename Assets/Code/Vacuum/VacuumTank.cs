@@ -4,7 +4,7 @@ public class VacuumTank : MonoBehaviour {
     
     [SerializeField] VacuumController vacuum;
 
-    GameObject type;
+    [HideInInspector] public GameObject type;
     int gauge = 0;
 
     void Awake() {
@@ -13,7 +13,7 @@ public class VacuumTank : MonoBehaviour {
 
     public bool AddToTank(GameObject obj) {
         if (type.tag == obj.tag) {
-            return GaugeAdd(35);
+            return GaugeAdd(type.tag == "PookieBullet" ? 100 : 35);
         }
 
         type = Instantiate(obj);
@@ -37,7 +37,7 @@ public class VacuumTank : MonoBehaviour {
         Debug.Log($"Ejected {size}");
     }
 
-    int GetGauge() {
+    public int GetGauge() {
         return gauge;
     }
 
@@ -55,7 +55,7 @@ public class VacuumTank : MonoBehaviour {
         }
     }
 
-    int GaugeSubstract(int value) {
+    public int GaugeSubstract(int value) {
         if (gauge > value) {
             gauge -= value;
             return value;

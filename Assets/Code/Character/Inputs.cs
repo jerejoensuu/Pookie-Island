@@ -55,24 +55,6 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Pull"",
-                    ""type"": ""Button"",
-                    ""id"": ""c5c4cddb-6af3-4a31-99dd-bb18f7b9329f"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Eject"",
-                    ""type"": ""Button"",
-                    ""id"": ""2a11de2c-ad39-43a6-aa5f-d345fb89abcb"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""6aa170f9-c64c-4477-ab52-77b326e8b4a6"",
@@ -85,6 +67,33 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""name"": ""CenterCamera"",
                     ""type"": ""Button"",
                     ""id"": ""1f1ef4dd-0e0f-45d6-b5fb-4d70c7fe0555"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pull"",
+                    ""type"": ""Button"",
+                    ""id"": ""c5c4cddb-6af3-4a31-99dd-bb18f7b9329f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Use"",
+                    ""type"": ""Button"",
+                    ""id"": ""1dbf55c0-60ad-4c25-a8d0-32e8e1a72a19"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Eject"",
+                    ""type"": ""Button"",
+                    ""id"": ""2a11de2c-ad39-43a6-aa5f-d345fb89abcb"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -301,8 +310,8 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""50efd746-1750-4764-a9b5-9a80f5b1455f"",
-                    ""path"": ""<DualShockGamepad>/leftShoulder"",
+                    ""id"": ""019b8fe4-339e-4169-bb51-8c107df4241e"",
+                    ""path"": ""<Gamepad>/rightStickPress"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -312,12 +321,12 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""019b8fe4-339e-4169-bb51-8c107df4241e"",
-                    ""path"": ""<DualShockGamepad>/rightShoulder"",
+                    ""id"": ""d7bfdc9c-ee64-42d9-9ce7-b595cb098924"",
+                    ""path"": ""<Keyboard>/shift"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""CenterCamera"",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Aim"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -329,39 +338,6 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Aim"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""3ba09b20-551b-4bef-89af-56330b76f57c"",
-                    ""path"": ""<Keyboard>/x"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Eject"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""ce080db4-cd60-4b2e-acb4-c92629e86510"",
-                    ""path"": ""<DualShockGamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Eject"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""9cae787d-7998-4370-b2e3-5e4d466e4fbe"",
-                    ""path"": ""<XInputController>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""Eject"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -384,6 +360,50 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Pull"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""607254f0-ebdb-4051-989e-ebd74c2e1952"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Use"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b75dd3c9-ede2-4a18-94f8-106864359ce9"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Use"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3c4adbc8-77bc-4bd7-a173-9886f2008fb8"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Eject"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e0eb5c45-7a7c-44b7-8f2e-0f35514814d0"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Eject"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -974,10 +994,11 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_LookStick = m_Player.FindAction("LookStick", throwIfNotFound: true);
         m_Player_LookMouse = m_Player.FindAction("LookMouse", throwIfNotFound: true);
-        m_Player_Pull = m_Player.FindAction("Pull", throwIfNotFound: true);
-        m_Player_Eject = m_Player.FindAction("Eject", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_CenterCamera = m_Player.FindAction("CenterCamera", throwIfNotFound: true);
+        m_Player_Pull = m_Player.FindAction("Pull", throwIfNotFound: true);
+        m_Player_Use = m_Player.FindAction("Use", throwIfNotFound: true);
+        m_Player_Eject = m_Player.FindAction("Eject", throwIfNotFound: true);
         m_Player_Aim = m_Player.FindAction("Aim", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
@@ -1053,10 +1074,11 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_LookStick;
     private readonly InputAction m_Player_LookMouse;
-    private readonly InputAction m_Player_Pull;
-    private readonly InputAction m_Player_Eject;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_CenterCamera;
+    private readonly InputAction m_Player_Pull;
+    private readonly InputAction m_Player_Use;
+    private readonly InputAction m_Player_Eject;
     private readonly InputAction m_Player_Aim;
     public struct PlayerActions
     {
@@ -1065,10 +1087,11 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @LookStick => m_Wrapper.m_Player_LookStick;
         public InputAction @LookMouse => m_Wrapper.m_Player_LookMouse;
-        public InputAction @Pull => m_Wrapper.m_Player_Pull;
-        public InputAction @Eject => m_Wrapper.m_Player_Eject;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @CenterCamera => m_Wrapper.m_Player_CenterCamera;
+        public InputAction @Pull => m_Wrapper.m_Player_Pull;
+        public InputAction @Use => m_Wrapper.m_Player_Use;
+        public InputAction @Eject => m_Wrapper.m_Player_Eject;
         public InputAction @Aim => m_Wrapper.m_Player_Aim;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -1088,18 +1111,21 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @LookMouse.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLookMouse;
                 @LookMouse.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLookMouse;
                 @LookMouse.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLookMouse;
-                @Pull.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPull;
-                @Pull.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPull;
-                @Pull.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPull;
-                @Eject.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEject;
-                @Eject.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEject;
-                @Eject.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEject;
                 @Jump.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnJump;
                 @CenterCamera.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCenterCamera;
                 @CenterCamera.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCenterCamera;
                 @CenterCamera.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnCenterCamera;
+                @Pull.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPull;
+                @Pull.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPull;
+                @Pull.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPull;
+                @Use.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUse;
+                @Use.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUse;
+                @Use.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnUse;
+                @Eject.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEject;
+                @Eject.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEject;
+                @Eject.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnEject;
                 @Aim.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAim;
                 @Aim.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAim;
                 @Aim.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAim;
@@ -1116,18 +1142,21 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                 @LookMouse.started += instance.OnLookMouse;
                 @LookMouse.performed += instance.OnLookMouse;
                 @LookMouse.canceled += instance.OnLookMouse;
-                @Pull.started += instance.OnPull;
-                @Pull.performed += instance.OnPull;
-                @Pull.canceled += instance.OnPull;
-                @Eject.started += instance.OnEject;
-                @Eject.performed += instance.OnEject;
-                @Eject.canceled += instance.OnEject;
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
                 @CenterCamera.started += instance.OnCenterCamera;
                 @CenterCamera.performed += instance.OnCenterCamera;
                 @CenterCamera.canceled += instance.OnCenterCamera;
+                @Pull.started += instance.OnPull;
+                @Pull.performed += instance.OnPull;
+                @Pull.canceled += instance.OnPull;
+                @Use.started += instance.OnUse;
+                @Use.performed += instance.OnUse;
+                @Use.canceled += instance.OnUse;
+                @Eject.started += instance.OnEject;
+                @Eject.performed += instance.OnEject;
+                @Eject.canceled += instance.OnEject;
                 @Aim.started += instance.OnAim;
                 @Aim.performed += instance.OnAim;
                 @Aim.canceled += instance.OnAim;
@@ -1290,10 +1319,11 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnLookStick(InputAction.CallbackContext context);
         void OnLookMouse(InputAction.CallbackContext context);
-        void OnPull(InputAction.CallbackContext context);
-        void OnEject(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnCenterCamera(InputAction.CallbackContext context);
+        void OnPull(InputAction.CallbackContext context);
+        void OnUse(InputAction.CallbackContext context);
+        void OnEject(InputAction.CallbackContext context);
         void OnAim(InputAction.CallbackContext context);
     }
     public interface IUIActions

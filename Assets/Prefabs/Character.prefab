@@ -254,6 +254,7 @@ GameObject:
   - component: {fileID: 8144045051850122752}
   - component: {fileID: 2831179270947530452}
   - component: {fileID: 3811880172904060626}
+  - component: {fileID: 7416931811492516458}
   - component: {fileID: 8215064960512089257}
   - component: {fileID: 6810729289419029443}
   m_Layer: 0
@@ -376,6 +377,7 @@ MonoBehaviour:
   player: {fileID: 8215064960512089256}
   nozzle: {fileID: 3585240006895901283}
   tank: {fileID: 3811880172904060626}
+  elements: {fileID: 7416931811492516458}
   nozzleSize: 0.2
   rayDensity: 20
   spread: 8
@@ -394,6 +396,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vacuum: {fileID: 2831179270947530452}
+--- !u!114 &7416931811492516458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8215064960512089263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35d3aa57186d53b419643ea535111379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vacuum: {fileID: 2831179270947530452}
+  bullet: {fileID: 2213930513361296029, guid: f6861a1bba2baa14aa433262cfc3220b, type: 3}
 --- !u!114 &8215064960512089257
 MonoBehaviour:
   m_ObjectHideFlags: 0
