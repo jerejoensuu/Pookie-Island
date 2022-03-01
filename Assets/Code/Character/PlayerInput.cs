@@ -50,6 +50,7 @@ public class PlayerInput : MonoBehaviour {
 
     void ReadJump(InputAction.CallbackContext context) {
         player.movement.jumpPressed = context.performed;
+        player.vcamera.aiming = player.vacuum.pull = false;
     }
 
     void ReadPullInput(InputAction.CallbackContext context) {
