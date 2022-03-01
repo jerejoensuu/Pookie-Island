@@ -9,6 +9,7 @@ public class VacuumController : MonoBehaviour {
 
     public GameObject nozzle;
     public VacuumTank tank;
+    public VacuumElements elements;
 
     public float nozzleSize = 0.3f;
     public float rayDensity = 20;
@@ -92,8 +93,8 @@ public class VacuumController : MonoBehaviour {
         hitObjects.Remove(obj);
         Rigidbody rb = obj.GetComponent<Rigidbody>();
         rb.useGravity = true;
-        float force = 1;
-        rb.AddForce(new Vector3(Random.Range(0, 1), Random.Range(0, 1), Random.Range(0, 1)) * force, ForceMode.Impulse);
+        float force = 3;
+        rb.AddForce(new Vector3(Random.Range(-1, 1), 0.2f, Random.Range(-1, 1)) * force, ForceMode.Impulse);
     }
 
     void StoreHit(RaycastHit hit) {
@@ -158,7 +159,6 @@ public class VacuumController : MonoBehaviour {
         counting = true;
         List<GameObject> toRemove = new List<GameObject>();
         while (onCooldown.Count > 0) {
-            Debug.Log("asdf");
             foreach(GameObject key in onCooldown.Keys.ToList()) {
                 onCooldown[key]--;
                 if (onCooldown[key] == 0) onCooldown.Remove(key);
