@@ -7,9 +7,10 @@ public class VacuumElements : MonoBehaviour
     [SerializeField] VacuumController vacuum;
 
     public GameObject bullet;
+    public GameObject waterCollider;
 
     [HideInInspector] public bool use;
-    bool timerRunning;
+    bool timerRunning, watering;
     public float timerSpeed = 20;
 
     void Start() {
@@ -31,6 +32,9 @@ public class VacuumElements : MonoBehaviour
                 break;
             case "PookieIce":
                 SprayIce();
+                break;
+            case "PookieWater":
+                SprayWater();
                 break;
             default:
                 Debug.LogWarning($"No vacuum action set for type: {vacuum.tank.type.tag}");
@@ -74,6 +78,32 @@ public class VacuumElements : MonoBehaviour
             // Do something
         }
 
+    }
+
+    void SprayWater() {
+        if (vacuum.tank.GetGauge() <= 0) return;
+        if (!timerRunning) StartCoroutine(Timer());
+        if (!watering) StartCoroutine(WaterTimer());
+
+
+
+    }
+
+    IEnumerator WaterTimer() {
+        watering = true;
+        
+        while(use && vacuum.tank.GetGauge() > 0) {
+            GameObject obj = Instantiate(waterCollider);
+            obj.transform.position = vacuum.nozzle.transform.position;
+
+            Rigidbody rb = obj.GetComponent<Rigidbody>();
+            float force = 5;
+            rb.AddForce(vacuum.player.model.transform.forward * force, ForceMode.Impulse);
+
+            yield return new WaitForSeconds(Time.deltaTime * 120);
+        }
+
+        watering = false;
     }
 
     IEnumerator Timer() {
