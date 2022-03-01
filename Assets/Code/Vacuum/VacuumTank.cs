@@ -13,7 +13,6 @@ public class VacuumTank : MonoBehaviour {
 
     public bool AddToTank(GameObject obj) {
         if (type.tag == obj.tag) {
-            Debug.Log(gauge);
             return GaugeAdd(35);
         }
 
@@ -29,6 +28,7 @@ public class VacuumTank : MonoBehaviour {
         GameObject obj = Instantiate(type);
         obj.transform.position = vacuum.nozzle.transform.position;
         obj.SetActive(true);
+        vacuum.PutOnCooldown(obj, 120);
 
         Rigidbody rb = obj.GetComponent<Rigidbody>();
         rb.useGravity = true;

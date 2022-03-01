@@ -1,5 +1,7 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class VacuumController : MonoBehaviour {
     
@@ -21,6 +23,9 @@ public class VacuumController : MonoBehaviour {
     List<GameObject> hitObjects = new List<GameObject>();
     List<Vector3> hitPositions = new List<Vector3>();
 
+    Dictionary<GameObject, int> onCooldown = new Dictionary<GameObject, int>();
+    bool counting;
+
     internal bool pull;
 
 
@@ -33,6 +38,8 @@ public class VacuumController : MonoBehaviour {
             PullObjects();
             ClearList();
         }
+
+        if (onCooldown.Count > 0 && !counting) StartCoroutine(CountCooldown());
     }
 
     void CastRays() {
@@ -81,6 +88,7 @@ public class VacuumController : MonoBehaviour {
     }
 
     void RejectObject(GameObject obj) {
+        PutOnCooldown(obj);
         hitObjects.Remove(obj);
         Rigidbody rb = obj.GetComponent<Rigidbody>();
         rb.useGravity = true;
@@ -90,7 +98,7 @@ public class VacuumController : MonoBehaviour {
 
     void StoreHit(RaycastHit hit) {
         GameObject newHitObject = hit.collider.gameObject;
-        if (newHitObject.GetComponent<Rigidbody>() == null) return;
+        if (newHitObject.GetComponent<Rigidbody>() == null || onCooldown.ContainsKey(newHitObject)) return;
         foreach (GameObject oldHitObject in hitObjects) {
             if (oldHitObject == newHitObject) return;
         }
@@ -140,6 +148,25 @@ public class VacuumController : MonoBehaviour {
                 targets[targets.Count - 1] = Quaternion.AngleAxis(nozzle.transform.eulerAngles.y, Vector3.up) * dir + points[points.Count - 1];
             }
         }
+    }
+
+    public void PutOnCooldown(GameObject obj, int cooldown = 90) {
+        onCooldown.Add(obj, cooldown);
+    }
+
+    IEnumerator CountCooldown() {
+        counting = true;
+        List<GameObject> toRemove = new List<GameObject>();
+        while (onCooldown.Count > 0) {
+            Debug.Log("asdf");
+            foreach(GameObject key in onCooldown.Keys.ToList()) {
+                onCooldown[key]--;
+                if (onCooldown[key] == 0) onCooldown.Remove(key);
+            }
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+
+        counting = false;
     }
 
     void OnDrawGizmos() {
