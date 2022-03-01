@@ -61,6 +61,34 @@ public class VacuumController : MonoBehaviour {
         }
     }
 
+    public void CastRays(string tag, out RaycastHit[] rayResults) {
+        rayResults = null;
+        PlotRayPoints();
+        Vector3 dir;
+        for (int i = 0; i < points.Count; i++) {
+            Vector3 origin = points[i];
+            Vector3 target = targets[i] + (Quaternion.AngleAxis(nozzle.transform.eulerAngles.y, Vector3.up) * Vector3.forward * distance);
+            dir = Vector3.Normalize(target - origin);
+
+            Color c = Color.black;
+            switch (tag) {
+                case "fire":
+                    c = new Color(1f, 0f, 0f, 0.08f);
+                    break;
+                case "ice":
+                    c = new Color(0.42f, 0.6f, 0.9f, 0.08f);
+                    break;
+            }
+            Debug.DrawRay(origin, dir * distance, c);
+
+            rayHits = Physics.RaycastAll(origin, dir, distance);
+            for (int hit = 0; hit < rayHits.Length; hit++) {
+                StoreHit(rayHits[hit]);
+            }
+            rayResults = rayHits;
+        }
+    }
+
     void PullObjects() {
         Rigidbody rb;
         Vector3 center;

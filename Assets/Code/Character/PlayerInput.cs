@@ -52,7 +52,7 @@ public class PlayerInput : MonoBehaviour {
     }
 
     void ReadPullInput(InputAction.CallbackContext context) {
-        if (!player.movement.controller.isGrounded) return;
+        if (!player.movement.controller.isGrounded || player.vacuum.elements.use) return;
 
         player.vacuum.pull = context.performed;
         if (!manualAiming) player.vcamera.aiming = context.performed;
@@ -60,6 +60,7 @@ public class PlayerInput : MonoBehaviour {
     }
 
     void ReadUseInput(InputAction.CallbackContext context) {
+        if (player.vacuum.pull) return;
         player.vacuum.elements.use = context.performed;
     }
 
