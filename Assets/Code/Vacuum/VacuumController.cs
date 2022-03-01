@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class VacuumController : MonoBehaviour {
     
-    [SerializeField] PlayerController player;
-    [SerializeField] GameObject nozzle;
+    public PlayerController player;
+
+    public GameObject nozzle;
+    public VacuumTank tank;
+    public VacuumElements elements;
 
     public float nozzleSize = 0.3f;
     public float rayDensity = 20;
@@ -20,6 +24,9 @@ public class VacuumController : MonoBehaviour {
     List<GameObject> hitObjects = new List<GameObject>();
     List<Vector3> hitPositions = new List<Vector3>();
 
+    Dictionary<GameObject, int> onCooldown = new Dictionary<GameObject, int>();
+    bool counting;
+
     internal bool pull;
 
 
@@ -32,6 +39,8 @@ public class VacuumController : MonoBehaviour {
             PullObjects();
             ClearList();
         }
+
+        if (onCooldown.Count > 0 && !counting) StartCoroutine(CountCooldown());
     }
 
     void CastRays() {
@@ -51,10 +60,38 @@ public class VacuumController : MonoBehaviour {
         }
     }
 
+    public void CastRays(string tag, out RaycastHit[] rayResults) {
+        rayResults = null;
+        PlotRayPoints();
+        Vector3 dir;
+        for (int i = 0; i < points.Count; i++) {
+            Vector3 origin = points[i];
+            Vector3 target = targets[i] + (Quaternion.AngleAxis(nozzle.transform.eulerAngles.y, Vector3.up) * Vector3.forward * distance);
+            dir = Vector3.Normalize(target - origin);
+
+            Color c = Color.black;
+            switch (tag) {
+                case "fire":
+                    c = new Color(1f, 0f, 0f, 0.08f);
+                    break;
+                case "ice":
+                    c = new Color(0.42f, 0.6f, 0.9f, 0.08f);
+                    break;
+            }
+            Debug.DrawRay(origin, dir * distance, c);
+
+            rayHits = Physics.RaycastAll(origin, dir, distance);
+            for (int hit = 0; hit < rayHits.Length; hit++) {
+                StoreHit(rayHits[hit]);
+            }
+            rayResults = rayHits;
+        }
+    }
+
     void PullObjects() {
         Rigidbody rb;
         Vector3 center;
-        List<GameObject> toRemove = new List<GameObject>();
+        List<GameObject> forTank = new List<GameObject>();
         foreach (GameObject hitObject in hitObjects) {
             rb = hitObject.GetComponent<Rigidbody>();
             rb.useGravity = false;
@@ -64,19 +101,33 @@ public class VacuumController : MonoBehaviour {
             hitObject.transform.position = Vector3.Lerp(hitObject.transform.position, center, pullForce * 0.5f * Time.deltaTime);
             hitObject.transform.position = Vector3.MoveTowards(hitObject.transform.position, nozzle.transform.position, pullForce * Time.deltaTime);
             
+            // Transition to tank:
             if (Vector3.Distance(hitObject.transform.position, nozzle.transform.position) < 0.5f) {
-                toRemove.Add(hitObject);
+                forTank.Add(hitObject);
             }
         }
 
-        foreach (GameObject obj in toRemove) {
-            ClearItem(obj);
+        foreach (GameObject obj in forTank) {
+            if (tank.AddToTank(obj)) {
+                Destroy(obj);
+            } else {
+                RejectObject(obj);
+            }
         }
+    }
+
+    void RejectObject(GameObject obj) {
+        PutOnCooldown(obj);
+        hitObjects.Remove(obj);
+        Rigidbody rb = obj.GetComponent<Rigidbody>();
+        rb.useGravity = true;
+        float force = 3;
+        rb.AddForce(new Vector3(Random.Range(-1, 1), 0.2f, Random.Range(-1, 1)) * force, ForceMode.Impulse);
     }
 
     void StoreHit(RaycastHit hit) {
         GameObject newHitObject = hit.collider.gameObject;
-        if (newHitObject.GetComponent<Rigidbody>() == null) return;
+        if (newHitObject.GetComponent<Rigidbody>() == null || onCooldown.ContainsKey(newHitObject)) return;
         foreach (GameObject oldHitObject in hitObjects) {
             if (oldHitObject == newHitObject) return;
         }
@@ -90,11 +141,6 @@ public class VacuumController : MonoBehaviour {
         }
         hitObjects = new List<GameObject>();
         hitPositions = new List<Vector3>();
-    }
-
-    void ClearItem(GameObject obj) {
-        hitObjects.Remove(obj);
-        Destroy(obj);
     }
 
     void PlotRayPoints() {
@@ -131,6 +177,24 @@ public class VacuumController : MonoBehaviour {
                 targets[targets.Count - 1] = Quaternion.AngleAxis(nozzle.transform.eulerAngles.y, Vector3.up) * dir + points[points.Count - 1];
             }
         }
+    }
+
+    public void PutOnCooldown(GameObject obj, int cooldown = 90) {
+        onCooldown.Add(obj, cooldown);
+    }
+
+    IEnumerator CountCooldown() {
+        counting = true;
+        List<GameObject> toRemove = new List<GameObject>();
+        while (onCooldown.Count > 0) {
+            foreach(GameObject key in onCooldown.Keys.ToList()) {
+                onCooldown[key]--;
+                if (onCooldown[key] == 0) onCooldown.Remove(key);
+            }
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+
+        counting = false;
     }
 
     void OnDrawGizmos() {

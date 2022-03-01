@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -22,6 +20,9 @@ public class PlayerInput : MonoBehaviour {
 
         inputs.Player.Pull.performed += ReadPullInput;
         inputs.Player.Pull.canceled += ReadPullInput;
+        inputs.Player.Use.performed += ReadUseInput;
+        inputs.Player.Use.canceled += ReadUseInput;
+        inputs.Player.Eject.performed += Eject;
         inputs.Player.Aim.performed += ReadAimInput;
         inputs.Player.Aim.canceled += ReadAimInput;
 
@@ -30,10 +31,6 @@ public class PlayerInput : MonoBehaviour {
         inputs.Player.LookMouse.performed += ReadCameraInputMouse;
         inputs.Player.LookMouse.canceled += ReadCameraInputMouse;
         inputs.Player.CenterCamera.performed += CenterCamera;
-    }
-
-    void Update() {
-        
     }
 
     void ReadMovement(InputAction.CallbackContext context) {
@@ -51,14 +48,24 @@ public class PlayerInput : MonoBehaviour {
 
     void ReadJump(InputAction.CallbackContext context) {
         player.movement.jumpPressed = context.performed;
+        player.vcamera.aiming = player.vacuum.pull = false;
     }
 
     void ReadPullInput(InputAction.CallbackContext context) {
-        if (!player.movement.controller.isGrounded) return;
+        if (!player.movement.controller.isGrounded || player.vacuum.elements.use) return;
 
         player.vacuum.pull = context.performed;
         if (!manualAiming) player.vcamera.aiming = context.performed;
         if (context.performed && !manualAiming) StartCoroutine(player.vcamera.PointCameraAt(player.model.transform.forward));
+    }
+
+    void ReadUseInput(InputAction.CallbackContext context) {
+        if (player.vacuum.pull) return;
+        player.vacuum.elements.use = context.performed;
+    }
+
+    void Eject(InputAction.CallbackContext context) {
+        player.vacuum.tank.Eject();
     }
 
     void ReadAimInput(InputAction.CallbackContext context) {
@@ -86,6 +93,8 @@ public class PlayerInput : MonoBehaviour {
     }
 
     void OnDisable() {
+        inputs.Disable();
+
         inputs.Player.Move.performed -= ReadMovement;
         inputs.Player.Move.canceled -= ReadMovement;
         inputs.Player.Jump.performed -= ReadJump;
@@ -93,6 +102,9 @@ public class PlayerInput : MonoBehaviour {
 
         inputs.Player.Pull.performed -= ReadPullInput;
         inputs.Player.Pull.canceled -= ReadPullInput;
+        inputs.Player.Use.performed -= ReadUseInput;
+        inputs.Player.Use.canceled -= ReadUseInput;
+        inputs.Player.Eject.performed -= Eject;
         inputs.Player.Aim.performed -= ReadAimInput;
         inputs.Player.Aim.canceled -= ReadAimInput;
 
