@@ -10,8 +10,11 @@ public class PlayerInput : MonoBehaviour {
     bool manualAiming;
 
 
-    void Start() {
+    private void Awake() {
         inputs = new Inputs();
+    }
+
+    void OnEnable() {
         inputs.Enable();
         inputs.Player.Move.performed += ReadMovement;
         inputs.Player.Move.canceled += ReadMovement;
@@ -113,5 +116,13 @@ public class PlayerInput : MonoBehaviour {
         inputs.Player.LookMouse.performed -= ReadCameraInputMouse;
         inputs.Player.LookMouse.canceled -= ReadCameraInputMouse;
         inputs.Player.CenterCamera.performed -= CenterCamera;
+        
+        directionInput = Vector2.zero;
+        player.movement.moving = false;
+        player.anim.animator.SetBool("walking", false);
+        player.movement.jumpPressed = false;
+        player.vacuum.pull = false;
+        player.vcamera.turningCamera = false;
+        player.vcamera.cameraRotation.x = 0;
     }
 }

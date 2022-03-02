@@ -10,8 +10,4 @@ public class PlayerAnimation : MonoBehaviour {
     void Start() {
         animator = player.model.GetComponent<Animator>();
     }
-
-    void Update() {
-        
-    }
 }
