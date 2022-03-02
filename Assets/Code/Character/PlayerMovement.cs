@@ -73,14 +73,14 @@ public class PlayerMovement : MonoBehaviour {
                 accel += player.accelSpeed * .3f;
             }
             if (accel > 1) accel = 1;
-            if (accel > player.input.rawInput.magnitude) accel = player.input.rawInput.magnitude;
+            if (accel > player.inputReader.rawInput.magnitude) accel = player.inputReader.rawInput.magnitude;
             RotatePlayer();
         } else {
             accel -= player.decelSpeed;
             if (accel <= 0) accel = 0;
         }
-        movement.x = player.input.directionInput.x * accel;
-        movement.z = player.input.directionInput.y * accel;
+        movement.x = player.inputReader.directionInput.x * accel;
+        movement.z = player.inputReader.directionInput.y * accel;
         
         // Slow movement when vacuuming:
         if (player.vacuum.pull) {
@@ -93,7 +93,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     public Vector3 GetTrueDirection() {
-        return Quaternion.AngleAxis(camTarget.transform.eulerAngles.y, Vector3.up) * new Vector3(player.input.rawInput.x, 0, player.input.rawInput.y);
+        return Quaternion.AngleAxis(camTarget.transform.eulerAngles.y, Vector3.up) * new Vector3(player.inputReader.rawInput.x, 0, player.inputReader.rawInput.y);
     }
 
     void RotatePlayer() {

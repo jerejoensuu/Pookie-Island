@@ -35,7 +35,7 @@ public class PlayerCamera : MonoBehaviour {
     internal void AutoRotateCamera() {
         if (turningCamera || autoTurningCamera || !player.movement.moving || aiming) return;
         float rotateFactor = Vector3.Dot(camTarget.transform.right, Vector3.Normalize(player.movement.GetTrueDirection()));
-        camTarget.transform.eulerAngles += new Vector3(0, rotateFactor * player.autoRotateSpeed * Mathf.Abs(player.input.directionInput.x / player.speed), 0) * Time.deltaTime;
+        camTarget.transform.eulerAngles += new Vector3(0, rotateFactor * player.autoRotateSpeed * Mathf.Abs(player.inputReader.directionInput.x / player.speed), 0) * Time.deltaTime;
     }
 
     public void CenterCamera() {
