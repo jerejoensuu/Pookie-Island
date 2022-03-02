@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class MoveAroundSpawn : MonoBehaviour {
 
@@ -13,6 +15,24 @@ public class MoveAroundSpawn : MonoBehaviour {
     void Start() {
         agent = GetComponent<NavMeshAgent>();
         player = GameObject.FindGameObjectWithTag("Player");
+    }
+
+    private float counter;
+    private Quaternion fromDirection = Quaternion.identity;
+    private Quaternion toDirection = Quaternion.identity;
+
+    public void FacePlayer(bool restart) {
+        if (player == null) return;
+        if (restart) {
+            counter = 0;
+            fromDirection = transform.rotation;
+            Vector3 lookAt = player.transform.position - transform.position;
+            toDirection = Quaternion.LookRotation(new Vector3(lookAt.x, 0, lookAt.z), Vector3.up);
+        }
+
+        counter += Time.deltaTime;
+
+        transform.rotation = Quaternion.Lerp(fromDirection, toDirection, counter);
     }
 
     public void MoveToRandomPlace() {

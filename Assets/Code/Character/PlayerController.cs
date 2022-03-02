@@ -1,13 +1,10 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 public class PlayerController : MonoBehaviour {
 
-    [Header("Helper scripts")]
-    public PlayerInput input;
+    [FormerlySerializedAs("input")] [Header("Helper scripts")]
+    public InputReader inputReader;
     public PlayerMovement movement;
     public PlayerCamera vcamera;
     public PlayerAnimation anim;

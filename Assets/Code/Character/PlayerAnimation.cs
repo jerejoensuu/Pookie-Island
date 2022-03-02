@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour {
@@ -11,9 +9,5 @@ public class PlayerAnimation : MonoBehaviour {
 
     void Start() {
         animator = player.model.GetComponent<Animator>();
-    }
-
-    void Update() {
-        
     }
 }

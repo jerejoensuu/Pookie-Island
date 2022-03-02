@@ -253,11 +253,14 @@ GameObject:
   - component: {fileID: 2370099968389096281}
   - component: {fileID: 8144045051850122752}
   - component: {fileID: 2831179270947530452}
+  - component: {fileID: 3811880172904060626}
+  - component: {fileID: 7416931811492516458}
   - component: {fileID: 8215064960512089257}
   - component: {fileID: 6810729289419029443}
+  - component: {fileID: 4510759977498807835}
   m_Layer: 0
   m_Name: Character
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -291,7 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e44b937104974db41adcdba714570729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  input: {fileID: 7244901970205329936}
+  inputReader: {fileID: 7244901970205329936}
   movement: {fileID: 204443768600281358}
   vcamera: {fileID: 2370099968389096281}
   anim: {fileID: 8144045051850122752}
@@ -374,11 +377,44 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 8215064960512089256}
   nozzle: {fileID: 3585240006895901283}
+  tank: {fileID: 3811880172904060626}
+  elements: {fileID: 7416931811492516458}
   nozzleSize: 0.2
   rayDensity: 20
   spread: 8
   distance: 6
   pullForce: 6
+--- !u!114 &3811880172904060626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8215064960512089263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 776bc8dadd90d8741ac99ed2e206f1c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vacuum: {fileID: 2831179270947530452}
+  type: {fileID: 0}
+--- !u!114 &7416931811492516458
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8215064960512089263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35d3aa57186d53b419643ea535111379, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  vacuum: {fileID: 2831179270947530452}
+  bullet: {fileID: 2213930513361296029, guid: f6861a1bba2baa14aa433262cfc3220b, type: 3}
+  waterCollider: {fileID: 2213930513361296029, guid: 4016a65b12851994ea6fa238ea79260b, type: 3}
+  use: 0
+  timerSpeed: 7.5
 --- !u!114 &8215064960512089257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,6 +463,18 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4510759977498807835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8215064960512089263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d34af097cf407ff48ba1f47815e9332b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &7955561444068746925
 PrefabInstance:
   m_ObjectHideFlags: 0
