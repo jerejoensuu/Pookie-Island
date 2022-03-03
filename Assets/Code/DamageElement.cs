@@ -8,6 +8,14 @@ public class DamageElement : MonoBehaviour {
         return damageType == toCheck;
     }
 
+    public static bool isFire(DamageType type) {
+        return type == DamageType.FIRE;
+    }
+    
+    public static bool isIce(DamageType type) {
+        return type == DamageType.ICE;
+    }
+    
     public static bool HasDamageType(Collider toCheck, DamageType type) {
         DamageElement other = toCheck.gameObject.GetComponent<DamageElement>();
         if (other == null) return false;

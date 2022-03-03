@@ -4,37 +4,75 @@ public class VacuumTank : MonoBehaviour {
     
     [SerializeField] VacuumController vacuum;
 
-    [HideInInspector] public GameObject type;
+    [HideInInspector] public DamageElement.DamageType type;
     int gauge = 0;
+    public GameObject firePookiePrefab;
+    public GameObject icePookiePrefab;
+    public GameObject waterPookiePrefab;
+    public GameObject bulletPookiePrefab;
+    public GameObject currentlyHeldInTank; //only use for non pookies
 
-    void Awake() {
-        type = new GameObject();
+    public bool AddCharacterToTank(PullableCharacter character) {
+        if (currentlyHeldInTank != null) return false;
+        if (character.type == type) {
+            return GaugeAdd(type == DamageElement.DamageType.BULLET ? 100 : 35);
+        }
+        type = character.type;
+        SetGauge(type == DamageElement.DamageType.BULLET ? 100 : 35);
+        return true;
     }
 
-    public bool AddToTank(GameObject obj) {
-        if (type.tag == obj.tag) {
-            return GaugeAdd(type.tag == "PookieBullet" ? 100 : 35);
-        }
-
-        type = Instantiate(obj);
-        type.SetActive(false);
-        SetGauge(type.tag == "PookieBullet" ? 100 : 35);
+    public bool AddObjectToTank(GameObject obj) {
+        if (gauge > 0) return false;
+        currentlyHeldInTank = obj;
+        SetGauge(100);
+        obj.SetActive(false);
         return true;
     }
 
     public void Eject() {
-        int size = GaugeSubstract(type.tag == "PookieBullet" ? 100 : 35);
-        if (size <= 0) return;
-        GameObject obj = Instantiate(type);
+        if (currentlyHeldInTank == null) EjectPookie();
+        else EjectObject();
+    }
+
+    public void EjectPookie() {
+        if (gauge == 0) return;
+        int size;
+        GameObject obj;
+        switch (type) {
+            case DamageElement.DamageType.FIRE:
+                size = GaugeSubstract(35);
+                obj = Instantiate(firePookiePrefab);
+                break;
+            case DamageElement.DamageType.ICE:
+                size = GaugeSubstract(35);
+                obj = Instantiate(icePookiePrefab);
+                break;
+            case DamageElement.DamageType.WATER:
+                size = GaugeSubstract(35);
+                obj = Instantiate(waterPookiePrefab);
+                break;
+            case DamageElement.DamageType.BULLET:
+                size = GaugeSubstract(100);
+                obj = Instantiate(bulletPookiePrefab);
+                break;
+            default:
+                return;
+        }
         obj.transform.position = vacuum.nozzle.transform.position;
         obj.SetActive(true);
         vacuum.PutOnCooldown(obj, 120);
-
-        Rigidbody rb = obj.GetComponent<Rigidbody>();
+    }
+    public void EjectObject() {
+        SetGauge(0);
+        currentlyHeldInTank.transform.position = vacuum.nozzle.transform.position;
+        currentlyHeldInTank.SetActive(true);
+        vacuum.PutOnCooldown(currentlyHeldInTank, 120);
+        Rigidbody rb = currentlyHeldInTank.GetComponent<Rigidbody>();
         rb.useGravity = true;
         float force = 5;
         rb.AddForce(vacuum.player.model.transform.forward * force, ForceMode.Impulse);
-        Debug.Log($"Ejected {size}");
+        currentlyHeldInTank = null;
     }
 
     public int GetGauge() {
@@ -50,9 +88,8 @@ public class VacuumTank : MonoBehaviour {
             gauge += value;
             if (gauge > 100) gauge = 100;
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
     public int GaugeSubstract(int value) {

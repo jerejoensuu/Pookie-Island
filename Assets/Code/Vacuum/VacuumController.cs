@@ -16,26 +16,29 @@ public class VacuumController : MonoBehaviour {
     public float spread = 5;
     public float distance = 2;
     public float pullForce = 1;
+    public float massCutOutPoint = 2;
 
+    public Color baseColor = new Color(0.5f, 0.5f, 0.5f, 0.04f);
+    public Color fireColor = new Color(1f, 0f, 0f, 0.08f);
+    public Color iceColor = new Color(0.42f, 0.6f, 0.9f, 0.08f);
     List<Vector3> points;
     List<Vector3> targets;
 
     RaycastHit[] rayHits;
-    List<GameObject> hitObjects = new List<GameObject>();
-    List<Vector3> hitPositions = new List<Vector3>();
+    HashSet<GameObject> hitObjects = new HashSet<GameObject>();
+    HashSet<PullableCharacter> hitCharacters = new HashSet<PullableCharacter>();
+
+    List<PullableCharacter> forTankCharacter = new List<PullableCharacter>();
 
     Dictionary<GameObject, int> onCooldown = new Dictionary<GameObject, int>();
     bool counting;
 
     internal bool pull;
+    
 
-
-    void Start() {
-    }
-
-    void Update() {
+    void FixedUpdate() {
         if (pull) {
-            CastRays();
+            CastPullingRays();
             PullObjects();
             ClearList();
         }
@@ -43,7 +46,7 @@ public class VacuumController : MonoBehaviour {
         if (onCooldown.Count > 0 && !counting) StartCoroutine(CountCooldown());
     }
 
-    void CastRays() {
+    void CastRays(Color color) {
         PlotRayPoints();
         Vector3 dir;
         for (int i = 0; i < points.Count; i++) {
@@ -51,47 +54,33 @@ public class VacuumController : MonoBehaviour {
             Vector3 target = targets[i] + (Quaternion.AngleAxis(nozzle.transform.eulerAngles.y, Vector3.up) * Vector3.forward * distance);
             dir = Vector3.Normalize(target - origin);
 
-            Debug.DrawRay(origin, dir * distance, new Color(0.5f, 0.5f, 0.5f, 0.04f));
+            Debug.DrawRay(origin, dir * distance, color);
             rayHits = Physics.RaycastAll(origin, dir, distance);
             for (int hit = 0; hit < rayHits.Length; hit++) {
                 StoreHit(rayHits[hit]);
             }
-
         }
     }
 
-    public void CastRays(string tag, out RaycastHit[] rayResults) {
-        rayResults = null;
-        PlotRayPoints();
-        Vector3 dir;
-        for (int i = 0; i < points.Count; i++) {
-            Vector3 origin = points[i];
-            Vector3 target = targets[i] + (Quaternion.AngleAxis(nozzle.transform.eulerAngles.y, Vector3.up) * Vector3.forward * distance);
-            dir = Vector3.Normalize(target - origin);
+    void CastPullingRays() {
+        CastRays(baseColor);
+    }
 
-            Color c = Color.black;
-            switch (tag) {
-                case "fire":
-                    c = new Color(1f, 0f, 0f, 0.08f);
-                    break;
-                case "ice":
-                    c = new Color(0.42f, 0.6f, 0.9f, 0.08f);
-                    break;
-            }
-            Debug.DrawRay(origin, dir * distance, c);
-
-            rayHits = Physics.RaycastAll(origin, dir, distance);
-            for (int hit = 0; hit < rayHits.Length; hit++) {
-                StoreHit(rayHits[hit]);
-            }
-            rayResults = rayHits;
+    public RaycastHit[] CastShootingRays(string tag) {
+        switch (tag) {
+            case "fire":
+                CastRays(fireColor);
+                break;
+            case "ice":
+                CastRays(iceColor);
+                break;
         }
+        return rayHits;
     }
 
     void PullObjects() {
         Rigidbody rb;
         Vector3 center;
-        List<GameObject> forTank = new List<GameObject>();
         foreach (GameObject hitObject in hitObjects) {
             rb = hitObject.GetComponent<Rigidbody>();
             rb.useGravity = false;
@@ -103,23 +92,41 @@ public class VacuumController : MonoBehaviour {
             
             // Transition to tank:
             if (Vector3.Distance(hitObject.transform.position, nozzle.transform.position) < 0.5f) {
-                forTank.Add(hitObject);
+                if (rb.mass >= massCutOutPoint || !tank.AddObjectToTank(hitObject)) {
+                    RejectObject(hitObject, rb);
+                }
+                //TODO allow large objects to stick to vacuum
             }
         }
 
-        foreach (GameObject obj in forTank) {
-            if (tank.AddToTank(obj)) {
-                Destroy(obj);
+        foreach (PullableCharacter hitCharacter in hitCharacters) {
+            hitCharacter.enterPulledMode();
+            center = nozzle.transform.position + -nozzle.transform.up * Vector3.Distance(hitCharacter.transform.position, nozzle.transform.position);
+            hitCharacter.characterParent.transform.position = Vector3.Lerp(hitCharacter.characterParent.transform.position, center, pullForce * 0.5f * Time.deltaTime);
+            hitCharacter.characterParent.transform.position = Vector3.MoveTowards(hitCharacter.characterParent.transform.position, nozzle.transform.position, pullForce * Time.deltaTime);
+            
+            // Transition to tank:
+            if (Vector3.Distance(hitCharacter.transform.position, nozzle.transform.position) < 0.5f) {
+                forTankCharacter.Add(hitCharacter);
+            }
+        }
+
+        foreach (PullableCharacter character in forTankCharacter) {
+            if (tank.AddCharacterToTank(character)) {
+                Destroy(character.characterParent.gameObject);
             } else {
-                RejectObject(obj);
+                RejectCharacter(character);
             }
         }
     }
 
-    void RejectObject(GameObject obj) {
+    void RejectCharacter(PullableCharacter character) {
+        PutOnCooldown(character.gameObject);
+        character.exitPulledMode();
+    }
+
+    void RejectObject(GameObject obj, Rigidbody rb) {
         PutOnCooldown(obj);
-        hitObjects.Remove(obj);
-        Rigidbody rb = obj.GetComponent<Rigidbody>();
         rb.useGravity = true;
         float force = 3;
         rb.AddForce(new Vector3(Random.Range(-1, 1), 0.2f, Random.Range(-1, 1)) * force, ForceMode.Impulse);
@@ -127,20 +134,21 @@ public class VacuumController : MonoBehaviour {
 
     void StoreHit(RaycastHit hit) {
         GameObject newHitObject = hit.collider.gameObject;
-        if (newHitObject.GetComponent<Rigidbody>() == null || onCooldown.ContainsKey(newHitObject)) return;
-        foreach (GameObject oldHitObject in hitObjects) {
-            if (oldHitObject == newHitObject) return;
+        if (onCooldown.ContainsKey(newHitObject)) return;
+        if (newHitObject.TryGetComponent(out Rigidbody _)) {
+            hitObjects.Add(newHitObject);
+        } else if(newHitObject.TryGetComponent<PullableCharacter>(out PullableCharacter pullableCharacter)) {
+            hitCharacters.Add(pullableCharacter);
         }
-        hitObjects.Add(newHitObject);
-        hitPositions.Add(hit.point);
     }
 
     void ClearList() {
         foreach (GameObject hitObject in hitObjects) {
-            hitObject.GetComponent<Rigidbody>().useGravity = true;
+            hitObject.GetComponent<Rigidbody>().useGravity = true; //TODO remember original useGravity value, if it causes issues
         }
-        hitObjects = new List<GameObject>();
-        hitPositions = new List<Vector3>();
+        hitObjects.Clear();
+        hitCharacters.Clear();
+        forTankCharacter.Clear();
     }
 
     void PlotRayPoints() {
@@ -195,15 +203,5 @@ public class VacuumController : MonoBehaviour {
         }
 
         counting = false;
-    }
-
-    void OnDrawGizmos() {
-        Gizmos.color = Color.blue;
-        if (Application.isPlaying) {
-            foreach (Vector3 point in hitPositions) {
-                Gizmos.DrawSphere(point, 0.05f);
-            }
-        }
-        
     }
 }

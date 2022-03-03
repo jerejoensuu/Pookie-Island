@@ -1,4 +1,5 @@
 using System.Collections;
+using Bolt;
 using UnityEngine;
 
 public class VacuumElements : MonoBehaviour
@@ -13,31 +14,27 @@ public class VacuumElements : MonoBehaviour
     bool timerRunning, watering;
     public float timerSpeed = 20;
 
-    void Start() {
-        
-    }
-
     void Update() {
         if (use) Use();
         if (!use) StopCoroutine(Timer());
     }
 
     void Use() {
-        switch (vacuum.tank.type.tag) {
-            case "PookieBullet":
+        switch (vacuum.tank.type) {
+            case DamageElement.DamageType.BULLET:
                 ShootBullet();
                 break;
-            case "PookieFire":
+            case DamageElement.DamageType.FIRE:
                 SprayFire();
                 break;
-            case "PookieIce":
+            case DamageElement.DamageType.ICE:
                 SprayIce();
                 break;
-            case "PookieWater":
+            case DamageElement.DamageType.WATER:
                 SprayWater();
                 break;
             default:
-                Debug.LogWarning($"No vacuum action set for type: {vacuum.tank.type.tag}");
+                Debug.LogWarning($"No vacuum action set for type: {vacuum.tank.type}");
                 break;
         }
     }
@@ -58,24 +55,17 @@ public class VacuumElements : MonoBehaviour
         if (vacuum.tank.GetGauge() <= 0) return;
         if (!timerRunning) StartCoroutine(Timer());
 
-        RaycastHit[] rayResults;
-        vacuum.CastRays("fire", out rayResults);
-
-        foreach(RaycastHit hit in rayResults) {
-            // Do something
+        foreach(RaycastHit hit in vacuum.CastShootingRays("fire")) {
+            CustomEvent.Trigger(hit.transform.gameObject, "DestroyFire");
         }
-
     }
 
     void SprayIce() {
         if (vacuum.tank.GetGauge() <= 0) return;
         if (!timerRunning) StartCoroutine(Timer());
 
-        RaycastHit[] rayResults;
-        vacuum.CastRays("ice", out rayResults);
-
-        foreach(RaycastHit hit in rayResults) {
-            // Do something
+        foreach(RaycastHit hit in vacuum.CastShootingRays("ice")) {
+            CustomEvent.Trigger(hit.transform.gameObject, "DestroyIce");
         }
 
     }
