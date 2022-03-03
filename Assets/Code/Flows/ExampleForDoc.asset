@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: -1893448595, guid: a040fb66244a7f54289914d98ea4ef7d, type: 3}
-  m_Name: ExampleForVideo
+  m_Name: ExampleForDoc
   m_EditorClassIdentifier: 
   _data:
     _json: '{"graph":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":123.9988,"y":180.7853},"zoom":1.0,"elements":[{"coroutine":false,"defaultValues":{},"position":{"x":-127.0,"y":4.0},"guid":"8212ace2-0bb7-4531-9505-e8c8403acd56","$version":"A","$type":"Bolt.Start","$id":"9"},{"chainable":false,"member":{"name":"Destroy","parameterTypes":["UnityEngine.Object"],"targetType":"UnityEngine.Component","targetTypeName":"UnityEngine.Component","$version":"A"},"defaultValues":{"%obj":null},"position":{"x":361.0,"y":48.0},"guid":"b33bf018-696e-4e78-a9b3-24d7651dce1e","$version":"A","$type":"Bolt.InvokeMember","$id":"11"},{"defaultValues":{},"position":{"x":212.0,"y":164.0},"guid":"202e7f7b-f3a4-4c19-90d3-e5fe32589e89","$version":"A","$type":"Bolt.Self","$id":"14"},{"specifyFallback":false,"kind":"Object","defaultValues":{"name":{"$content":"Destroy","$type":"System.String"},"object":null},"position":{"x":-183.0,"y":114.0},"guid":"64e591d6-4ea1-4e5c-9c30-112c246b2cfb","$version":"A","$type":"Bolt.GetVariable","$id":"16"},{"chainable":false,"member":{"name":"Equals","parameterTypes":["System.String","System.String"],"targetType":"System.String","targetTypeName":"System.String","$version":"A"},"defaultValues":{"%a":{"$content":"","$type":"System.String"},"%b":{"$content":"Do
