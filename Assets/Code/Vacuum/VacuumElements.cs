@@ -16,7 +16,6 @@ public class VacuumElements : MonoBehaviour
 
     void Update() {
         if (use) Use();
-        if (!use) StopCoroutine(Timer());
     }
 
     void Use() {
@@ -99,7 +98,7 @@ public class VacuumElements : MonoBehaviour
     IEnumerator Timer() {
         timerRunning = true;
 
-        while(vacuum.tank.GetGauge() > 0) {
+        while(use && vacuum.tank.GetGauge() > 0) {
             vacuum.tank.GaugeSubstract(1);
             yield return new WaitForSeconds(Time.deltaTime * timerSpeed);
         }

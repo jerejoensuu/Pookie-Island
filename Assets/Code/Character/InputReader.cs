@@ -7,7 +7,7 @@ public class InputReader : MonoBehaviour {
     Inputs inputs;
     internal Vector2 directionInput;
     internal Vector2 rawInput;
-    bool manualAiming;
+    public bool manualAiming;
 
 
     private void Awake() {
@@ -55,7 +55,7 @@ public class InputReader : MonoBehaviour {
     }
 
     void ReadPullInput(InputAction.CallbackContext context) {
-        if (!player.movement.controller.isGrounded || player.vacuum.elements.use) return;
+        if (!player.movement.controller.isGrounded || player.vacuum.elements.use || player.vacuum.tank.carriedObject != null) return;
 
         player.vacuum.pull = context.performed;
         if (!manualAiming) player.vcamera.aiming = context.performed;
@@ -63,7 +63,7 @@ public class InputReader : MonoBehaviour {
     }
 
     void ReadUseInput(InputAction.CallbackContext context) {
-        if (player.vacuum.pull) return;
+        if (player.vacuum.pull || player.vacuum.tank.carriedObject != null) return;
         player.vacuum.elements.use = context.performed;
     }
 

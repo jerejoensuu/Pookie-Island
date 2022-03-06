@@ -89,11 +89,13 @@ public class VacuumController : MonoBehaviour {
             center = nozzle.transform.position + -nozzle.transform.up * Vector3.Distance(hitObject.transform.position, nozzle.transform.position);
             hitObject.transform.position = Vector3.Lerp(hitObject.transform.position, center, pullForce * 0.5f * Time.deltaTime);
             hitObject.transform.position = Vector3.MoveTowards(hitObject.transform.position, nozzle.transform.position, pullForce * Time.deltaTime);
-            
+
             // Transition to tank:
-            if (Vector3.Distance(hitObject.transform.position, nozzle.transform.position) < 0.5f) {
+            if (Vector3.Distance(hitObject.GetComponent<Collider>().ClosestPointOnBounds(nozzle.transform.position), nozzle.transform.position) < 0.01f) {
                 if (rb.mass >= massCutOutPoint || !tank.AddObjectToTank(hitObject)) {
-                    RejectObject(hitObject, rb);
+                    if (!tank.CarryObject(hitObject, rb)) {
+                        RejectObject(hitObject, rb);
+                    }
                 }
                 //TODO allow large objects to stick to vacuum
             }
@@ -106,7 +108,7 @@ public class VacuumController : MonoBehaviour {
             hitCharacter.characterParent.transform.position = Vector3.MoveTowards(hitCharacter.characterParent.transform.position, nozzle.transform.position, pullForce * Time.deltaTime);
             
             // Transition to tank:
-            if (Vector3.Distance(hitCharacter.transform.position, nozzle.transform.position) < 0.5f) {
+            if (Vector3.Distance(hitCharacter.GetComponent<Collider>().ClosestPointOnBounds(nozzle.transform.position), nozzle.transform.position) < 0.5f) {
                 forTankCharacter.Add(hitCharacter);
             }
         }
@@ -144,7 +146,9 @@ public class VacuumController : MonoBehaviour {
 
     void ClearList() {
         foreach (GameObject hitObject in hitObjects) {
-            hitObject.GetComponent<Rigidbody>().useGravity = true; //TODO remember original useGravity value, if it causes issues
+            if (hitObject != tank.carriedObject) {
+                hitObject.GetComponent<Rigidbody>().useGravity = true; //TODO remember original useGravity value, if it causes issues
+            }
         }
         hitObjects.Clear();
         hitCharacters.Clear();
