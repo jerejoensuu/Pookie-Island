@@ -12,8 +12,12 @@ public class VacuumTank : MonoBehaviour {
     public GameObject bulletPookiePrefab;
     public GameObject currentlyHeldInTank; //only use for non pookies
 
+    public GameObject carriedObject;
+
     public bool AddCharacterToTank(PullableCharacter character) {
-        if (currentlyHeldInTank != null) return false;
+        if (currentlyHeldInTank != null) {
+            return false;
+        } 
         if (character.type == type) {
             return GaugeAdd(type == DamageElement.DamageType.BULLET ? 100 : 35);
         }
@@ -30,8 +34,24 @@ public class VacuumTank : MonoBehaviour {
         return true;
     }
 
+    public bool CarryObject(GameObject obj, Rigidbody rb) {
+        if (carriedObject != null) return false;
+        carriedObject = obj;
+        // obj.transform.position = vacuum.nozzle.transform.position;
+        obj.transform.parent = vacuum.player.model.transform;
+        rb.constraints = RigidbodyConstraints.FreezeAll;
+        rb.useGravity = false;
+        obj.GetComponent<Collider>().enabled = false;
+
+        vacuum.pull = false;
+        if (!vacuum.player.inputReader.manualAiming) vacuum.player.vcamera.aiming = false;
+
+        return true;
+    }
+
     public void Eject() {
-        if (currentlyHeldInTank == null) EjectPookie();
+        if (carriedObject != null) DropObject();
+        else if (currentlyHeldInTank == null) EjectPookie();
         else EjectObject();
     }
 
@@ -73,6 +93,20 @@ public class VacuumTank : MonoBehaviour {
         float force = 5;
         rb.AddForce(vacuum.player.model.transform.forward * force, ForceMode.Impulse);
         currentlyHeldInTank = null;
+    }
+
+    void DropObject() {
+        Rigidbody rb = carriedObject.GetComponent<Rigidbody>();
+        carriedObject.transform.parent = null;
+        rb.constraints = RigidbodyConstraints.None;
+        rb.useGravity = true;
+        carriedObject.GetComponent<Collider>().enabled = true;
+
+        float force = 5;
+        rb.velocity = vacuum.player.movement.controller.velocity;
+        rb.AddForce(vacuum.player.model.transform.forward * force, ForceMode.Impulse);
+
+        carriedObject = null;
     }
 
     public int GetGauge() {

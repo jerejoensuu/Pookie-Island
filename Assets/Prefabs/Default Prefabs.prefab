@@ -832,7 +832,7 @@ GameObject:
   - component: {fileID: 4510759976462465982}
   - component: {fileID: 4510759976462465977}
   - component: {fileID: 3099472844541437048}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Dialogue Handler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2357,6 +2357,10 @@ PrefabInstance:
     - target: {fileID: 8215064960512089263, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
       propertyPath: m_Name
       value: Character
+      objectReference: {fileID: 0}
+    - target: {fileID: 8215064960512089263, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8215064960512089263, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
       propertyPath: m_TagString

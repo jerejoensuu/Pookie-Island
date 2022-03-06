@@ -16,7 +16,6 @@ public class VacuumElements : MonoBehaviour
 
     void Update() {
         if (use) Use();
-        if (!use) StopCoroutine(Timer());
     }
 
     void Use() {
@@ -47,8 +46,8 @@ public class VacuumElements : MonoBehaviour
         obj.transform.position = vacuum.nozzle.transform.position;
 
         Rigidbody rb = obj.GetComponent<Rigidbody>();
-        float force = 25;
-        rb.AddForce(vacuum.player.model.transform.forward * force + Vector3.up * 3, ForceMode.Impulse);
+        float force = 50;
+        rb.AddForce(vacuum.player.model.transform.forward * force, ForceMode.Impulse);
     }
 
     void SprayFire() {
@@ -99,7 +98,7 @@ public class VacuumElements : MonoBehaviour
     IEnumerator Timer() {
         timerRunning = true;
 
-        while(vacuum.tank.GetGauge() > 0) {
+        while(use && vacuum.tank.GetGauge() > 0) {
             vacuum.tank.GaugeSubstract(1);
             yield return new WaitForSeconds(Time.deltaTime * timerSpeed);
         }
