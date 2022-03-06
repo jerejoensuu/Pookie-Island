@@ -1,3 +1,4 @@
+using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
@@ -15,7 +16,13 @@ public class SceneLoader : MonoBehaviour {
     private SceneInstance currentScene;
     private AssetReference currentSceneReference;
     private Scene defaultScene;
-    
+
+    private static SceneLoader instance;
+
+    private void Awake() {
+        instance = this;
+    }
+
     public enum GameState {MENU, INGAME}
 
     private GameState gameState = GameState.MENU;
@@ -37,8 +44,24 @@ public class SceneLoader : MonoBehaviour {
         LoadScene(startingScene);
     }
 
+    public static void StaticLoadCurrentSave() {
+#if UNITY_EDITOR
+        if (instance != null)
+#endif
+        instance.LoadCurrentSave();
+    }
+
     public void LoadCurrentSave() {
-        LoadScene(new AssetReference(SaveUtils.currentSaveGame.currentGameScene), GameState.INGAME);
+        string sceneToLoad = SaveUtils.currentSaveGame.currentGameScene;
+        if (String.IsNullOrEmpty(sceneToLoad)) sceneToLoad = currentSceneReference.AssetGUID;
+        LoadScene(new AssetReference(sceneToLoad), GameState.INGAME);
+    }
+
+    public static void StaticLoadScene(AssetReference toLoad, GameState state = GameState.MENU) {
+#if UNITY_EDITOR
+        if (instance != null)
+#endif
+        instance.LoadScene(toLoad, state);
     }
 
     public void LoadScene(AssetReference toLoad, GameState state = GameState.MENU) {
@@ -50,6 +73,8 @@ public class SceneLoader : MonoBehaviour {
             operationHandle.Result.ActivateAsync().completed += _ => {
                 loadingScene.SetActive(false);
                 gameState = state;
+                if (state == GameState.INGAME)
+                    SaveUtils.currentSaveGame.currentGameScene = toLoad.AssetGUID;
                 foreach (var gameObject in operationHandle.Result.Scene.GetRootGameObjects()) {
                     SceneRoot component = gameObject.GetComponent<SceneRoot>();
                     if (component != null) component.parent = this;

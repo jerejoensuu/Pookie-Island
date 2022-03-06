@@ -14,6 +14,11 @@ public static class SaveUtils {
         currentSaveGame.Crystal++;
     }
 
+    public static int health {
+        get => currentSaveGame.Health;
+        set => currentSaveGame.Health = value;
+    }
+
     private static string GetSaveFolder() {
         string path = Path.Combine(Application.persistentDataPath, "Savegames");
         if (!Directory.Exists(path)) Directory.CreateDirectory(path);
