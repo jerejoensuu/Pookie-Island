@@ -39,7 +39,7 @@ public class VacuumElements : MonoBehaviour
     }
 
     void ShootBullet() {
-        if (vacuum.tank.GetGauge() < 100) return;
+        if (vacuum.tank.gauge < 100) return;
 
         vacuum.tank.GaugeSubstract(100);
         GameObject obj = Instantiate(bullet);
@@ -51,7 +51,7 @@ public class VacuumElements : MonoBehaviour
     }
 
     void SprayFire() {
-        if (vacuum.tank.GetGauge() <= 0) return;
+        if (vacuum.tank.gauge <= 0) return;
         if (!timerRunning) StartCoroutine(Timer());
 
         foreach(RaycastHit hit in vacuum.CastShootingRays("fire")) {
@@ -60,7 +60,7 @@ public class VacuumElements : MonoBehaviour
     }
 
     void SprayIce() {
-        if (vacuum.tank.GetGauge() <= 0) return;
+        if (vacuum.tank.gauge <= 0) return;
         if (!timerRunning) StartCoroutine(Timer());
 
         foreach(RaycastHit hit in vacuum.CastShootingRays("ice")) {
@@ -70,7 +70,7 @@ public class VacuumElements : MonoBehaviour
     }
 
     void SprayWater() {
-        if (vacuum.tank.GetGauge() <= 0) return;
+        if (vacuum.tank.gauge <= 0) return;
         if (!timerRunning) StartCoroutine(Timer());
         if (!watering) StartCoroutine(WaterTimer());
 
@@ -81,7 +81,7 @@ public class VacuumElements : MonoBehaviour
     IEnumerator WaterTimer() {
         watering = true;
         
-        while(use && vacuum.tank.GetGauge() > 0) {
+        while(use && vacuum.tank.gauge > 0) {
             GameObject obj = Instantiate(waterCollider);
             obj.transform.position = vacuum.nozzle.transform.position;
 
@@ -98,7 +98,7 @@ public class VacuumElements : MonoBehaviour
     IEnumerator Timer() {
         timerRunning = true;
 
-        while(use && vacuum.tank.GetGauge() > 0) {
+        while(use && vacuum.tank.gauge > 0) {
             vacuum.tank.GaugeSubstract(1);
             yield return new WaitForSeconds(Time.deltaTime * timerSpeed);
         }
