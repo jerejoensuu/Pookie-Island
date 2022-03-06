@@ -47,8 +47,8 @@ public class VacuumElements : MonoBehaviour
         obj.transform.position = vacuum.nozzle.transform.position;
 
         Rigidbody rb = obj.GetComponent<Rigidbody>();
-        float force = 25;
-        rb.AddForce(vacuum.player.model.transform.forward * force + Vector3.up * 3, ForceMode.Impulse);
+        float force = 50;
+        rb.AddForce(vacuum.player.model.transform.forward * force, ForceMode.Impulse);
     }
 
     void SprayFire() {
