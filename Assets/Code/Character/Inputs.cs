@@ -100,15 +100,6 @@ public partial class @Inputs : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Interact"",
-                    ""type"": ""Button"",
-                    ""id"": ""35b2c27a-44c6-4853-b8ca-dcdad4e8b2a8"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Aim"",
                     ""type"": ""Button"",
                     ""id"": ""8d8601f5-ba3a-4900-a02f-5502efbb011b"",
