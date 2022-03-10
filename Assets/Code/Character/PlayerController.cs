@@ -30,10 +30,6 @@ public class PlayerController : MonoBehaviour {
     public float cameraSpeedModifier = 0.75f;
     public float autoRotateSpeed;
     internal float cameraHeight;
-    
-    void Awake() {
-        model = transform.Find("Model").gameObject;
-    }
 
     void Update() {
         vcamera.RotateCamera();
