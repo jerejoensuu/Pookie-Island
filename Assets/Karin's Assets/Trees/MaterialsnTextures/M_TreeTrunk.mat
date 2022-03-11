@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_PalmLeaves
+  m_Name: M_TreeTrunk
   m_Shader: {fileID: -6465566751694194690, guid: 2b4699df5e3fec24aa83337351314900, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -37,7 +37,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_b8cf6a7d72e7492f9ded3ae648c42e2d:
-        m_Texture: {fileID: 2800000, guid: f3347f0c8e1176448b7a4bbdc2fe9a82, type: 3}
+        m_Texture: {fileID: 2800000, guid: 860f976ad36382743b3b5885116254b4, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
@@ -97,8 +97,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_35b599b1ac2c4d4d98bcb0dc934a45c0: 0.03
-    - Vector1_5ab4c18de5494fca95e8b0d72dfe1400: 0.76
+    - Vector1_35b599b1ac2c4d4d98bcb0dc934a45c0: 0.02
+    - Vector1_5ab4c18de5494fca95e8b0d72dfe1400: 0.54
     - Vector1_ac1b58ccee4942d4946943d443373425: 5
     - Vector1_c88badb889834ab5b125bd71f7f97513: 0
     - _AlphaClip: 0
@@ -128,7 +128,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_84e18c13e1a149cc990b8a3dcee20244: {r: 0, g: 0.5787053, b: 0.7264151, a: 0}
+    - Color_84e18c13e1a149cc990b8a3dcee20244: {r: 0.8188193, g: 0.7783019, b: 1, a: 0}
     - _BaseColor: {r: 0, g: 0.4716981, b: 0.4471084, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
