@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7861d8c10f78ef14d81f03922e485eaf, type: 3}
+  m_Name: TorchQuestDialogue
+  m_EditorClassIdentifier: 
+  priority: 0
+  requiredFlags: []
+  disabledByFlags: []
+  dialogueBoxes:
+  - Oh wow you're so tall, you must be a grown up! Can you help me?
+  - My big brother Pedro is a meanie, and he KNOWS how afraid I am of the dark!
+  - We have torches all around the village, and he just decided it'd be fun to extinguish
+    them all. AH AH.
+  - Could you light them again before nightfall? Please?! I'll give you that shiny
+    purple rock I found if you do, greenie promise!
+  - These red pookies could help you with their flames, but careful they're hot!
+    Mommy always puts big gloves on when she carries them.
+  FlagToSet: TorchQuestInitiated
