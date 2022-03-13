@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour {
     public PlayerCamera vcamera;
     public PlayerAnimation anim;
     public VacuumController vacuum;
+    public PlayerHealth playerHealth;
+    public KnockbackHandler knockbackHandler; 
 
     [Header("Movement")]
     public GameObject model;

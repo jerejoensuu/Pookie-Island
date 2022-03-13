@@ -156,6 +156,8 @@ GameObject:
   - component: {fileID: 204443768600281358}
   - component: {fileID: 2370099968389096281}
   - component: {fileID: 8144045051850122752}
+  - component: {fileID: 4788587711425383612}
+  - component: {fileID: 2955313067329111445}
   - component: {fileID: 2831179270947530452}
   - component: {fileID: 3811880172904060626}
   - component: {fileID: 7416931811492516458}
@@ -202,6 +204,7 @@ MonoBehaviour:
   vcamera: {fileID: 2370099968389096281}
   anim: {fileID: 8144045051850122752}
   vacuum: {fileID: 2831179270947530452}
+  knockbackHandler: {fileID: 4788587711425383612}
   model: {fileID: 0}
   maxJumpHeight: 4
   maxJumpTime: 0.7
@@ -240,6 +243,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8215064960512089256}
+  movement: {x: 0, y: 0, z: 0}
+  knockedBack: 0
 --- !u!114 &2370099968389096281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,6 +272,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8215064960512089256}
+--- !u!114 &4788587711425383612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8215064960512089263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6f87f19e9d67ec04b9233cbf4631db62, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 8215064960512089256}
+  knockbackForce: 3
+--- !u!114 &2955313067329111445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8215064960512089263}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e51aa5f82ebc02c46ba1e36a79690001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 8215064960512089256}
+  healthBar: {fileID: 0}
+  cooldown: 300
+  onCooldown: 0
 --- !u!114 &2831179270947530452
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,10 +1,14 @@
 using System;
 using Bolt;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour {
 
+    [SerializeField] PlayerController player;
     public HealthBar healthBar;
+    public int cooldown = 300;
+    public bool onCooldown;
 
     private void Start() {
         healthBar.SetLives(SaveUtils.currentSaveGame.Health);
@@ -25,16 +29,28 @@ public class PlayerHealth : MonoBehaviour {
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit) {
+        if (onCooldown) return;
         if (hit.gameObject.TryGetComponent(out PlayerHealthAffect affectedBy)) {
             if (affectedBy.effectType == PlayerHealthAffect.EffectType.DAMAGE) {
                 TakeDamage(affectedBy.effectAmount);
             } else {
                 GainHealth(affectedBy.effectAmount);
             }
-            //TODO: enter invulnerability
-            //TODO: pass hit to Jere
-            
+            StartCoroutine(DamageCooldown());
+            player.knockbackHandler.SetKnockback(hit);
+            player.knockbackHandler.HandleKnockback();
+
             affectedBy.OnPlayerHit();
         }
+    }
+
+    IEnumerator DamageCooldown() {
+        int c = cooldown;
+        onCooldown = true;
+        while (c > 0) {
+            c--;
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+        onCooldown = false;
     }
 }
