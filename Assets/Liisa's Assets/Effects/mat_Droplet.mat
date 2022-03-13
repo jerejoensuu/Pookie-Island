@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-661381613263890718
+--- !u!114 &-3216350726217350170
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,13 +20,13 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: StylizedWater
-  m_Shader: {fileID: -6465566751694194690, guid: 05a8f975e648fe74f833a690723b6167, type: 3}
+  m_Name: mat_Droplet
+  m_Shader: {fileID: 206, guid: 0000000000000000f000000000000000, type: 0}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -56,16 +56,8 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _FlowTexture:
-        m_Texture: {fileID: 2800000, guid: 15ea35a96dd4c904c9bcda060aecb30f, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _FoamTexture:
-        m_Texture: {fileID: 2800000, guid: df9e8fde5863f2842a0596a298b275bb, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 84037269cbb601c4fb4fd733d182355b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -100,7 +92,6 @@ Material:
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
-    - _Choppiness: 0.003
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
@@ -109,18 +100,15 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _FlowSpeed: 1.29
-    - _FlowStrength: 0.0003
-    - _FoamDistance: 0.21
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
+    - _InvFade: 1
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Size: -0.93
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -131,9 +119,7 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DarkFoamColor: {r: 0.11454255, g: 0.413603, b: 0.6226415, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _LightFoamColor: {r: 1, g: 1, b: 1, a: 0.29803923}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _WaterColor: {r: 0.21960783, g: 0.5522518, b: 0.7647059, a: 1}
+    - _TintColor: {r: 0.21568629, g: 0.5529412, b: 0.76470596, a: 0.5}
   m_BuildTextureStacks: []
