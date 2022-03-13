@@ -89,7 +89,7 @@ public class VacuumElements : MonoBehaviour
             float force = 5;
             rb.AddForce(vacuum.player.model.transform.forward * force, ForceMode.Impulse);
 
-            yield return new WaitForSeconds(Time.deltaTime * 120);
+            yield return new WaitForSeconds(.2f);
         }
 
         watering = false;
