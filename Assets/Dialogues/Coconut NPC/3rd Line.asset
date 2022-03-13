@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   priority: 10
   requiredFlags:
-  - Crystal1Pickup
-  disabledByFlags: []
+  - CoconutPickup
+  disabledByFlags:
+  - QuestDialogueDone
   dialogueBoxes:
   - Wow, thanks! Here's a little something for your efforts.
-  FlagToSet: 
+  FlagToSet: QuestDialogueDone
