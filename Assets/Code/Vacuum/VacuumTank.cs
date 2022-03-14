@@ -66,6 +66,7 @@ public class VacuumTank : MonoBehaviour {
         if (carriedObject != null) DropObject();
         else if (currentlyHeldInTank == null) EjectPookie();
         else EjectObject();
+        vacuum.player.anim.animator.SetTrigger("shoot");
     }
 
     public void EjectPookie() {
