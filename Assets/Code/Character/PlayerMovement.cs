@@ -65,9 +65,14 @@ public class PlayerMovement : MonoBehaviour {
 
     void HandleJump() {
         if (jumpPressed && (controller.isGrounded || jumps > 0)) {
-            player.anim.animator.SetTrigger("jump");
+            if (jumps == 2) {
+                movement.y = player.jumpSpeed;
+                player.anim.animator.SetTrigger("jump");
+            } else {
+                movement.y = player.jumpSpeed * 0.75f;
+                player.anim.animator.SetTrigger("doubleJump");
+            }
             jumpPressed = false;
-            movement.y = jumps == 2 ? player.jumpSpeed : player.jumpSpeed * 0.75f;
             jumps--;
         } else if (controller.isGrounded && !jumpPressed) {
             player.anim.animator.SetTrigger("grounded");

@@ -8,7 +8,7 @@ public class PlayerHealth : MonoBehaviour {
     [SerializeField] PlayerController player;
     public HealthBar healthBar;
     public int cooldown = 300;
-    public bool onCooldown;
+    public bool onCooldown = false;
 
     private void Start() {
         healthBar.SetLives(SaveUtils.currentSaveGame.Health);
