@@ -9,7 +9,6 @@ public class GlobalEvent : MonoBehaviour
     private static HashSet<GameObject> listenersToBeRemoved = new HashSet<GameObject>();
     private static bool iterating;
 
-
     public static void SendEvent(string eventName) {
         iterating = true;
         foreach (GameObject listener in listeners) {
