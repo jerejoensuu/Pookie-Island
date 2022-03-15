@@ -22,7 +22,7 @@ public class PlayerCamera : MonoBehaviour {
 
     void Update() {
         if (!cameraSafe) UpdateSafePosition();
-        Debug.Log(cameraSafe);
+        //Debug.Log(cameraSafe);
     }
 
     void Start() {
