@@ -1,21 +1,33 @@
 using System.Collections;
 using UnityEngine;
+using Cinemachine;
 
 public class PlayerCamera : MonoBehaviour {
     
     [SerializeField] PlayerController player;
     
-    [SerializeField] internal GameObject camTarget;
+    public GameObject camTarget;
+    public GameObject cam;
+    CinemachineVirtualCamera cmCam;
+    CinemachineComponentBase componentBase;
+
     internal bool aiming;
     Vector2 trueDirection;
     internal bool turningCamera, autoTurningCamera;
     internal Vector2 cameraRotation;
 
-    void Start() {
+    RaycastHit hit;
+    float cameraDistance = 8;
+    public bool cameraSafe = true;
 
-    }
     void Update() {
-        
+        if (!cameraSafe) UpdateSafePosition();
+        Debug.Log(cameraSafe);
+    }
+
+    void Start() {
+        cmCam = cam.GetComponent<CinemachineVirtualCamera>();
+        componentBase = cmCam.GetCinemachineComponent(CinemachineCore.Stage.Body);
     }
 
     internal void Aim() {
@@ -44,6 +56,31 @@ public class PlayerCamera : MonoBehaviour {
         StartCoroutine(PointCameraAt(player.model.transform.forward));
     }
 
+    public void UpdateSafePosition() {
+        Vector3 camPos = cam.transform.position;
+        Vector3 camTargetPos = camTarget.transform.position;
+
+        if (Physics.Raycast(camTargetPos, camPos - camTargetPos, out hit, 8, ~(1 << 5))) {
+            cameraDistance = Vector3.Distance(hit.point, camTargetPos);
+            (componentBase as Cinemachine3rdPersonFollow).CameraDistance =
+                Mathf.Lerp((componentBase as Cinemachine3rdPersonFollow).CameraDistance,
+                0,
+                0.99f * Time.deltaTime);
+        } else {
+            (componentBase as Cinemachine3rdPersonFollow).CameraDistance =
+                Mathf.Lerp((componentBase as Cinemachine3rdPersonFollow).CameraDistance,
+                8,
+                0.99f * Time.deltaTime);
+        }
+    }
+
+    void LerpCameraDistance() {
+        (componentBase as Cinemachine3rdPersonFollow).CameraDistance =
+            Mathf.Lerp((componentBase as Cinemachine3rdPersonFollow).CameraDistance,
+            cameraDistance,
+            0.8f * Time.deltaTime);
+    }
+
     public IEnumerator PointCameraAt(Vector3 direction) {
         if (autoTurningCamera) yield break;
         autoTurningCamera = true;
@@ -53,5 +90,9 @@ public class PlayerCamera : MonoBehaviour {
             yield return new WaitForSeconds(Time.deltaTime);
         }
         autoTurningCamera = false;
+    }
+
+    void OnDrawGizmos() {
+        Debug.DrawLine(camTarget.transform.position, cam.transform.position, Color.red);
     }
 }
