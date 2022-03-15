@@ -9,6 +9,8 @@ public class PlayerController : MonoBehaviour {
     public PlayerCamera vcamera;
     public PlayerAnimation anim;
     public VacuumController vacuum;
+    public PlayerHealth playerHealth;
+    public KnockbackHandler knockbackHandler; 
 
     [Header("Movement")]
     public GameObject model;
@@ -30,6 +32,12 @@ public class PlayerController : MonoBehaviour {
     public float cameraSpeedModifier = 0.75f;
     public float autoRotateSpeed;
     internal float cameraHeight;
+
+    Vector3 spawnPoint;
+
+    void Start() {
+        spawnPoint = transform.position;
+    }
 
     void Update() {
         vcamera.RotateCamera();

@@ -1,10 +1,15 @@
 using System;
 using Bolt;
+using System.Collections;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour {
 
+    [SerializeField] PlayerController player;
     public HealthBar healthBar;
+    public SkinnedMeshRenderer playerMesh;
+    public int cooldown = 300;
+    public bool onCooldown = false;
 
     private void Start() {
         healthBar.SetLives(SaveUtils.currentSaveGame.Health);
@@ -19,22 +24,43 @@ public class PlayerHealth : MonoBehaviour {
         SaveUtils.health -= damageAmount;
         if (SaveUtils.health <= 0) {
             SaveUtils.health = healthBar.MaximumHearts;
-            SceneLoader.StaticLoadCurrentSave();
+            StartCoroutine(KillPlayer());
+            
         }
         healthBar.SetLives(SaveUtils.health);
     }
 
+    IEnumerator KillPlayer() {
+        player.anim.animator.SetTrigger("death");
+        yield return new WaitForSeconds(3);
+        SceneLoader.StaticLoadCurrentSave();
+    }
+
     private void OnControllerColliderHit(ControllerColliderHit hit) {
+        if (onCooldown) return;
         if (hit.gameObject.TryGetComponent(out PlayerHealthAffect affectedBy)) {
             if (affectedBy.effectType == PlayerHealthAffect.EffectType.DAMAGE) {
                 TakeDamage(affectedBy.effectAmount);
             } else {
                 GainHealth(affectedBy.effectAmount);
             }
-            //TODO: enter invulnerability
-            //TODO: pass hit to Jere
-            
+            StartCoroutine(DamageCooldown());
+            player.knockbackHandler.SetKnockback(hit);
+            player.knockbackHandler.HandleKnockback();
+
             affectedBy.OnPlayerHit();
         }
+    }
+
+    IEnumerator DamageCooldown() {
+        int c = cooldown;
+        onCooldown = true;
+        while (c > 0) {
+            c--;
+            if (c % 20 == 0) playerMesh.enabled = !playerMesh.enabled;
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+        playerMesh.enabled = true;
+        onCooldown = false;
     }
 }

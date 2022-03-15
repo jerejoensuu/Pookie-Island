@@ -38,9 +38,12 @@ public class VacuumController : MonoBehaviour {
 
     void FixedUpdate() {
         if (pull) {
+            player.anim.animator.SetBool("vacuum", true);
             CastPullingRays();
             PullObjects();
             ClearList();
+        } else if (!elements.use) {
+            player.anim.animator.SetBool("vacuum", false);
         }
 
         if (onCooldown.Count > 0 && !counting) StartCoroutine(CountCooldown());

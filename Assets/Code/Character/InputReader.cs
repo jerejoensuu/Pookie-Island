@@ -55,7 +55,10 @@ public class InputReader : MonoBehaviour {
     }
 
     void ReadPullInput(InputAction.CallbackContext context) {
-        if (!player.movement.controller.isGrounded || player.vacuum.elements.use || player.vacuum.tank.carriedObject != null) return;
+        if (!player.movement.controller.isGrounded
+            || player.vacuum.elements.use
+            || player.vacuum.tank.carriedObject != null
+            || player.playerHealth.onCooldown) return;
 
         player.vacuum.pull = context.performed;
         if (!manualAiming) player.vcamera.aiming = context.performed;
@@ -63,11 +66,15 @@ public class InputReader : MonoBehaviour {
     }
 
     void ReadUseInput(InputAction.CallbackContext context) {
-        if (player.vacuum.pull || player.vacuum.tank.carriedObject != null) return;
+        if (player.vacuum.pull
+            || player.vacuum.tank.carriedObject != null
+            || player.playerHealth.onCooldown) return;
+
         player.vacuum.elements.use = context.performed;
     }
 
     void Eject(InputAction.CallbackContext context) {
+        if (player.playerHealth.onCooldown) return;
         player.vacuum.tank.Eject();
     }
 

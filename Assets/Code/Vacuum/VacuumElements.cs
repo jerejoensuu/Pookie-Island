@@ -41,6 +41,8 @@ public class VacuumElements : MonoBehaviour
     void ShootBullet() {
         if (vacuum.tank.gauge < 100) return;
 
+        vacuum.player.anim.animator.SetTrigger("shoot");
+
         vacuum.tank.GaugeSubstract(100);
         GameObject obj = Instantiate(bullet);
         obj.transform.position = vacuum.nozzle.transform.position;
@@ -97,6 +99,7 @@ public class VacuumElements : MonoBehaviour
 
     IEnumerator Timer() {
         timerRunning = true;
+        vacuum.player.anim.animator.SetBool("vacuum", true);
 
         while(use && vacuum.tank.gauge > 0) {
             vacuum.tank.GaugeSubstract(1);
@@ -104,5 +107,6 @@ public class VacuumElements : MonoBehaviour
         }
 
         timerRunning = false;
+        vacuum.player.anim.animator.SetBool("vacuum", false);
     }
 }
