@@ -36,6 +36,7 @@ public class VacuumTank : MonoBehaviour {
         }
         type = character.type;
         gauge = type == DamageElement.DamageType.BULLET ? 100 : 35;
+        vacuum.player.anim.animator.SetTrigger("vacuumKnockback");
         return true;
     }
 
@@ -44,6 +45,7 @@ public class VacuumTank : MonoBehaviour {
         currentlyHeldInTank = obj;
         gauge = 100;
         obj.SetActive(false);
+        vacuum.player.anim.animator.SetTrigger("vacuumKnockback");
         return true;
     }
 
@@ -59,6 +61,7 @@ public class VacuumTank : MonoBehaviour {
         vacuum.pull = false;
         if (!vacuum.player.inputReader.manualAiming) vacuum.player.vcamera.aiming = false;
 
+        vacuum.player.anim.animator.SetTrigger("vacuumKnockback");
         return true;
     }
 
