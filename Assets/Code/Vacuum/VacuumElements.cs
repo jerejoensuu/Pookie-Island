@@ -86,7 +86,7 @@ public class VacuumElements : MonoBehaviour
             obj.transform.position = vacuum.nozzle.transform.position;
 
             Rigidbody rb = obj.GetComponent<Rigidbody>();
-            float force = 5;
+            float force = 70;
             rb.AddForce(vacuum.player.model.transform.forward * force, ForceMode.Impulse);
 
             yield return new WaitForSeconds(.2f);
