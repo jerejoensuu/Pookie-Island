@@ -33,6 +33,12 @@ public class PlayerController : MonoBehaviour {
     public float autoRotateSpeed;
     internal float cameraHeight;
 
+    Vector3 spawnPoint;
+
+    void Start() {
+        spawnPoint = transform.position;
+    }
+
     void Update() {
         vcamera.RotateCamera();
         vcamera.AutoRotateCamera();

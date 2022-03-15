@@ -7,6 +7,7 @@ public class PlayerHealth : MonoBehaviour {
 
     [SerializeField] PlayerController player;
     public HealthBar healthBar;
+    public SkinnedMeshRenderer playerMesh;
     public int cooldown = 300;
     public bool onCooldown = false;
 
@@ -23,10 +24,16 @@ public class PlayerHealth : MonoBehaviour {
         SaveUtils.health -= damageAmount;
         if (SaveUtils.health <= 0) {
             SaveUtils.health = healthBar.MaximumHearts;
-            // player.anim.animator.SetTrigger("death");
-            SceneLoader.StaticLoadCurrentSave();
+            StartCoroutine(KillPlayer());
+            
         }
         healthBar.SetLives(SaveUtils.health);
+    }
+
+    IEnumerator KillPlayer() {
+        player.anim.animator.SetTrigger("death");
+        yield return new WaitForSeconds(3);
+        SceneLoader.StaticLoadCurrentSave();
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit) {
@@ -50,8 +57,10 @@ public class PlayerHealth : MonoBehaviour {
         onCooldown = true;
         while (c > 0) {
             c--;
+            if (c % 20 == 0) playerMesh.enabled = !playerMesh.enabled;
             yield return new WaitForSeconds(Time.deltaTime);
         }
+        playerMesh.enabled = true;
         onCooldown = false;
     }
 }
