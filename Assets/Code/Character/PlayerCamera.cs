@@ -22,7 +22,6 @@ public class PlayerCamera : MonoBehaviour {
 
     void Update() {
         if (!cameraSafe) UpdateSafePosition();
-        //Debug.Log(cameraSafe);
     }
 
     void Start() {
@@ -90,9 +89,5 @@ public class PlayerCamera : MonoBehaviour {
             yield return new WaitForSeconds(Time.deltaTime);
         }
         autoTurningCamera = false;
-    }
-
-    void OnDrawGizmos() {
-        Debug.DrawLine(camTarget.transform.position, cam.transform.position, Color.red);
     }
 }
