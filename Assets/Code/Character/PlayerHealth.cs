@@ -23,6 +23,7 @@ public class PlayerHealth : MonoBehaviour {
         SaveUtils.health -= damageAmount;
         if (SaveUtils.health <= 0) {
             SaveUtils.health = healthBar.MaximumHearts;
+            // player.anim.animator.SetTrigger("death");
             SceneLoader.StaticLoadCurrentSave();
         }
         healthBar.SetLives(SaveUtils.health);

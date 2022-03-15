@@ -7,7 +7,6 @@ public class KnockbackHandler : MonoBehaviour {
     [SerializeField] PlayerController player;
     [SerializeField] float knockbackForce = 1;
     Vector3 knockbackHor = Vector3.zero;
-    float knockbackY = 0;
 
     public void SetKnockback(ControllerColliderHit hit) {
         if (player.movement.knockedBack == true) return;
