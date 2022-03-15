@@ -79,24 +79,23 @@ public class VacuumTank : MonoBehaviour {
         switch (type) {
             case DamageElement.DamageType.FIRE:
                 size = GaugeSubstract(35);
-                obj = Instantiate(firePookiePrefab);
+                obj = Instantiate(firePookiePrefab, vacuum.nozzle.transform.position, Quaternion.identity);
                 break;
             case DamageElement.DamageType.ICE:
                 size = GaugeSubstract(35);
-                obj = Instantiate(icePookiePrefab);
+                obj = Instantiate(icePookiePrefab, vacuum.nozzle.transform.position, Quaternion.identity);
                 break;
             case DamageElement.DamageType.WATER:
                 size = GaugeSubstract(35);
-                obj = Instantiate(waterPookiePrefab);
+                obj = Instantiate(waterPookiePrefab, vacuum.nozzle.transform.position, Quaternion.identity);
                 break;
             case DamageElement.DamageType.BULLET:
                 size = GaugeSubstract(100);
-                obj = Instantiate(bulletPookiePrefab);
+                obj = Instantiate(bulletPookiePrefab, vacuum.nozzle.transform.position, Quaternion.identity);
                 break;
             default:
                 return;
         }
-        obj.transform.position = vacuum.nozzle.transform.position;
         obj.SetActive(true);
         vacuum.PutOnCooldown(obj, 120);
     }
