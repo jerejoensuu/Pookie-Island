@@ -34,9 +34,12 @@ public class PlayerController : MonoBehaviour {
     internal float cameraHeight;
 
     Vector3 spawnPoint;
+    internal Vector3 softSpawnPoint;
+    float softRespawnCounter = 0;
+    bool unsafeSpawn = false;
 
     void Start() {
-        spawnPoint = transform.position;
+        spawnPoint = softSpawnPoint = transform.position;
     }
 
     void Update() {
@@ -44,6 +47,38 @@ public class PlayerController : MonoBehaviour {
         vcamera.AutoRotateCamera();
         movement.HandleMovement();
         vcamera.Aim();
+        CheckSoftRespawn();
+    }
+
+    void CheckSoftRespawn() {
+        softRespawnCounter += Time.deltaTime;
+        if (softRespawnCounter > 1.5f && movement.grounded && !unsafeSpawn) {
+            softRespawnCounter = 0;
+            softSpawnPoint = transform.position;
+        } 
+    }
+
+    public void SoftRespawn() {
+        movement.controller.enabled = false;
+        transform.position = softSpawnPoint;
+        movement.controller.enabled = true;
+    }
+
+    void OnTriggerEnter(Collider col) {
+        if (col.gameObject.layer == 10) {
+            unsafeSpawn = true;
+        }
+    }
+
+    void OntriggerExit(Collider col) {
+        if (col.gameObject.layer == 10) {
+            unsafeSpawn = false;
+        }
+    }
+
+    void OnDrawGizmos() {
+        Gizmos.color = Color.cyan;
+        Gizmos.DrawSphere(softSpawnPoint, 0.3f);
     }
     
 }

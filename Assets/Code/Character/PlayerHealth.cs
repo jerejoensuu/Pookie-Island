@@ -23,21 +23,21 @@ public class PlayerHealth : MonoBehaviour {
     public void TakeDamage(int damageAmount = 1) {
         SaveUtils.health -= damageAmount;
         if (SaveUtils.health <= 0) {
-            SaveUtils.health = healthBar.MaximumHearts;
             StartCoroutine(KillPlayer());
-            
         }
         healthBar.SetLives(SaveUtils.health);
     }
 
-    IEnumerator KillPlayer() {
+    public IEnumerator KillPlayer() {
         player.anim.animator.SetTrigger("death");
         yield return new WaitForSeconds(3);
+        SaveUtils.health = healthBar.MaximumHearts;
         SceneLoader.StaticLoadCurrentSave();
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit) {
         if (onCooldown) return;
+
         if (hit.gameObject.TryGetComponent(out PlayerHealthAffect affectedBy)) {
             if (affectedBy.effectType == PlayerHealthAffect.EffectType.DAMAGE) {
                 TakeDamage(affectedBy.effectAmount);
@@ -49,6 +49,17 @@ public class PlayerHealth : MonoBehaviour {
             player.knockbackHandler.HandleKnockback();
 
             affectedBy.OnPlayerHit();
+        }
+    }
+
+    void OnTriggerEnter(Collider col) {
+        if (col.gameObject.layer == 9) {
+            if (SaveUtils.health <= 0) {
+                StartCoroutine(KillPlayer());
+            } else {
+                TakeDamage(1);
+                player.SoftRespawn();
+            }
         }
     }
 

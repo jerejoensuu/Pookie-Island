@@ -40,6 +40,8 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     public void HandleMovement() {
+        if (SaveUtils.health <= 0) return;
+
         /* Coyote time WIP
         if (!grounded && !coyoteTimeActive && jumps == 2) {
             StartCoroutine(CountCoyoteTime());
