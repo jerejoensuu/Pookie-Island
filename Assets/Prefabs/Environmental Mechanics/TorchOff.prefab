@@ -4825,7 +4825,6 @@ GameObject:
   - component: {fileID: 3514574143471429417}
   - component: {fileID: -9077920067081773913}
   - component: {fileID: 2566936082726249282}
-  - component: {fileID: 7530497295198192640}
   m_Layer: 0
   m_Name: TorchOff
   m_TagString: Untagged
@@ -4891,24 +4890,6 @@ MonoBehaviour:
   interactable: {fileID: 0}
   action: 2
   state: 0
-  value: 
-  animator: {fileID: 0}
-  child: {fileID: 3514574143104269107}
---- !u!114 &7530497295198192640
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3514574143471429412}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e33c80c4245886c4ea59b005f7605660, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  interactable: {fileID: 0}
-  action: 3
-  state: 1
   value: 
   animator: {fileID: 0}
   child: {fileID: 3514574143104269107}

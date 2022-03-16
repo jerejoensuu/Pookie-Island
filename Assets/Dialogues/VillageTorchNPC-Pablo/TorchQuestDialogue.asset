@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   priority: 4
   requiredFlags: []
-  disabledByFlags: []
+  disabledByFlags:
+  - TorchQuestInitiated
   dialogueBoxes:
   - Oh wow you're so tall, you must be a grown up! Can you help me?
   - My big brother Pedro is a meanie, and he KNOWS how afraid I am of the dark!
