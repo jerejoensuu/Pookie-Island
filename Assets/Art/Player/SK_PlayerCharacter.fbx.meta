@@ -42,7 +42,17 @@ ModelImporter:
   - first:
       74: 7074011894159471936
     second: Armature|vacuum_knockback
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_BackpackWindow
+    second: {fileID: 2100000, guid: 8ddc7bdb1a073864f88d4eb6851d10e1, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: M_PlayerCharacter
+    second: {fileID: 2100000, guid: a46410816fc9c8945a2d127c37150587, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
