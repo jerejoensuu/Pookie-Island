@@ -147,7 +147,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5859556215591072454, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
       propertyPath: m_Name
-      value: Crystal
+      value: CoconutQuestCrystal
       objectReference: {fileID: 0}
     - target: {fileID: 5859556215591072454, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
       propertyPath: m_IsActive
@@ -208,6 +208,10 @@ PrefabInstance:
     - target: {fileID: 6492646921114265724, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7838230683703713048, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
+      propertyPath: _data._json
+      value: '{"declarations":{"collection":{"$content":[{"name":"FlagToSet","value":{"$content":"CoconutQuestCrystal","$type":"System.String"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
