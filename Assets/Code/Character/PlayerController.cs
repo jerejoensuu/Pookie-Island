@@ -76,9 +76,9 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    void OnDrawGizmos() {
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawSphere(softSpawnPoint, 0.3f);
-    }
+    // void OnDrawGizmos() {
+    //     Gizmos.color = Color.cyan;
+    //     Gizmos.DrawSphere(softSpawnPoint, 0.3f);
+    // }
     
 }
