@@ -15,7 +15,7 @@ public class PlayerController : MonoBehaviour {
     [Header("Movement")]
     public GameObject model;
     internal float gravity;
-    internal float groudedGravity = -0.5f;
+    internal float groudedGravity = -8.5f;
     internal float jumpSpeed;
     public float maxJumpHeight;
     public float maxJumpTime;
