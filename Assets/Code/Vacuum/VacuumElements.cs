@@ -20,7 +20,7 @@ public class VacuumElements : MonoBehaviour {
     } 
  
     void Use() { 
-        switch (vacuum.tank.type) { 
+        switch (vacuum.tank.pookieType) { 
             case DamageElement.DamageType.BULLET: 
                 ShootBullet(); 
                 break; 
@@ -34,7 +34,7 @@ public class VacuumElements : MonoBehaviour {
                 SprayWater(); 
                 break; 
             default: 
-                Debug.LogWarning($"No vacuum action set for type: {vacuum.tank.type}"); 
+                Debug.LogWarning($"No vacuum action set for type: {vacuum.tank.pookieType}"); 
                 break; 
         } 
     } 

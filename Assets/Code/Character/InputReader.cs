@@ -12,6 +12,16 @@ public class InputReader : MonoBehaviour {
 
     private void Awake() {
         inputs = new Inputs();
+        GlobalEvent.GamePaused += GamePaused;
+        GlobalEvent.GameUnpaused += GameUnpaused;
+    }
+
+    private void GameUnpaused() {
+        enabled = true;
+    }
+
+    private void GamePaused() {
+        enabled = false;
     }
 
     void OnEnable() {
@@ -131,5 +141,6 @@ public class InputReader : MonoBehaviour {
         player.vacuum.pull = false;
         player.vcamera.turningCamera = false;
         player.vcamera.cameraRotation.x = 0;
+        player.vacuum.elements.use = false;
     }
 }

@@ -1,10 +1,24 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
 using Bolt;
 using UnityEngine;
 
-public class GlobalEvent : MonoBehaviour
-{
+public class GlobalEvent : MonoBehaviour {
+
+    public static Action GamePaused;
+    public static Action GameUnpaused;
+    
+    public static void PauseGame() {
+        GamePaused?.Invoke();
+        Time.timeScale = 0;
+    }
+    
+    public static void UnpauseGame() {
+        GameUnpaused?.Invoke();
+        Time.timeScale = 1;
+    }
+    
+    
     private static HashSet<GameObject> listeners = new HashSet<GameObject>();
     private static HashSet<GameObject> listenersToBeRemoved = new HashSet<GameObject>();
     private static bool iterating;

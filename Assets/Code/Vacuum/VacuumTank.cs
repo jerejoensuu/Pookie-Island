@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,9 +7,39 @@ public class VacuumTank : MonoBehaviour {
     
     [SerializeField] VacuumController vacuum;
 
-    [HideInInspector] public DamageElement.DamageType type;
-    
+    public DamageElement.DamageType pookieType {
+        get => SaveUtils.currentSaveGame.type;
+        set {
+            SaveUtils.currentSaveGame.type = value;
+            switch (value) {
+                case DamageElement.DamageType.FIRE:
+                    GaugePookieDisplay.sprite = firePookieUIImage;
+                    break;
+                case DamageElement.DamageType.ICE:
+                    GaugePookieDisplay.sprite = icePookieUIImage;
+                    break;
+                case DamageElement.DamageType.WATER:
+                    GaugePookieDisplay.sprite = waterPookieUIImage;
+                    break;
+                case DamageElement.DamageType.BULLET:
+                    GaugePookieDisplay.sprite = bulletPookieUIImage;
+                    break;
+            }
+        }
+    }
+
+    private void Start() {
+        //making sure correct values are displayed on scene load
+        gauge = gauge;
+        pookieType = pookieType;
+    }
+
     public TextMeshProUGUI GaugeUI;
+    public Image GaugePookieDisplay;
+    public Sprite firePookieUIImage;
+    public Sprite icePookieUIImage;
+    public Sprite waterPookieUIImage;
+    public Sprite bulletPookieUIImage;
     public GameObject firePookiePrefab;
     public GameObject icePookiePrefab;
     public GameObject waterPookiePrefab;
@@ -18,32 +49,30 @@ public class VacuumTank : MonoBehaviour {
     public GameObject carriedObject;
 
     public int gauge {
-        get => _gauge;
+        get => SaveUtils.currentSaveGame.gauge;
         private set {
-            _gauge = value;
+            GaugePookieDisplay.enabled = value != 0;
+            SaveUtils.currentSaveGame.gauge = value;
             GaugeUI.text = value.ToString();
         }
     }
-
-    private int _gauge = 0;
 
     public bool AddCharacterToTank(PullableCharacter character) {
         if (currentlyHeldInTank != null) {
             return false;
         } 
-        if (character.type == type) {
-            return GaugeAdd(type == DamageElement.DamageType.BULLET ? 100 : 35);
+        if (character.type == pookieType && gauge > 0) {
+            return GaugeAdd(pookieType == DamageElement.DamageType.BULLET ? 100 : 35);
         }
-        type = character.type;
-        gauge = type == DamageElement.DamageType.BULLET ? 100 : 35;
+        pookieType = character.type;
+        gauge = pookieType == DamageElement.DamageType.BULLET ? 100 : 35;
         vacuum.player.anim.animator.SetTrigger("vacuumKnockback");
         return true;
     }
 
     public bool AddObjectToTank(GameObject obj) {
-        if (gauge > 0) return false;
+        if (gauge > 0 || currentlyHeldInTank != null) return false;
         currentlyHeldInTank = obj;
-        gauge = 100;
         obj.SetActive(false);
         vacuum.player.anim.animator.SetTrigger("vacuumKnockback");
         return true;
@@ -76,7 +105,7 @@ public class VacuumTank : MonoBehaviour {
         if (gauge == 0) return;
         int size;
         GameObject obj;
-        switch (type) {
+        switch (pookieType) {
             case DamageElement.DamageType.FIRE:
                 size = GaugeSubstract(35);
                 obj = Instantiate(firePookiePrefab, vacuum.nozzle.transform.position, Quaternion.identity);
