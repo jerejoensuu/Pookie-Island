@@ -17,8 +17,14 @@ public class PlayerMovement : MonoBehaviour {
 
     // GroundCheck:
     internal RaycastHit rayHit;
-    internal bool grounded;
     internal Vector3 center, size;
+    /* Coyote time WIP
+    public int coyoteTime = 30;
+    [SerializeField] int runningCoyoteTime = 0;
+    bool coyoteTimeActive = false;
+    */
+    public bool grounded => GroundCheck();
+    int notGroundedCounter = 0;
 
 
     void Start() {
@@ -34,7 +40,21 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     public void HandleMovement() {
-        if (!controller.isGrounded && jumps > 1) jumps = 1;
+        if (SaveUtils.health <= 0) return;
+
+        /* Coyote time WIP
+        if (!grounded && !coyoteTimeActive && jumps == 2) {
+            StartCoroutine(CountCoyoteTime());
+        } else if (grounded) {
+            StopCoroutine(CountCoyoteTime());
+            runningCoyoteTime = 0;
+            coyoteTimeActive = false;
+        }
+        if (coyoteTimeActive) Debug.Log(runningCoyoteTime);
+        */
+
+        if (!grounded && jumps > 1) jumps = 1;
+
 
         if (!knockedBack) controller.Move(movement * Time.deltaTime);
 
@@ -47,14 +67,14 @@ public class PlayerMovement : MonoBehaviour {
             player.knockbackHandler.HandleKnockback();
         }
         
-        if (knockedBack == true) knockedBack = !controller.isGrounded;
+        if (knockedBack == true) knockedBack = !grounded;
         camTarget.transform.position = player.transform.position + (Vector3.up * player.cameraHeight); // move camera to player:
     }
 
     void ApplyGravity() {
         bool falling = movement.y <= 0;
         float gravity = !knockedBack ? player.gravity : player.gravity * 0.25f;
-        if (controller.isGrounded & falling) { //TODO Remove "falling" if it causes problems
+        if (grounded & falling) { //TODO Remove "falling" if it causes problems
             movement.y = player.groudedGravity;
         } else if (falling) {
             movement.y += gravity * player.fallMultiplier * Time.deltaTime;
@@ -64,7 +84,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void HandleJump() {
-        if (jumpPressed && (controller.isGrounded || jumps > 0)) {
+        if (jumpPressed && (grounded || jumps > 0)) {
             if (jumps == 2) {
                 movement.y = player.jumpSpeed;
                 player.anim.animator.SetTrigger("jump");
@@ -74,13 +94,24 @@ public class PlayerMovement : MonoBehaviour {
             }
             jumpPressed = false;
             jumps--;
-        } else if (controller.isGrounded && !jumpPressed) {
+        } else if (grounded && !jumpPressed) {
             player.anim.animator.SetTrigger("grounded");
             jumps = 2;
         }
-
-        
     }
+
+    /* Coyote time WIP
+    IEnumerator CountCoyoteTime() {
+        if (coyoteTimeActive) yield break;
+        coyoteTimeActive = true;
+        runningCoyoteTime = coyoteTime;
+        while (runningCoyoteTime > 0) {
+            runningCoyoteTime--;
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+        coyoteTimeActive = false;
+    }
+    */
     
     void HandleWalk() {
         // dampen movement:
@@ -129,5 +160,19 @@ public class PlayerMovement : MonoBehaviour {
             yield return new WaitForSeconds(Time.deltaTime);
         }
         autoTurningPlayer = false;
+    }
+
+    bool GroundCheck() {
+        bool g = (controller.collisionFlags == CollisionFlags.Below
+                || controller.collisionFlags == CollisionFlags.CollidedBelow
+                || controller.isGrounded);
+
+        if (g) {
+            notGroundedCounter = 0;
+        } else if (!g) {
+            notGroundedCounter++;
+        }
+
+        return notGroundedCounter < 1; // increase if not enough
     }
 }
