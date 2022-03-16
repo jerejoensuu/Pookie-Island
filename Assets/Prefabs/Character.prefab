@@ -101,7 +101,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5400902743268753249}
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
-  m_LocalPosition: {x: -0.7, y: -0.82, z: -0.41}
+  m_LocalPosition: {x: 0, y: -0.82, z: 0}
   m_LocalScale: {x: 8.8245, y: 10.754, z: 10.0975}
   m_Children: []
   m_Father: {fileID: 8215064959487701044}
@@ -209,7 +209,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8215064959487701045}
   m_LocalRotation: {x: -0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.449, z: 0.335}
+  m_LocalPosition: {x: 0.059, y: 0.449, z: 0.266}
   m_LocalScale: {x: 0.1, y: 0.10000001, z: 0.10000001}
   m_Children:
   - {fileID: 5728086555753525504}
@@ -234,7 +234,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8215064959487701045}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -502,8 +502,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   vacuum: {fileID: 2831179270947530452}
-  type: 0
   GaugeUI: {fileID: 0}
+  GaugePookieDisplay: {fileID: 0}
+  firePookieUIImage: {fileID: 0}
+  icePookieUIImage: {fileID: 0}
+  waterPookieUIImage: {fileID: 0}
+  bulletPookieUIImage: {fileID: 0}
   firePookiePrefab: {fileID: 0}
   icePookiePrefab: {fileID: 0}
   waterPookiePrefab: {fileID: 0}
