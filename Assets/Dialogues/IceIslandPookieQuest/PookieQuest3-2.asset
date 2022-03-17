@@ -14,9 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   priority: 2
   requiredFlags:
-  - PookieQuestRead
+  - PookieQuestInitiate
   disabledByFlags: []
   dialogueBoxes:
-  - My friends are still out there...
-  - I hope they're ok...
-  FlagToSet: PookieQuestActivated
+  - My friends are still out there... I hope they're ok...
+  FlagToSet: 
