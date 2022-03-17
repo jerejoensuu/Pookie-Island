@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7861d8c10f78ef14d81f03922e485eaf, type: 3}
+  m_Name: TutorialGreeting
+  m_EditorClassIdentifier: 
+  priority: 5
+  requiredFlags: []
+  disabledByFlags:
+  - IntroductionsDone
+  dialogueBoxes:
+  - Oh, you startled me! Where did you come from?
+  - You came from another world, is that right? Well, lucky for you, I've been around
+    for a while, so I'd be happy to be to be your guide.
+  - 'First things first, let me tell you a little bit about our world. Our world
+    consists of 3 islands. The main Island is probably where you wanna go from here,
+    it''s the home of my people. '
+  - The other islands, well... They're mostly populated by what we call "Pookies".
+    There are three different elemental types, plus a hard headed one that's really
+    good at breaking stuff.
+  - There are also lots of valuable crystals scattered around the islands. Maybe
+    you can make use of the Pookies' powers to collect some of those crystals!
+  - 'I''ll quickly show you how you can make use of that tool of yours in this world. '
+  - WASD - Move
+  - Space - Jump
+  - E - Interact
+  - Right Mouse Button - Vaccuum in
+  - Left Mouse Button - Use Vaccuum
+  - Q - Eject
+  FlagToSet: IntroductionsDone
