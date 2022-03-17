@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1893448595, guid: a040fb66244a7f54289914d98ea4ef7d, type: 3}
+  m_Name: SceneTransitionTrigger
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"graph":{"variables":{"collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":0.0,"y":0.0},"zoom":1.0,"elements":[{"nest":{"source":"Macro","macro":0,"embed":null},"defaultValues":{"TagToTriggerAgainst":{"$content":"Player","$type":"System.String"}},"position":{"x":-328.0,"y":-77.0},"guid":"b57e67a9-ed6d-4765-9fb1-8c781043dd14","$version":"A","$type":"Bolt.SuperUnit","$id":"9"},{"chainable":false,"member":{"name":"DoTransition","parameterTypes":[],"targetType":"TransitionToScene","targetTypeName":"TransitionToScene","$version":"A"},"defaultValues":{"target":null},"position":{"x":48.0,"y":-77.0},"guid":"23a543e8-54f5-4dc6-be6f-90ce84d356a0","$version":"A","$type":"Bolt.InvokeMember","$id":"12"},{"sourceUnit":{"$ref":"9"},"sourceKey":"Triggered","destinationUnit":{"$ref":"12"},"destinationKey":"enter","guid":"1030d5b1-e895-466d-aa87-73c2dd89188a","$type":"Bolt.ControlConnection"}],"$version":"A"}}'
+    _objectReferences:
+    - {fileID: 11400000, guid: 4d00e60cf3191dc47b57a0a110aec453, type: 2}
