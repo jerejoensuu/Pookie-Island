@@ -15,7 +15,8 @@ MonoBehaviour:
   priority: 2
   requiredFlags:
   - PookieQuestInitiate
-  disabledByFlags: []
+  disabledByFlags:
+  - PookieQuestAll
   dialogueBoxes:
   - My friends are still out there... I hope they're ok...
   FlagToSet: 
