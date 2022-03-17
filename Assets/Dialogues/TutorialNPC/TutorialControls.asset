@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: TutorialControls
   m_EditorClassIdentifier: 
   priority: 10
-  requiredFlags: []
-  disabledByFlags:
-  - TutorialDone
+  requiredFlags:
+  - IntroductionsDone
+  disabledByFlags: []
   dialogueBoxes:
   - That's all for now. Go out there and try to find all the crystals, I'm rooting
     for you!
-  - Go behind me now to get to the main island. Good luck!
+  - Go towards the center of this island now, to be transported to the main island.
+    Good luck!
   FlagToSet: TutorialDone

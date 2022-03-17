@@ -34,7 +34,6 @@ Transform:
   m_LocalScale: {x: 1.8505002, y: 1.8505, z: 1.8505002}
   m_Children:
   - {fileID: 7158419407065487982}
-  - {fileID: 6492646920523467084}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -89,7 +88,7 @@ MonoBehaviour:
     _json: '{"declarations":{"collection":{"$content":[{"name":"MaximumIdleTime","value":{"$content":5.0,"$type":"System.Single"},"$version":"A"},{"name":"Animator","value":{"$content":0,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"FlagToCheck","value":{"$content":"TorchQuestCompleted","$type":"System.String"},"$version":"A"},{"name":"ChildToActivate","value":{"$content":1,"$type":"UnityEngine.Object"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
     _objectReferences:
     - {fileID: 7268081902179581313}
-    - {fileID: 5859556215249802230}
+    - {fileID: 0}
 --- !u!114 &7268081902287235788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,73 +137,6 @@ MonoBehaviour:
     _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
     _objectReferences:
     - {fileID: 11400000, guid: 097911fc084cd0b43958b020944a5061, type: 2}
---- !u!1001 &752443696
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 7268081902287235789}
-    m_Modifications:
-    - target: {fileID: 5859556215591072454, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-      propertyPath: m_Name
-      value: Crystal_VillageTorchQuest
-      objectReference: {fileID: 0}
-    - target: {fileID: 6492646921114265724, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6492646921114265724, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -2.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 6492646921114265724, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.34
-      objectReference: {fileID: 0}
-    - target: {fileID: 6492646921114265724, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 6492646921114265724, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.63477945
-      objectReference: {fileID: 0}
-    - target: {fileID: 6492646921114265724, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.63455796
-      objectReference: {fileID: 0}
-    - target: {fileID: 6492646921114265724, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.31181663
-      objectReference: {fileID: 0}
-    - target: {fileID: 6492646921114265724, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0.3117078
-      objectReference: {fileID: 0}
-    - target: {fileID: 6492646921114265724, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -89.98
-      objectReference: {fileID: 0}
-    - target: {fileID: 6492646921114265724, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6492646921114265724, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
---- !u!1 &5859556215249802230 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5859556215591072454, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-  m_PrefabInstance: {fileID: 752443696}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &6492646920523467084 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6492646921114265724, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-  m_PrefabInstance: {fileID: 752443696}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7268081902179581317
 PrefabInstance:
   m_ObjectHideFlags: 0

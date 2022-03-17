@@ -33,7 +33,15 @@ public class PuzzleController : Interactable {
         }
     }
 
-    private void OnHardReset(Interactable interactable) {
+    private void OnHardReset(Interactable _) {
+        if (completed) {
+            foreach (Interactable interactable in interactionsRequiredToComplete) {
+                interactable.OnInteraction += OnSet;
+            }
+            foreach (Interactable interactable in interactionsThatResetPartialCompletion) {
+                interactable.OnInteraction += OnUnset;
+            }
+        }
         completed = false;
         set.Clear();
         OnReset?.Invoke(this);

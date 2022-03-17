@@ -34,7 +34,6 @@ Transform:
   m_LocalScale: {x: 1.8505, y: 1.8505, z: 1.8505}
   m_Children:
   - {fileID: 7810266496147290049}
-  - {fileID: 3564609982120341223}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -89,7 +88,7 @@ MonoBehaviour:
     _json: '{"declarations":{"collection":{"$content":[{"name":"Animator","value":{"$content":0,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"FlagToCheck","value":{"$content":"QuestDialogueDone","$type":"System.String"},"$version":"A"},{"name":"ChildToActivate","value":{"$content":1,"$type":"UnityEngine.Object"},"$version":"A"},{"name":"MaximumIdleTime","value":{"$content":3,"$type":"System.Int32"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
     _objectReferences:
     - {fileID: 7775775377703768110}
-    - {fileID: 4193934581703406685}
+    - {fileID: 0}
 --- !u!114 &7775775377294509923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,93 +137,6 @@ MonoBehaviour:
     _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
     _objectReferences:
     - {fileID: 11400000, guid: 097911fc084cd0b43958b020944a5061, type: 2}
---- !u!1001 &7737898967640606363
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 7775775377294509922}
-    m_Modifications:
-    - target: {fileID: 5859556215591072454, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-      propertyPath: m_Name
-      value: CoconutQuestCrystal
-      objectReference: {fileID: 0}
-    - target: {fileID: 5859556215591072454, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6492646921114265724, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6492646921114265724, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 20.35676
-      objectReference: {fileID: 0}
-    - target: {fileID: 6492646921114265724, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 20.35676
-      objectReference: {fileID: 0}
-    - target: {fileID: 6492646921114265724, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 20.35676
-      objectReference: {fileID: 0}
-    - target: {fileID: 6492646921114265724, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 2.170001
-      objectReference: {fileID: 0}
-    - target: {fileID: 6492646921114265724, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.36900008
-      objectReference: {fileID: 0}
-    - target: {fileID: 6492646921114265724, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.9300028
-      objectReference: {fileID: 0}
-    - target: {fileID: 6492646921114265724, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7072302
-      objectReference: {fileID: 0}
-    - target: {fileID: 6492646921114265724, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7069834
-      objectReference: {fileID: 0}
-    - target: {fileID: 6492646921114265724, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6492646921114265724, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6492646921114265724, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -89.98
-      objectReference: {fileID: 0}
-    - target: {fileID: 6492646921114265724, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6492646921114265724, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7838230683703713048, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-      propertyPath: _data._json
-      value: '{"declarations":{"collection":{"$content":[{"name":"FlagToSet","value":{"$content":"CoconutQuestCrystal","$type":"System.String"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
---- !u!1 &4193934581703406685 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5859556215591072454, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-  m_PrefabInstance: {fileID: 7737898967640606363}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &3564609982120341223 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6492646921114265724, guid: 8e65df1fd7eaea14e8ce786087fd5218, type: 3}
-  m_PrefabInstance: {fileID: 7737898967640606363}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7775775377703768106
 PrefabInstance:
   m_ObjectHideFlags: 0

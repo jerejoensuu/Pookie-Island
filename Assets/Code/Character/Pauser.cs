@@ -23,12 +23,12 @@ public class Pauser : MonoBehaviour {
 
     public void PauseAllExceptMe() {
         stopAll -= DoStop;
-        stopAll.Invoke();
+        stopAll?.Invoke();
         stopAll += DoStop;
     }
     
     public static void ResumeAll() {
-        resumeAll.Invoke();
+        resumeAll?.Invoke();
     }
 
     private void Start() {
