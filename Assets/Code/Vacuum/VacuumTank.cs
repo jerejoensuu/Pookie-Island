@@ -98,7 +98,6 @@ public class VacuumTank : MonoBehaviour {
         if (carriedObject != null) DropObject();
         else if (currentlyHeldInTank == null) EjectPookie();
         else EjectObject();
-        vacuum.player.anim.animator.SetTrigger("shoot");
     }
 
     public void EjectPookie() {
@@ -125,6 +124,7 @@ public class VacuumTank : MonoBehaviour {
             default:
                 return;
         }
+        vacuum.player.anim.animator.SetTrigger("shoot");
         obj.SetActive(true);
         vacuum.PutOnCooldown(obj, 120);
     }
@@ -138,6 +138,7 @@ public class VacuumTank : MonoBehaviour {
         float force = 5;
         rb.AddForce(vacuum.player.model.transform.forward * force, ForceMode.Impulse);
         currentlyHeldInTank = null;
+        vacuum.player.anim.animator.SetTrigger("shoot");
     }
 
     void DropObject() {
