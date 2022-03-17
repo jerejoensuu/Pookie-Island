@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7861d8c10f78ef14d81f03922e485eaf, type: 3}
+  m_Name: FarmerGreetings
+  m_EditorClassIdentifier: 
+  priority: 3
+  requiredFlags: []
+  disabledByFlags: []
+  dialogueBoxes:
+  - Haven't seen ya kind in a while... Watcha doing here? Ain't ya fluffy peeps afraid
+    of pookies?
+  - Although ya do seem different.. Can feel it through that tin can you hide yaself
+    in!
+  - Heard from that old jacker ya need those crystals to repair that big flying saucer,
+    ain't that right?
+  - Got a few myself, but ya gotta earn em! Ma back's not what it used to be, and
+    the farm could use a extra hand.. Whaddaya say?
+  FlagToSet: FarmerGreeted

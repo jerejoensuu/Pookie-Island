@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7861d8c10f78ef14d81f03922e485eaf, type: 3}
+  m_Name: CropsQuestInitiate
+  m_EditorClassIdentifier: 
+  priority: 3
+  requiredFlags:
+  - FarmerGreeted
+  disabledByFlags: []
+  dialogueBoxes:
+  - Haha, knew u'd come along! Ain't the first time one of ya fluffy balls help us
+    out.
+  - See those crops? Haven't produced anything in a while, guess the earth is growing
+    tired of ma old products.
+  - Plain water doesn't help, but I know for a fact the water produced by those blue
+    pookies has.. you won't believe it.. MAGICAL PROPERTIES!
+  - But that old Baba is way too far in her days to go run after dem fidgetty pookies!
+  - Go grab one of em and try watering those crops with its water! Ya'd be a dear.
+  FlagToSet: CropsQuestInitiated
