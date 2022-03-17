@@ -1,6 +1,8 @@
 <br />
-<h1 align="center">Pookies</h1>
-<h4 align="center">A short one sentence summary of the game</h4>
+<div align="center">
+<h1>Pookies</h1>
+<h4>A short one sentence summary of the game</h4>
+</div>
 <br />
 
 ## Description
