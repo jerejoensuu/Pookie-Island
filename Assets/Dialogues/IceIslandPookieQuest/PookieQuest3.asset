@@ -16,9 +16,7 @@ MonoBehaviour:
   requiredFlags:
   - PookieQuestActivated
   - PookieQuestAll
-  disabledByFlags:
-  - PookieQuestCompleteSome
-  - PookieQuestCompleteMurderer
+  disabledByFlags: []
   dialogueBoxes:
   - You found them ! Thank you so much! Here's your reward as promised !
   FlagToSet: PookieQuestCompleteAll
