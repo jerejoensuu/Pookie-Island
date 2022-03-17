@@ -16,9 +16,7 @@ MonoBehaviour:
   requiredFlags:
   - PookieQuestActivated
   - PookieQuestSome
-  disabledByFlags:
-  - PookieQuestCompleteAll
-  - PookieQuestCompleteMurderer
+  disabledByFlags: []
   dialogueBoxes:
   - '*mutters* Take these shards and leave me alone ! You cruel beast ! *SOBS*'
   FlagToSet: PookieQuestCompleteSome
