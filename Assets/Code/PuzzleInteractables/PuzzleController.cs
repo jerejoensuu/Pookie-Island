@@ -7,7 +7,7 @@ public class PuzzleController : Interactable {
     public List<Interactable> interactionsThatHardResetCompletion;
 
     private HashSet<Interactable> set = new HashSet<Interactable>();
-    private bool completed = false;
+    private bool completed;
 
     private void Awake() {
         foreach (Interactable interactable in interactionsRequiredToComplete) {

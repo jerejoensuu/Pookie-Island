@@ -1,36 +1,29 @@
 using Bolt;
-using Ludiq;
 using UnityEngine.InputSystem;
 
-[UnitTitle("On Input Cancel")]
-[UnitCategory("Events")]
-public class OnUICancelUnit : EventUnit<bool> {
-
-    GraphReference graphReference;
+public class OnUICancelListener : DelegateHandler {
+    
     private Inputs inputListener;
 
-    protected override bool register => false;
-
-    public override void StartListening(GraphStack stack) {
-        graphReference = stack.AsReference();
-        Data elementData = stack.GetElementData<Data>(this);
-        if (elementData.isListening) return;
+    public override void AssignListeners() {
         inputListener = new Inputs();
         inputListener.Enable();
         inputListener.UI.Cancel.performed += CancelOnperformed;
-        elementData.isListening = true;
     }
 
     private void CancelOnperformed(InputAction.CallbackContext obj) {
-        Trigger(graphReference, true);
+        Run();
     }
 
-    public override void StopListening(GraphStack stack) {
-        Data elementData = stack.GetElementData<Data>(this);
-        if (!elementData.isListening) return;
+    public override void UnassignListeners() {
+        inputListener.Disable();
         inputListener.UI.Cancel.performed -= CancelOnperformed;
-        inputListener.Dispose();
-        inputListener = null;
-        elementData.isListening = false;
     }
+}
+
+[UnitTitle("On Input Cancel")]
+[UnitCategory("Events")]
+public class OnUICancelUnit : DelegateEventUnit<OnUICancelListener> {
+
+    protected override OnUICancelListener InstantiateHandler() => new OnUICancelListener();
 }

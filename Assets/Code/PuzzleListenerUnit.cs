@@ -1,7 +1,6 @@
 ﻿using System.Collections.Generic;
 using Bolt;
 using Ludiq;
-using UnityEngine;
 
 [UnitCategory("Events")]
 [UnitTitle("Puzzle Listener")]
@@ -31,9 +30,6 @@ public class PuzzleListenerUnit : EventUnit<bool> {
         onInteraction = ControlOutput(nameof(onInteraction));
         onReset = ControlOutput(nameof(onReset));
         interactable = ValueInput<Interactable>(nameof(interactable));
-        
-        //Succession(setListener, trigger);
-        //Requirement(interactable, setListener);
     }
 
     public override void StopListening(GraphStack stack) {
