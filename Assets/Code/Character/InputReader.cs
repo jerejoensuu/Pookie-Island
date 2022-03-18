@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -14,6 +15,11 @@ public class InputReader : MonoBehaviour {
         inputs = new Inputs();
         GlobalEvent.GamePaused += GamePaused;
         GlobalEvent.GameUnpaused += GameUnpaused;
+    }
+
+    private void OnDestroy() {
+        GlobalEvent.GamePaused -= GamePaused;
+        GlobalEvent.GameUnpaused -= GameUnpaused;
     }
 
     private void GameUnpaused() {
