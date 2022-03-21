@@ -42,6 +42,9 @@ ModelImporter:
   - first:
       74: 7074011894159471936
     second: Armature|vacuum_knockback
+  - first:
+      74: -4403204788856242974
+    second: Armature|roll
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -85,7 +88,7 @@ ModelImporter:
       takeName: Armature|crystal_got
       internalID: 0
       firstFrame: 0
-      lastFrame: 17
+      lastFrame: 34
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -114,7 +117,7 @@ ModelImporter:
       takeName: Armature|death
       internalID: 0
       firstFrame: 0
-      lastFrame: 57
+      lastFrame: 114
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -143,7 +146,7 @@ ModelImporter:
       takeName: Armature|idle_basic
       internalID: 0
       firstFrame: 0
-      lastFrame: 49
+      lastFrame: 98
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -172,7 +175,7 @@ ModelImporter:
       takeName: Armature|idle_with_turning
       internalID: 0
       firstFrame: 0
-      lastFrame: 159
+      lastFrame: 318
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -201,7 +204,7 @@ ModelImporter:
       takeName: Armature|jump_double
       internalID: 0
       firstFrame: 0
-      lastFrame: 29
+      lastFrame: 58
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -230,7 +233,7 @@ ModelImporter:
       takeName: Armature|jump_no_launch
       internalID: 0
       firstFrame: 0
-      lastFrame: 21
+      lastFrame: 42
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -259,7 +262,7 @@ ModelImporter:
       takeName: Armature|jump_with_launch
       internalID: 0
       firstFrame: 0
-      lastFrame: 25
+      lastFrame: 50
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -288,7 +291,7 @@ ModelImporter:
       takeName: Armature|run
       internalID: 0
       firstFrame: 0
-      lastFrame: 15
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -317,7 +320,7 @@ ModelImporter:
       takeName: Armature|use
       internalID: 0
       firstFrame: 0
-      lastFrame: 10
+      lastFrame: 28
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -346,7 +349,7 @@ ModelImporter:
       takeName: Armature|vacuum
       internalID: 0
       firstFrame: 0
-      lastFrame: 8
+      lastFrame: 16
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -375,7 +378,7 @@ ModelImporter:
       takeName: Armature|vacuum_knockback
       internalID: 0
       firstFrame: 0
-      lastFrame: 15
+      lastFrame: 30
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -405,6 +408,35 @@ ModelImporter:
       internalID: 0
       firstFrame: 0
       lastFrame: 29
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|roll
+      takeName: Armature|roll
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 25
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
