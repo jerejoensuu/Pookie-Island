@@ -12,6 +12,12 @@ public class PlayerMovement : MonoBehaviour {
     private float accel = 0;
 
     internal bool moving, jumping, jumpPressed, autoTurningPlayer;
+    public float rollingProgress = 0;
+    public float rollSpeed = 2;
+    float runningRollSpeed = 0;
+    public float rollTimer;
+    public float rollLength = 1;
+
     public bool knockedBack = false;
     int jumps = 2;
 
@@ -31,6 +37,7 @@ public class PlayerMovement : MonoBehaviour {
         controller = GetComponent<CharacterController>();
         camTarget = player.vcamera.camTarget;
         SetupJumpVariables();
+        rollTimer = rollSpeed;
     }
 
     void SetupJumpVariables() {
@@ -54,7 +61,6 @@ public class PlayerMovement : MonoBehaviour {
         */
 
         if (!grounded && jumps > 1) jumps = 1;
-
 
         if (!knockedBack) controller.Move(movement * Time.deltaTime);
 
@@ -114,6 +120,8 @@ public class PlayerMovement : MonoBehaviour {
     */
     
     void HandleWalk() {
+        if (rollingProgress > 0) return;
+
         // dampen movement:
         if (moving) {
             if (grounded) {
@@ -140,6 +148,30 @@ public class PlayerMovement : MonoBehaviour {
 
         // Movement in relation to the camera:
         movement = Quaternion.AngleAxis(camTarget.transform.eulerAngles.y, Vector3.up) * movement;
+    }
+
+    public IEnumerator Roll() {
+        rollTimer = 0;
+        float startingSpeed = Mathf.Abs(movement.magnitude);
+
+        while(rollTimer <= rollLength) {
+            if (rollTimer == 0) player.anim.animator.SetTrigger("roll");
+            if (rollTimer <= rollLength / 2) {
+                // increase speed
+                movement.z = rollSpeed * (rollTimer / (rollLength / 2));
+                if (Mathf.Abs(movement.magnitude) < startingSpeed) movement.z = startingSpeed;
+            } else {
+                // decrease speed
+                movement.z = rollSpeed * (1 - ((rollTimer - (rollLength / 2)) / (rollLength / 2)));
+            }
+            movement.x = 0;
+            movement = Quaternion.AngleAxis(player.model.transform.eulerAngles.y, Vector3.up) * movement;
+
+            yield return new WaitForSeconds(Time.deltaTime);
+            rollTimer += Time.deltaTime;
+            rollingProgress = rollTimer / rollLength;
+        }
+        rollingProgress = 0;
     }
 
     public Vector3 GetTrueDirection() {
