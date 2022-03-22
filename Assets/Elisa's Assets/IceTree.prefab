@@ -171,6 +171,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3990204677617506863}
+  - component: {fileID: 2013307617417341869}
+  - component: {fileID: 4455764702349296870}
   m_Layer: 0
   m_Name: IceTree
   m_TagString: Untagged
@@ -195,6 +197,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &2013307617417341869
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6182375599887806730}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 4.045597
+  m_Direction: 1
+  m_Center: {x: 0, y: 1.5227985, z: 0}
+--- !u!65 &4455764702349296870
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6182375599887806730}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.3840504, y: 3.7819374, z: 3.9339447}
+  m_Center: {x: -0.025409937, y: 4.0008903, z: -0.08403945}
 --- !u!1 &8603806673997099855
 GameObject:
   m_ObjectHideFlags: 0
