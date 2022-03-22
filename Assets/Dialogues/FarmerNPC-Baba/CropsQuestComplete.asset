@@ -10,10 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7861d8c10f78ef14d81f03922e485eaf, type: 3}
-  m_Name: PieceOfDialogue
+  m_Name: CropsQuestComplete
   m_EditorClassIdentifier: 
-  priority: 0
-  requiredFlags: []
+  priority: 5
+  requiredFlags:
+  - CropsWatered
+  - FarmerGreeted
   disabledByFlags: []
-  dialogueBoxes: []
-  FlagToSet: 
+  dialogueBoxes:
+  - ' OH MAMA! Would ya look at these appetizing cornucchini! Told ya this pookie
+    water is magical.. '
+  - Here kid, take this big ol crystal, ya deserved it by helping our lil' community.
+    But do come again, I could use more help.
+  FlagToSet: CropsQuestCompleted

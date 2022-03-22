@@ -2,6 +2,7 @@ using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 
@@ -15,6 +16,7 @@ public class SceneLoader : MonoBehaviour {
     
     private SceneInstance currentScene;
     private AssetReference currentSceneReference;
+    private AsyncOperationHandle currentSceneHandle;
     private Scene defaultScene;
 
     private static SceneLoader instance;
@@ -65,9 +67,23 @@ public class SceneLoader : MonoBehaviour {
     }
 
     public void LoadScene(AssetReference toLoad, GameState state = GameState.MENU) {
-        UnloadScene();
         loadingScene.SetActive(true);
+        if (!default(SceneInstance).Equals(currentScene)) {
+            SceneManager.SetActiveScene(defaultScene);
+            Addressables.UnloadSceneAsync(currentScene).Completed += _ => {
+                if (currentSceneHandle.IsValid()) Addressables.Release(currentSceneHandle);
+                currentScene = default;
+                currentSceneReference = null;
+                Resources.UnloadUnusedAssets().completed += _ => LoadSceneInternal(toLoad, state);
+            };
+        } else {
+            LoadSceneInternal(toLoad, state);
+        }
+    }
+
+    private void LoadSceneInternal(AssetReference toLoad, GameState state = GameState.MENU) {
         Addressables.LoadSceneAsync(toLoad, LoadSceneMode.Additive, false).Completed += operationHandle => {
+            currentSceneHandle = operationHandle;
             currentScene = operationHandle.Result;
             currentSceneReference = toLoad;
             operationHandle.Result.ActivateAsync().completed += _ => {
@@ -84,11 +100,5 @@ public class SceneLoader : MonoBehaviour {
                 DynamicGI.UpdateEnvironment();
             };
         };
-    }
-
-    public void UnloadScene() {
-        if (default(SceneInstance).Equals(currentScene)) return;
-        SceneManager.SetActiveScene(defaultScene);
-        Addressables.UnloadSceneAsync(currentScene);
     }
 }
