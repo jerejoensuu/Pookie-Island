@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 2319381359356568848}
   - component: {fileID: 1702293157310589621}
   - component: {fileID: 3493445113810755199}
+  - component: {fileID: 3938902386064531405}
+  - component: {fileID: 6856178118230512949}
   m_Layer: 0
   m_Name: Shard
   m_TagString: Untagged
@@ -25,8 +27,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3133319664959766442}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -2, y: 10, z: -77}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 17, y: 17, z: 52}
   m_Children: []
   m_Father: {fileID: 0}
@@ -81,3 +83,29 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3938902386064531405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3133319664959766442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14fcc89d279e405abaf7a50c01acbcc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &6856178118230512949
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3133319664959766442}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.015
+  m_Height: 0.02
+  m_Direction: 2
+  m_Center: {x: 0.0001453883, y: 0.0004298395, z: -0.0001505939}
