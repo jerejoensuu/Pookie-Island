@@ -36,6 +36,7 @@ public class InputReader : MonoBehaviour {
         inputs.Player.Move.canceled += ReadMovement;
         inputs.Player.Jump.performed += ReadJump;
         inputs.Player.Jump.canceled += ReadJump;
+        inputs.Player.Roll.performed += ReadRoll;
 
         inputs.Player.Pull.performed += ReadPullInput;
         inputs.Player.Pull.canceled += ReadPullInput;
@@ -68,6 +69,10 @@ public class InputReader : MonoBehaviour {
     void ReadJump(InputAction.CallbackContext context) {
         player.movement.jumpPressed = context.performed;
         player.vcamera.aiming = player.vacuum.pull = false;
+    }
+
+    void ReadRoll(InputAction.CallbackContext context) {
+        StartCoroutine(player.movement.Roll());
     }
 
     void ReadPullInput(InputAction.CallbackContext context) {
@@ -125,6 +130,7 @@ public class InputReader : MonoBehaviour {
         inputs.Player.Move.canceled -= ReadMovement;
         inputs.Player.Jump.performed -= ReadJump;
         inputs.Player.Jump.canceled -= ReadJump;
+        inputs.Player.Roll.performed -= ReadRoll;
 
         inputs.Player.Pull.performed -= ReadPullInput;
         inputs.Player.Pull.canceled -= ReadPullInput;
