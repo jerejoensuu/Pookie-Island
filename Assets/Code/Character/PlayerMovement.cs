@@ -15,6 +15,7 @@ public class PlayerMovement : MonoBehaviour {
     public float rollingProgress = 0;
     public float rollSpeed = 2;
     float runningRollSpeed = 0;
+    public float rollTimer;
     public float rollLength = 1;
 
     public bool knockedBack = false;
@@ -36,6 +37,7 @@ public class PlayerMovement : MonoBehaviour {
         controller = GetComponent<CharacterController>();
         camTarget = player.vcamera.camTarget;
         SetupJumpVariables();
+        rollTimer = rollSpeed;
     }
 
     void SetupJumpVariables() {
@@ -149,31 +151,27 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     public IEnumerator Roll() {
-        if (rollingProgress > 0) yield break;
-        float timer = 0;
+        rollTimer = 0;
         float startingSpeed = Mathf.Abs(movement.magnitude);
 
-        player.model.transform.localScale = new Vector3(2, 1, 2);
-
-
-        while(timer <= rollLength) {
-            if (timer <= rollLength / 2) {
+        while(rollTimer <= rollLength) {
+            if (rollTimer == 0) player.anim.animator.SetTrigger("roll");
+            if (rollTimer <= rollLength / 2) {
                 // increase speed
-                movement.z = rollSpeed * (timer / (rollLength / 2));
+                movement.z = rollSpeed * (rollTimer / (rollLength / 2));
                 if (Mathf.Abs(movement.magnitude) < startingSpeed) movement.z = startingSpeed;
             } else {
                 // decrease speed
-                movement.z = rollSpeed * (1 - ((timer - (rollLength / 2)) / (rollLength / 2)));
+                movement.z = rollSpeed * (1 - ((rollTimer - (rollLength / 2)) / (rollLength / 2)));
             }
             movement.x = 0;
             movement = Quaternion.AngleAxis(player.model.transform.eulerAngles.y, Vector3.up) * movement;
 
             yield return new WaitForSeconds(Time.deltaTime);
-            timer += Time.deltaTime;
-            rollingProgress = timer / rollLength;
+            rollTimer += Time.deltaTime;
+            rollingProgress = rollTimer / rollLength;
         }
         rollingProgress = 0;
-        player.model.transform.localScale = new Vector3(2, 2, 2);
     }
 
     public Vector3 GetTrueDirection() {

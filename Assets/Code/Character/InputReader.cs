@@ -72,7 +72,7 @@ public class InputReader : MonoBehaviour {
     }
 
     void ReadRoll(InputAction.CallbackContext context) {
-        StartCoroutine(player.movement.Roll());
+        if (player.movement.rollTimer > player.movement.rollLength / 2) StartCoroutine(player.movement.Roll());
     }
 
     void ReadPullInput(InputAction.CallbackContext context) {
