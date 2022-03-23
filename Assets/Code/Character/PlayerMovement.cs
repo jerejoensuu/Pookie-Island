@@ -13,7 +13,8 @@ public class PlayerMovement : MonoBehaviour {
 
     internal bool moving, jumping, jumpPressed, autoTurningPlayer;
     public float rollingProgress = 0;
-    public float rollSpeed = 2;
+    public float rollSpeed = 25;
+    public float rollEndSpeed = 5;
     float runningRollSpeed = 0;
     public float rollTimer;
     public float rollLength = 1;
@@ -163,6 +164,7 @@ public class PlayerMovement : MonoBehaviour {
             } else {
                 // decrease speed
                 movement.z = rollSpeed * (1 - ((rollTimer - (rollLength / 2)) / (rollLength / 2)));
+                if (movement.z <= rollEndSpeed) rollTimer = rollLength;
             }
             movement.x = 0;
             movement = Quaternion.AngleAxis(player.model.transform.eulerAngles.y, Vector3.up) * movement;
