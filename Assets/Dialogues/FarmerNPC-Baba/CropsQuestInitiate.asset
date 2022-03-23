@@ -15,7 +15,8 @@ MonoBehaviour:
   priority: 3
   requiredFlags:
   - FarmerGreeted
-  disabledByFlags: []
+  disabledByFlags:
+  - CropsQuestCompleted
   dialogueBoxes:
   - Haha, knew u'd come along! Ain't the first time one of ya fluffy balls help us
     out.

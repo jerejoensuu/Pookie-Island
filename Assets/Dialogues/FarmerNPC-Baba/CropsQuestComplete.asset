@@ -16,9 +16,10 @@ MonoBehaviour:
   requiredFlags:
   - CropsWatered
   - FarmerGreeted
-  disabledByFlags: []
+  disabledByFlags:
+  - CropsQuestCompleted
   dialogueBoxes:
-  - ' OH MAMA! Would ya look at these appetizing cornucchini! Told ya this pookie
+  - 'OH MAMA! Would ya look at these appetizing cornucchini! Told ya this pookie
     water is magical.. '
   - Here kid, take this big ol crystal, ya deserved it by helping our lil' community.
     But do come again, I could use more help.
