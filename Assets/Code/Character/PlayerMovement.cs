@@ -84,7 +84,7 @@ public class PlayerMovement : MonoBehaviour {
         if (grounded & falling) { //TODO Remove "falling" if it causes problems
             movement.y = player.groudedGravity;
         } else if (falling) {
-            movement.y += gravity * player.fallMultiplier * Time.deltaTime;
+            movement.y += gravity * player.fallMultiplier * player.vacuum.elements.jetGravity * Time.deltaTime;
         } else {
             movement.y += gravity * Time.deltaTime;
         }
