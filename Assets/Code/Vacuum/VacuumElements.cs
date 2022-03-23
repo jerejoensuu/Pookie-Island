@@ -13,8 +13,9 @@ public class VacuumElements : MonoBehaviour {
  
     [HideInInspector] public bool use; 
     bool timerRunning, watering; 
-    public float timerSpeed = 20; 
- 
+    public float timerSpeed = 20;
+    public float jetGravity = 1;
+
     void Update() { 
         if (use) Use(); 
     } 
@@ -76,10 +77,16 @@ public class VacuumElements : MonoBehaviour {
     void SprayWater() { 
         if (vacuum.tank.gauge <= 0) return; 
         if (!timerRunning) StartCoroutine(Timer()); 
-        if (!watering) StartCoroutine(WaterTimer()); 
+        if (!watering) {
+            if (vacuum.player.movement.grounded) {
+                StartCoroutine(ForwardJet());
+            } else {
+                StartCoroutine(DownwardJet());
+            } 
+        } 
     } 
  
-    IEnumerator WaterTimer() { 
+    IEnumerator ForwardJet() { 
         watering = true; 
          
         while(use && vacuum.tank.gauge > 0) { 
@@ -94,6 +101,25 @@ public class VacuumElements : MonoBehaviour {
         } 
  
         watering = false; 
+    } 
+
+    IEnumerator DownwardJet() { 
+        watering = true;
+        jetGravity = 0.225f;
+
+        while(use && vacuum.tank.gauge > 0) { 
+            GameObject obj = Instantiate(waterCollider); 
+            obj.transform.position = vacuum.nozzle.transform.position; 
+ 
+            Rigidbody rb = obj.GetComponent<Rigidbody>(); 
+            float force = 70; 
+            rb.AddForce(-vacuum.player.model.transform.up * force, ForceMode.Impulse);
+
+            yield return new WaitForSeconds(.2f); 
+        } 
+ 
+        watering = false;
+        jetGravity = 1;
     } 
  
     IEnumerator Timer() { 
