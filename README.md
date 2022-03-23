@@ -48,7 +48,8 @@ Builds?
 |    ------     |   ------    |     ------     |
 |     Move      |    WASD     |  Left stick    |
 |    Camera     |    Mouse    |  Right stick   |
-|     Jump      |    Space    |    South       |
+|     Jump      |    Space    |     South      |
+|     Roll      |    Ctrl     |     North      |
 | Center camera |      -      |  Right stick   |
 |    Vacuum     | Right mouse | Right trigger  |
 |     Use       |  Left mouse | Right shoulder |
