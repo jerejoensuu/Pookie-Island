@@ -166,8 +166,9 @@ public class PlayerMovement : MonoBehaviour {
                 movement.z = rollSpeed * (1 - ((rollTimer - (rollLength / 2)) / (rollLength / 2)));
                 if (movement.z <= rollEndSpeed) rollTimer = rollLength;
             }
-            movement.x = 0;
+            movement.x = player.inputReader.directionInput.x * 0.5f;
             movement = Quaternion.AngleAxis(player.model.transform.eulerAngles.y, Vector3.up) * movement;
+            // RotatePlayer();
 
             yield return new WaitForSeconds(Time.deltaTime);
             rollTimer += Time.deltaTime;
