@@ -72,6 +72,10 @@ public class InputReader : MonoBehaviour {
     }
 
     void ReadRoll(InputAction.CallbackContext context) {
+        if (!player.movement.controller.isGrounded
+            || player.vacuum.elements.use
+            || player.vacuum.pull
+            || player.vacuum.tank.carriedObject != null) return;
         if (player.movement.rollTimer > player.movement.rollLength / 2) StartCoroutine(player.movement.Roll());
     }
 

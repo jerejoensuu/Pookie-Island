@@ -44,14 +44,14 @@ Builds?
 
 
 ## Controls
-| Controls | KB/M | Gamepad |
-| ------ | ------ | ------ |
-| Move | WASD | Left stick |
-| Camera | Mouse | Right stick |
-| Jump | Space | South |
-| Center camera | - | Right stick |
-| Vacuum | Right mouse | Right trigger |
-| Use | Left mouse | Right shoulder |
-| Eject | Q | Left shoulder |
-| Aim | Shift | Left trigger |
-| Interact | E | East |
+|    Controls   |    KB/M     |    Gamepad     |
+|    ------     |   ------    |     ------     |
+|     Move      |    WASD     |  Left stick    |
+|    Camera     |    Mouse    |  Right stick   |
+|     Jump      |    Space    |    South       |
+| Center camera |      -      |  Right stick   |
+|    Vacuum     | Right mouse | Right trigger  |
+|     Use       |  Left mouse | Right shoulder |
+|    Eject      |      Q      | Left shoulder  |
+|     Aim       |    Shift    |  Left trigger  |
+|   Interact    |      E      |     East       |
