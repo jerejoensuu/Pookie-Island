@@ -292,7 +292,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8215064959659085510}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.4, z: 0}
+  m_LocalPosition: {x: 0, y: 2.1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8215064960512089262}
@@ -374,6 +374,7 @@ MonoBehaviour:
   mouseSensitivity: 12.5
   cameraSpeedModifier: 0.7
   autoRotateSpeed: 30
+  cameraHeight: 0
 --- !u!114 &7244901970205329936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,7 +403,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 8215064960512089256}
   movement: {x: 0, y: 0, z: 0}
+  rollingProgress: 0
   rollSpeed: 2
+  rollEndSpeed: 5
+  rollTimer: 0
   rollLength: 1
   knockedBack: 0
 --- !u!114 &2370099968389096281
@@ -534,6 +538,7 @@ MonoBehaviour:
   fireEffect: {fileID: 0}
   use: 0
   timerSpeed: 7.5
+  jetGravity: 1
 --- !u!114 &8215064960512089257
 MonoBehaviour:
   m_ObjectHideFlags: 0

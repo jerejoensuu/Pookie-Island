@@ -176,7 +176,7 @@ public class PlayerMovement : MonoBehaviour {
         }
         rollingProgress = 0;
     }
-
+    
     public Vector3 GetTrueDirection() {
         return Quaternion.AngleAxis(camTarget.transform.eulerAngles.y, Vector3.up) * new Vector3(player.inputReader.rawInput.x, 0, player.inputReader.rawInput.y);
     }

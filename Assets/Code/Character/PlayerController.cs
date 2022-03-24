@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour {
     public float mouseSensitivity = 2;
     public float cameraSpeedModifier = 0.75f;
     public float autoRotateSpeed;
-    internal float cameraHeight;
+    public float cameraHeight;
 
     Vector3 spawnPoint;
     internal Vector3 softSpawnPoint;
