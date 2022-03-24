@@ -174,4 +174,8 @@ public class VacuumTank : MonoBehaviour {
             return toEject;
         }
     }
+
+    public void ResetTank() {
+        gauge = 0;
+    }
 }
