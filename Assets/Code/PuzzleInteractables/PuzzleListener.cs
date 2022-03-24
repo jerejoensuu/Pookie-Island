@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -15,7 +16,7 @@ public class PuzzleListener : MonoBehaviour {
 
     public enum State { ON, OFF }
 
-    public enum Action { ANIMATOR_TRIGGER, SET_FLAG, ACTIVATE_CHILD, DEACTIVATE_CHILD, SELF_DESTROY }
+    public enum Action { ANIMATOR_TRIGGER, SET_FLAG, ACTIVATE_CHILD, DEACTIVATE_CHILD, SELF_DESTROY, SOFT_RESET_ON_TIMER }
 
     public Action action = Action.ANIMATOR_TRIGGER;
     
@@ -27,6 +28,9 @@ public class PuzzleListener : MonoBehaviour {
     public Animator animator;
     [ShowIf("@action==Action.ACTIVATE_CHILD || action==Action.DEACTIVATE_CHILD")]
     public GameObject child;
+    [ShowIf("@action==Action.SOFT_RESET_ON_TIMER")]
+    public float timer;
+    
     
     private void Awake() {
         if (state == State.ON) interactable.OnInteraction += Execute;
@@ -36,6 +40,11 @@ public class PuzzleListener : MonoBehaviour {
     private void OnDestroy() {
         if (state == State.ON) interactable.OnInteraction -= Execute;
         else interactable.OnReset -= Execute;
+    }
+
+    private IEnumerator OnTimerDone() {
+        yield return new WaitForSeconds(timer);
+        interactable.OnReset?.Invoke(interactable);
     }
 
     private void Execute(Interactable ignored) {
@@ -54,6 +63,9 @@ public class PuzzleListener : MonoBehaviour {
                 break;
             case Action.DEACTIVATE_CHILD:
                 child.SetActive(false);
+                break;
+            case Action.SOFT_RESET_ON_TIMER:
+                StartCoroutine(OnTimerDone());
                 break;
         }
     }
