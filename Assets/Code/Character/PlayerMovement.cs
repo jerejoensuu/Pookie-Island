@@ -15,7 +15,6 @@ public class PlayerMovement : MonoBehaviour {
     public float rollingProgress = 0;
     public float rollSpeed = 25;
     public float rollEndSpeed = 5;
-    float runningRollSpeed = 0;
     public float rollTimer;
     public float rollLength = 1;
 
