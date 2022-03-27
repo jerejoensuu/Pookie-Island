@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 1954535536972279756}
   - component: {fileID: 1954535536972279759}
   - component: {fileID: 1954535536972277813}
+  - component: {fileID: -4126812124827321438}
   m_Layer: 0
   m_Name: WaterPookieTemp
   m_TagString: PookieWater
@@ -250,3 +251,16 @@ MonoBehaviour:
   - {fileID: 1954535536954576842}
   - {fileID: 1954535536972279759}
   - {fileID: 1954535536972279758}
+--- !u!114 &-4126812124827321438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954535536972277812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e12fd5e6f9d3764f8f82f3cbefbb001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 2

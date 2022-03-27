@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2274104037700984489}
   - component: {fileID: 2274104037700984490}
   - component: {fileID: 2274104037700983120}
+  - component: {fileID: -3938174318213392112}
   m_Layer: 0
   m_Name: BulletPookieTemp
   m_TagString: PookieBullet
@@ -119,6 +120,19 @@ MonoBehaviour:
   - {fileID: 2274104037716590255}
   - {fileID: 2274104037700984490}
   - {fileID: 2274104037700984491}
+--- !u!114 &-3938174318213392112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2274104037700983121}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e12fd5e6f9d3764f8f82f3cbefbb001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 3
 --- !u!1 &2274104037716588881
 GameObject:
   m_ObjectHideFlags: 0

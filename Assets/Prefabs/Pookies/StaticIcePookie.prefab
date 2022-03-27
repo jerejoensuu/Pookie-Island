@@ -145,6 +145,7 @@ GameObject:
   - component: {fileID: 2396807540830285507}
   - component: {fileID: 2396807540830285504}
   - component: {fileID: 2396807540830284090}
+  - component: {fileID: -3318091348792600345}
   m_Layer: 0
   m_Name: StaticIcePookie
   m_TagString: PookieIce
@@ -250,3 +251,16 @@ MonoBehaviour:
   - {fileID: 2396807540814417605}
   - {fileID: 2396807540830285504}
   - {fileID: 2396807540830285505}
+--- !u!114 &-3318091348792600345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2396807540830284091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e12fd5e6f9d3764f8f82f3cbefbb001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  type: 1
