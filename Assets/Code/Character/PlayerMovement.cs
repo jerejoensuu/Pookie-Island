@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour {
     
     internal CharacterController controller;
     GameObject camTarget;
+    [SerializeField] Transform groundCheck;
 
     public Vector3 movement;
     private float accel = 0;
@@ -24,11 +25,11 @@ public class PlayerMovement : MonoBehaviour {
     // GroundCheck:
     internal RaycastHit rayHit;
     internal Vector3 center, size;
-    /* Coyote time WIP
+
     public int coyoteTime = 30;
     [SerializeField] int runningCoyoteTime = 0;
     bool coyoteTimeActive = false;
-    */
+
     public bool grounded => GroundCheck();
     int notGroundedCounter = 0;
 
@@ -49,7 +50,6 @@ public class PlayerMovement : MonoBehaviour {
     public void HandleMovement() {
         if (SaveUtils.health <= 0) return;
 
-        /* Coyote time WIP
         if (!grounded && !coyoteTimeActive && jumps == 2) {
             StartCoroutine(CountCoyoteTime());
         } else if (grounded) {
@@ -57,10 +57,6 @@ public class PlayerMovement : MonoBehaviour {
             runningCoyoteTime = 0;
             coyoteTimeActive = false;
         }
-        if (coyoteTimeActive) Debug.Log(runningCoyoteTime);
-        */
-
-        if (!grounded && jumps > 1) jumps = 1;
 
         if (!knockedBack) controller.Move(movement * Time.deltaTime);
 
@@ -106,18 +102,17 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-    /* Coyote time WIP
     IEnumerator CountCoyoteTime() {
         if (coyoteTimeActive) yield break;
         coyoteTimeActive = true;
         runningCoyoteTime = coyoteTime;
-        while (runningCoyoteTime > 0) {
+        while (runningCoyoteTime > 0 && jumps == 2) {
             runningCoyoteTime--;
             yield return new WaitForSeconds(Time.deltaTime);
         }
         coyoteTimeActive = false;
+        jumps = 1;
     }
-    */
     
     void HandleWalk() {
         if (rollingProgress > 0) return;
@@ -197,9 +192,11 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     bool GroundCheck() {
-        bool g = (controller.collisionFlags == CollisionFlags.Below
-                || controller.collisionFlags == CollisionFlags.CollidedBelow
-                || controller.isGrounded);
+        // bool g = (controller.collisionFlags == CollisionFlags.Below
+        //         || controller.collisionFlags == CollisionFlags.CollidedBelow
+        //         || controller.isGrounded);
+
+        bool g = Physics.CheckSphere(groundCheck.position, 0.1f, 1 << 0);
 
         if (g) {
             notGroundedCounter = 0;
@@ -208,5 +205,10 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         return notGroundedCounter < 1; // increase if not enough
+    }
+
+    void OnDrawGizmos() {
+        Gizmos.color = grounded ? Color.green : Color.red;
+        Gizmos.DrawSphere(groundCheck.position, 0.1f);
     }
 }
