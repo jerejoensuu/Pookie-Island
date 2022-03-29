@@ -83,6 +83,7 @@ public class PlayerMovement : MonoBehaviour {
         } else {
             movement.y += gravity * Time.deltaTime;
         }
+        if (movement.y <= player.maxFallSpeed) movement.y = player.maxFallSpeed;
     }
 
     void HandleJump() {

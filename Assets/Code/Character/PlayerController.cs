@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour {
     internal float jumpSpeed;
     public float maxJumpHeight;
     public float maxJumpTime;
+    public float maxFallSpeed;
     public float fallMultiplier = 2;
     public float speed = 15;
     internal float vacuumSpeedMod = 0.5f;
