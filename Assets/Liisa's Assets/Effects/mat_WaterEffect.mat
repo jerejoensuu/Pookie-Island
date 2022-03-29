@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-4679553028591459953
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 4
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: mat_WaterEffect
+  m_Shader: {fileID: -6465566751694194690, guid: c78748351d0dbb04b8eea0f8e70a841d, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _SampleTexture2D_02b325c831ce40d3af6d73d29c92f2a9_Texture_1:
+        m_Texture: {fileID: 2800000, guid: df9e8fde5863f2842a0596a298b275bb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_21403dcff50f49398b0c5121eb986576_Texture_1:
+        m_Texture: {fileID: 2800000, guid: df9e8fde5863f2842a0596a298b275bb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_b498b297e6e8426ebed9c4f8e9b4f9f3_Texture_1:
+        m_Texture: {fileID: 2800000, guid: df9e8fde5863f2842a0596a298b275bb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - AlphaClip_: 1
+    - Dissolve_: 0.468
+    - DistortionSize_: 2.5
+    - DistortionSpeed_: 8.2
+    - Emission_: 1
+    - FresnelGlow: 1
+    - FresnelPower_: 2
+    - NoisePower_: 10
+    - NoiseScale_: 20
+    - TwirlAmount_: 2
+    - Vector1_271cf6474a70435080d9d74b0ed86187: 3
+    - Vector1_3e40560b188247b4aed4e672cc5b0b38: 5
+    - Vector1_fc3c73f13fed44a093f741e4c467b933: -173.9
+    - VertexOffsetAmount_: 0.2
+    m_Colors:
+    - Alpha_: {r: 0, g: 0, b: 0, a: 0}
+    - Color_: {r: 558.29755, g: 712.9273, b: 735.14954, a: 0.6039216}
+    - DarkFoam_: {r: 0.22352937, g: 0.49411762, b: 0.7882354, a: 1}
+    - FresnelColor_: {r: 0.6650944, g: 0.8093744, b: 1, a: 0}
+    - MainColor_: {r: 0.27450976, g: 0.6431373, b: 0.8666667, a: 1}
+    - NoiseSpeed_: {r: 0, g: 0.5, b: 0, a: 0}
+    - TextureSpeed_: {r: -0.88, g: 0.5, b: 0, a: 0}
+    - TwirlCenter_: {r: -0.15, g: 0.5, b: 0, a: 0}
+    - TwirlSpeed_: {r: -0.66, g: 0.5, b: 0, a: 0}
+  m_BuildTextureStacks: []
