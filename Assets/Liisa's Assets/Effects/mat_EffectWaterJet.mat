@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: StylizedWater
+  m_Name: mat_EffectWaterJet
   m_Shader: {fileID: -6465566751694194690, guid: 05a8f975e648fe74f833a690723b6167, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -100,7 +100,7 @@ Material:
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
-    - _Choppiness: 0.003
+    - _Choppiness: 0.05
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
@@ -110,8 +110,8 @@ Material:
     - _DstBlend: 0
     - _EnvironmentReflections: 1
     - _FlowSpeed: 1.29
-    - _FlowStrength: 0.0003
-    - _FoamDistance: 0.21
+    - _FlowStrength: 0
+    - _FoamDistance: 0.77
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -120,7 +120,7 @@ Material:
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Size: -0.17
+    - _Size: -0.15
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
