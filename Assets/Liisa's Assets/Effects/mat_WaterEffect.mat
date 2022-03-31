@@ -32,6 +32,14 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _FlowTexture:
+        m_Texture: {fileID: 2800000, guid: ba651974d6fb46941a7600e35354fe9b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _FoamTexture:
+        m_Texture: {fileID: 2800000, guid: df9e8fde5863f2842a0596a298b275bb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SampleTexture2D_02b325c831ce40d3af6d73d29c92f2a9_Texture_1:
         m_Texture: {fileID: 2800000, guid: df9e8fde5863f2842a0596a298b275bb, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -48,6 +56,10 @@ Material:
         m_Texture: {fileID: 2800000, guid: df9e8fde5863f2842a0596a298b275bb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_ccd0f24ee6574f068e3008210b6dbbe2_Texture_1:
+        m_Texture: {fileID: 2800000, guid: 9698ae86ec9adf4419c9003bce09b31a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -62,29 +74,61 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - AlphaClip_: 1
-    - Dissolve_: 0.468
-    - DistortionSize_: 2.5
-    - DistortionSpeed_: 8.2
+    - BottomBrightness_: 1
+    - BottomStrength_: 3
+    - Dissolve_: 0
+    - DistortionSize_: 0.06
+    - DistortionSpeed_: 1.39
     - Emission_: 1
     - FresnelGlow: 1
     - FresnelPower_: 2
     - NoisePower_: 10
     - NoiseScale_: 20
     - PowerofNoise_: 10
-    - TwirlAmount_: 2
+    - RippleAmount_: 1
+    - TwirlAmount_: 0.7
+    - Vector1_0f83640d91f845ff998791ec24cf7943: 1
+    - Vector1_10e5c5d179dd44fd91788b134a8b3ef6: 1
+    - Vector1_133f6d772cdd4530a917425fc439ba70: 0.1
     - Vector1_271cf6474a70435080d9d74b0ed86187: 3
+    - Vector1_27c5c82ddfef4941be181ce0bb3900b5: 1
+    - Vector1_3b1997d1b05a46718b4133af93dde4fd: 100
     - Vector1_3b52531944334db48b73b1358e74cd91: 0
     - Vector1_3e40560b188247b4aed4e672cc5b0b38: 5
+    - Vector1_4bda2bf0278f498a9b19181297678094: 1
+    - Vector1_4c45f1bac16b428bb6b5409eec219f8b: 10
+    - Vector1_55ef9dd1f9934349a51e5c8bc54d87fc: 0
+    - Vector1_9bbf96f88b844c39ba1888f207ba96af: 1
+    - Vector1_b3336049422043a79e66f3caa9bd7097: 7
+    - Vector1_ce70e2cd35884fc9a221eba2e8a452aa: 5
+    - Vector1_dc90c9dc64344f4eaca2a4ea9c0c2ade: 0.5
     - Vector1_fc3c73f13fed44a093f741e4c467b933: -173.9
-    - VertexOffsetAmount_: 0.2
+    - VertexOffsetAmount_: 0.09
+    - VoronoiScale_: 1
+    - VoronoiSpeed_: 2
+    - _Choppiness: 0.01
+    - _FlowSpeed: 0.01
+    - _FlowStrength: 0.0075
+    - _FoamDistance: 1.5
+    - _Size: 2
     m_Colors:
     - Alpha_: {r: 0, g: 0, b: 0, a: 0}
     - Color_: {r: 558.29755, g: 712.9273, b: 735.14954, a: 0.6039216}
-    - DarkFoam_: {r: 0.22352937, g: 0.49411762, b: 0.7882354, a: 1}
+    - Color_3123eddbaea04602913f4cfcdb515081: {r: 3.203814, g: 3.203814, b: 3.203814, a: 0}
+    - Color_3ee6d25a40bf4e24b71194ac36dbc117: {r: 0.07983268, g: 0.22401935, b: 0.43396226, a: 1}
+    - Color_7b7baecd080f4e01a60a26f644b9d609: {r: 1, g: 1, b: 1, a: 0.7843137}
+    - Color_ae7dd83c36694d3a9d11867a3e34d21f: {r: 0.2156863, g: 0.5529412, b: 0.764706, a: 1}
+    - Color_e397b7c024d244418a8b6b7d8ede2b9d: {r: 0.33610708, g: 0.58472383, b: 0.8584906, a: 1}
+    - Color_f54ab532448e4fd89c5f4bbf627e1e1e: {r: 0.03921566, g: 0.5671724, b: 0.9529411, a: 0}
+    - DarkFoam_: {r: 0.14159843, g: 0.40826192, b: 0.6981132, a: 1}
     - FresnelColor_: {r: 0.6650944, g: 0.8093744, b: 1, a: 0}
     - MainColor_: {r: 0.27450976, g: 0.6431373, b: 0.8666667, a: 1}
     - NoiseSpeed_: {r: 0, g: 0.5, b: 0, a: 0}
+    - RippleSpeed: {r: 0, g: 0.2, b: 0, a: 0}
     - TextureSpeed_: {r: -0.88, g: 0.5, b: 0, a: 0}
     - TwirlCenter_: {r: -0.15, g: 0.5, b: 0, a: 0}
     - TwirlSpeed_: {r: -0.66, g: 0.5, b: 0, a: 0}
+    - _DarkFoamColor: {r: 0.17475078, g: 0.32088697, b: 0.7264151, a: 0}
+    - _LightFoamColor: {r: 0.8944464, g: 0.9196205, b: 0.9433962, a: 0}
+    - _WaterColor: {r: 0.27429688, g: 0.6443611, b: 0.8679245, a: 0}
   m_BuildTextureStacks: []
