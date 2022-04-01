@@ -21,12 +21,12 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: mat_EffectWaterJet
-  m_Shader: {fileID: -6465566751694194690, guid: 05a8f975e648fe74f833a690723b6167, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: c78748351d0dbb04b8eea0f8e70a841d, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -80,6 +80,18 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_02b325c831ce40d3af6d73d29c92f2a9_Texture_1:
+        m_Texture: {fileID: 2800000, guid: df9e8fde5863f2842a0596a298b275bb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_7cc3030578d243ad83740b48e6e50134_Texture_1:
+        m_Texture: {fileID: 2800000, guid: df9e8fde5863f2842a0596a298b275bb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_b498b297e6e8426ebed9c4f8e9b4f9f3_Texture_1:
+        m_Texture: {fileID: 2800000, guid: df9e8fde5863f2842a0596a298b275bb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -97,6 +109,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Dissolve_: 0
+    - DistortionSize_: 3
+    - DistortionSpeed_: 5
+    - PowerofNoise_: 10
+    - TwirlAmount_: 2
+    - VertexOffsetAmount_: 0.2
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -129,6 +147,11 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - DarkFoam_: {r: 0.22352937, g: 0.49411762, b: 0.7882354, a: 1}
+    - MainColor_: {r: 0.27450976, g: 0.6431373, b: 0.8666667, a: 1}
+    - TextureSpeed_: {r: 0, g: 0.5, b: 0, a: 0}
+    - TwirlCenter_: {r: 0.5, g: 0.5, b: 0, a: 0}
+    - TwirlSpeed_: {r: 0, g: 0.5, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DarkFoamColor: {r: 0.11454255, g: 0.413603, b: 0.6226415, a: 0}
