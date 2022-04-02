@@ -451,7 +451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8215064960512089256}
-  knockbackForce: 3
+  knockbackForce: 1.5
 --- !u!114 &2955313067329111445
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -488,7 +488,7 @@ MonoBehaviour:
   vacuumEffect: {fileID: 0}
   nozzleSize: 0.2
   rayDensity: 20
-  spread: 8
+  spread: 14
   distance: 6
   pullForce: 6
   massCutOutPoint: 2
