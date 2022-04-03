@@ -39,6 +39,8 @@ public class PlayerController : MonoBehaviour {
     float softRespawnCounter = 0;
     bool unsafeSpawn = false;
 
+    public Vector3 up => transform.up;
+
     void Start() {
         spawnPoint = softSpawnPoint = transform.position;
     }
