@@ -217,7 +217,7 @@ public class PlayerMovement : MonoBehaviour {
         bool g = Physics.CheckSphere(groundCheck.position, 0.3f, 1 << 0);
 
         // if (movement.y <= 0) {
-            if (Physics.Raycast(groundCheck.position + player.up * 0.3f, -player.up, out groundCheckInfo, 0.6f, 1 << 0, QueryTriggerInteraction.Ignore)) {
+            if (g && Physics.Raycast(groundCheck.position + player.up * 0.3f, -player.up, out groundCheckInfo, 15, 1 << 0, QueryTriggerInteraction.Ignore)) {
                 groundNormal = groundCheckInfo.normal;
                 // groundNormal = new Vector3(Mathf.Round(groundNormal.x * 10) * 0.1f, Mathf.Round(groundNormal.y * 10) * 0.1f, Mathf.Round(groundNormal.z * 10) * 0.1f);
             }
@@ -258,7 +258,6 @@ public class PlayerMovement : MonoBehaviour {
     void SteepSlopeMovement() {
         Vector3 slopeDirection = Vector3.up - groundNormal * Vector3.Dot (Vector3.up, groundNormal);
         movement = slopeDirection * -slideSpeed;
-        Debug.Log(movement);
     }
 
     void OnDrawGizmos() {
