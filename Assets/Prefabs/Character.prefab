@@ -917,6 +917,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: FireEffect
       objectReference: {fileID: 0}
+    - target: {fileID: 4071483922870608610, guid: 69905570926ff514287107dfa8ff0f32, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69905570926ff514287107dfa8ff0f32, type: 3}
 --- !u!4 &651329631649560872 stripped
@@ -1019,7 +1023,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6139615918875009705, guid: f1143d1544455ad4d923e37c6707d065, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6139615918875009706, guid: f1143d1544455ad4d923e37c6707d065, type: 3}
       propertyPath: m_RootOrder
@@ -1064,6 +1068,86 @@ PrefabInstance:
     - target: {fileID: 6139615918875009706, guid: f1143d1544455ad4d923e37c6707d065, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139615918875009707, guid: f1143d1544455ad4d923e37c6707d065, type: 3}
+      propertyPath: simulationSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139615918875009707, guid: f1143d1544455ad4d923e37c6707d065, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139615918875009707, guid: f1143d1544455ad4d923e37c6707d065, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139615918875009707, guid: f1143d1544455ad4d923e37c6707d065, type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139615919765036218, guid: f1143d1544455ad4d923e37c6707d065, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139615919765036218, guid: f1143d1544455ad4d923e37c6707d065, type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139615920251609664, guid: f1143d1544455ad4d923e37c6707d065, type: 3}
+      propertyPath: VelocityModule.radial.scalar
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139615920251609664, guid: f1143d1544455ad4d923e37c6707d065, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: -1.46
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139615920251609664, guid: f1143d1544455ad4d923e37c6707d065, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139615920251609664, guid: f1143d1544455ad4d923e37c6707d065, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 0.78
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139615920251609664, guid: f1143d1544455ad4d923e37c6707d065, type: 3}
+      propertyPath: VelocityModule.speedModifier.scalar
+      value: 1.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139615920251609664, guid: f1143d1544455ad4d923e37c6707d065, type: 3}
+      propertyPath: VelocityModule.orbitalOffsetZ.scalar
+      value: -2.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139615920251609664, guid: f1143d1544455ad4d923e37c6707d065, type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139615920251609664, guid: f1143d1544455ad4d923e37c6707d065, type: 3}
+      propertyPath: TrailModule.colorOverLifetime.maxGradient.atime2
+      value: 57054
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139615920251609664, guid: f1143d1544455ad4d923e37c6707d065, type: 3}
+      propertyPath: TrailModule.colorOverLifetime.maxGradient.ctime0
+      value: 17155
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139615920251609664, guid: f1143d1544455ad4d923e37c6707d065, type: 3}
+      propertyPath: TrailModule.colorOverLifetime.maxGradient.ctime1
+      value: 31804
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139615920251609664, guid: f1143d1544455ad4d923e37c6707d065, type: 3}
+      propertyPath: TrailModule.colorOverLifetime.maxGradient.ctime2
+      value: 51464
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139615920251609664, guid: f1143d1544455ad4d923e37c6707d065, type: 3}
+      propertyPath: TrailModule.colorOverLifetime.maxGradient.key2.a
+      value: 0.5176471
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139615920251609664, guid: f1143d1544455ad4d923e37c6707d065, type: 3}
+      propertyPath: TrailModule.colorOverLifetime.maxGradient.m_NumAlphaKeys
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139615920251609664, guid: f1143d1544455ad4d923e37c6707d065, type: 3}
+      propertyPath: TrailModule.colorOverLifetime.maxGradient.m_NumColorKeys
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f1143d1544455ad4d923e37c6707d065, type: 3}
