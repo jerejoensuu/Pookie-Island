@@ -35816,6 +35816,94 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0
       objectReference: {fileID: 0}
+    - target: {fileID: 2550486846090253573, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: simulationSpeed
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550486846090253573, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: TrailModule.ratio
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550486846090253573, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: TrailModule.textureMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550486846090253573, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: TrailModule.lifetime.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550486846090253573, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: TrailModule.dieWithParticles
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550486846090253573, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: TrailModule.sizeAffectsWidth
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550486846090253573, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550486846090253573, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550486846090253573, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550486846090253573, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: TrailModule.widthOverTrail.scalar
+      value: 4.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550486846090253573, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: EmissionModule.rateOverTime.scalar
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550486846090253573, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: InitialModule.gravityModifier.scalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550486846090253573, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: EmissionModule.rateOverDistance.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550486846090253573, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: CollisionModule.m_EnergyLossOnCollision.scalar
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550486846090253573, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: SubModule.subEmitters.Array.data[1].emitProbability
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550486846090253575, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550486846712517106, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550486846712517106, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550486847382448916, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550486847382448916, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550486847466427886, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 2550486847466427886, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1.26
+      objectReference: {fileID: 0}
     - target: {fileID: 8215064960512089262, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -35876,6 +35964,10 @@ PrefabInstance:
     - target: {fileID: 6139615918875009705, guid: f1143d1544455ad4d923e37c6707d065, type: 3}
       propertyPath: m_Name
       value: WaterJet
+      objectReference: {fileID: 0}
+    - target: {fileID: 6139615918875009705, guid: f1143d1544455ad4d923e37c6707d065, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6139615918875009706, guid: f1143d1544455ad4d923e37c6707d065, type: 3}
       propertyPath: m_RootOrder
