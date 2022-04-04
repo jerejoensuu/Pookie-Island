@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour {
     internal float jumpSpeed;
     public float maxJumpHeight;
     public float maxJumpTime;
+    public float maxFallSpeed;
     public float fallMultiplier = 2;
     public float speed = 15;
     internal float vacuumSpeedMod = 0.5f;
@@ -37,6 +38,8 @@ public class PlayerController : MonoBehaviour {
     internal Vector3 softSpawnPoint;
     float softRespawnCounter = 0;
     bool unsafeSpawn = false;
+
+    public Vector3 up => transform.up;
 
     void Start() {
         spawnPoint = softSpawnPoint = transform.position;

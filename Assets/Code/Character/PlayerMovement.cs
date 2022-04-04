@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour {
     
     internal CharacterController controller;
     GameObject camTarget;
+    [SerializeField] Transform groundCheck;
 
     public Vector3 movement;
     private float accel = 0;
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour {
     public float rollEndSpeed = 5;
     public float rollTimer;
     public float rollLength = 1;
+    public float slideSpeed;
 
     public bool knockedBack = false;
     int jumps = 2;
@@ -24,11 +26,22 @@ public class PlayerMovement : MonoBehaviour {
     // GroundCheck:
     internal RaycastHit rayHit;
     internal Vector3 center, size;
-    /* Coyote time WIP
+    Vector3 groundNormal = Vector3.zero;
+    RaycastHit groundCheckInfo;
+    public Transform left;
+    public Transform back;
+    public Transform front;
+    public Transform right;
+    RaycastHit l;
+    RaycastHit b;
+    RaycastHit f;
+    RaycastHit r;
+
+
     public int coyoteTime = 30;
     [SerializeField] int runningCoyoteTime = 0;
     bool coyoteTimeActive = false;
-    */
+
     public bool grounded => GroundCheck();
     int notGroundedCounter = 0;
 
@@ -49,7 +62,6 @@ public class PlayerMovement : MonoBehaviour {
     public void HandleMovement() {
         if (SaveUtils.health <= 0) return;
 
-        /* Coyote time WIP
         if (!grounded && !coyoteTimeActive && jumps == 2) {
             StartCoroutine(CountCoyoteTime());
         } else if (grounded) {
@@ -57,18 +69,19 @@ public class PlayerMovement : MonoBehaviour {
             runningCoyoteTime = 0;
             coyoteTimeActive = false;
         }
-        if (coyoteTimeActive) Debug.Log(runningCoyoteTime);
-        */
-
-        if (!grounded && jumps > 1) jumps = 1;
 
         if (!knockedBack) controller.Move(movement * Time.deltaTime);
 
         ApplyGravity();
 
         if (!knockedBack) {
-            HandleJump();
-            HandleWalk();
+            if (OnSteepSlope()) {
+                SteepSlopeMovement();
+            } else {
+                HandleJump();
+                HandleWalk();
+            }
+            
         } else {
             player.knockbackHandler.HandleKnockback();
         }
@@ -87,6 +100,7 @@ public class PlayerMovement : MonoBehaviour {
         } else {
             movement.y += gravity * Time.deltaTime;
         }
+        if (movement.y <= player.maxFallSpeed) movement.y = player.maxFallSpeed;
     }
 
     void HandleJump() {
@@ -106,18 +120,17 @@ public class PlayerMovement : MonoBehaviour {
         }
     }
 
-    /* Coyote time WIP
     IEnumerator CountCoyoteTime() {
         if (coyoteTimeActive) yield break;
         coyoteTimeActive = true;
         runningCoyoteTime = coyoteTime;
-        while (runningCoyoteTime > 0) {
+        while (runningCoyoteTime > 0 && jumps == 2) {
             runningCoyoteTime--;
             yield return new WaitForSeconds(Time.deltaTime);
         }
         coyoteTimeActive = false;
+        jumps = 1;
     }
-    */
     
     void HandleWalk() {
         if (rollingProgress > 0) return;
@@ -197,9 +210,36 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     bool GroundCheck() {
-        bool g = (controller.collisionFlags == CollisionFlags.Below
-                || controller.collisionFlags == CollisionFlags.CollidedBelow
-                || controller.isGrounded);
+        // bool g = (controller.collisionFlags == CollisionFlags.Below
+        //         || controller.collisionFlags == CollisionFlags.CollidedBelow
+        //         || controller.isGrounded);
+
+        bool g = Physics.CheckSphere(groundCheck.position, 0.3f, 1 << 0);
+
+        // if (movement.y <= 0) {
+            if (g && Physics.Raycast(groundCheck.position + player.up * 0.3f, -player.up, out groundCheckInfo, 15, 1 << 0, QueryTriggerInteraction.Ignore)) {
+                groundNormal = groundCheckInfo.normal;
+                // groundNormal = new Vector3(Mathf.Round(groundNormal.x * 10) * 0.1f, Mathf.Round(groundNormal.y * 10) * 0.1f, Mathf.Round(groundNormal.z * 10) * 0.1f);
+            }
+
+            // Physics.Raycast(left.position + Vector3.up * 0.3f, -player.up, out l, 0.6f, 1 << 0);
+            // Physics.Raycast(back.position + Vector3.up * 0.3f, -player.up, out b, 0.6f, 1 << 0);
+            // Physics.Raycast(front.position + Vector3.up * 0.3f, -player.up, out f, 0.6f, 1 << 0);
+            // Physics.Raycast(right.position + Vector3.up * 0.3f, -player.up, out r, 0.6f, 1 << 0);
+            // groundNormal = (Vector3.Cross(b.point - Vector3.up, l.point - Vector3.up) +
+            //                 Vector3.Cross(l.point - Vector3.up, f.point - Vector3.up) +
+            //                 Vector3.Cross(f.point - Vector3.up, r.point - Vector3.up) +
+            //                 Vector3.Cross(r.point - Vector3.up, b.point - Vector3.up)
+            //                 ).normalized;
+        // } else {
+        //     groundNormal = Vector3.zero;
+        // }
+        
+        // player.transform.up = Vector3.Lerp(player.up, (Vector3.Cross(b.point - Vector3.up, l.point - Vector3.up) +
+        //                         Vector3.Cross(l.point - Vector3.up, f.point - Vector3.up) +
+        //                         Vector3.Cross(f.point - Vector3.up, r.point - Vector3.up) +
+        //                         Vector3.Cross(r.point - Vector3.up, b.point - Vector3.up)
+        //                         ).normalized, 0.9f * Time.deltaTime);
 
         if (g) {
             notGroundedCounter = 0;
@@ -208,5 +248,20 @@ public class PlayerMovement : MonoBehaviour {
         }
 
         return notGroundedCounter < 1; // increase if not enough
+    }
+
+    bool OnSteepSlope() {
+        float slopeAngle = Vector3.Angle(groundNormal, Vector3.up);
+        return slopeAngle > controller.slopeLimit;
+    }
+
+    void SteepSlopeMovement() {
+        Vector3 slopeDirection = Vector3.up - groundNormal * Vector3.Dot (Vector3.up, groundNormal);
+        movement = slopeDirection * -slideSpeed;
+    }
+
+    void OnDrawGizmos() {
+        Gizmos.color = grounded ? Color.green : Color.red;
+        Gizmos.DrawSphere(groundCheck.position, 0.3f);
     }
 }
