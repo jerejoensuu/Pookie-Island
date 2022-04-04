@@ -260,8 +260,8 @@ public class PlayerMovement : MonoBehaviour {
         movement = slopeDirection * -slideSpeed;
     }
 
-    void OnDrawGizmos() {
-        Gizmos.color = grounded ? Color.green : Color.red;
-        Gizmos.DrawSphere(groundCheck.position, 0.3f);
-    }
+    // void OnDrawGizmos() {
+    //     Gizmos.color = grounded ? Color.green : Color.red;
+    //     Gizmos.DrawSphere(groundCheck.position, 0.3f);
+    // }
 }
