@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3514574143104269107}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.016000748, y: 1.1199989, z: -0.011993408}
+  m_LocalPosition: {x: 0.016000748, y: 1.68, z: -0.011993408}
   m_LocalScale: {x: 4.993693, y: 5.463078, z: 5.4604664}
   m_Children: []
   m_Father: {fileID: 3514574143471429416}
@@ -4860,8 +4860,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.98266983, y: 1.8627892, z: 1.0563812}
-  m_Center: {x: -0.059221268, y: 0.43139458, z: -0.028511047}
+  m_Size: {x: 0.98266983, y: 3.844759, z: 1.0563812}
+  m_Center: {x: -0.059221268, y: -0.10971165, z: -0.028511047}
 --- !u!114 &-9077920067081773913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4893,6 +4893,7 @@ MonoBehaviour:
   value: 
   animator: {fileID: 0}
   child: {fileID: 3514574143104269107}
+  timer: 0
 --- !u!1 &7413273138501753185
 GameObject:
   m_ObjectHideFlags: 0
@@ -4919,8 +4920,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7413273138501753185}
   m_LocalRotation: {x: -0, y: -0, z: 1, w: 0.00000004371139}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: -0.30955422, y: -1, z: -0.4337334}
+  m_LocalPosition: {x: 0, y: -0.82, z: 0}
+  m_LocalScale: {x: -0.30955422, y: -2.2884, z: -0.4337334}
   m_Children: []
   m_Father: {fileID: 3514574143471429416}
   m_RootOrder: 1
@@ -4952,8 +4953,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -3846018093981099296, guid: c46afc02780be4c45b085c0e98c4e087, type: 3}
-  - {fileID: -6478536213147159724, guid: c46afc02780be4c45b085c0e98c4e087, type: 3}
+  - {fileID: 2100000, guid: 3a2943b6ded4dc24b8a8f97ec5ed666d, type: 2}
+  - {fileID: 2100000, guid: 1a7f34ab282c02e4dbbb33654fd85cc2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -5001,7 +5002,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8654083613413666694}
   m_LocalRotation: {x: -0, y: -0, z: 1, w: -0.0000000754979}
-  m_LocalPosition: {x: 0, y: 1.0177574, z: 0}
+  m_LocalPosition: {x: 0, y: 1.502, z: 0}
   m_LocalScale: {x: 0.47413176, y: 0.26911864, z: 0.47413176}
   m_Children: []
   m_Father: {fileID: 3514574143471429416}
@@ -5034,7 +5035,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -6478536213147159724, guid: c46afc02780be4c45b085c0e98c4e087, type: 3}
+  - {fileID: 2100000, guid: 1a7f34ab282c02e4dbbb33654fd85cc2, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
