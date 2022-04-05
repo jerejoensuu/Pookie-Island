@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!319 &31900000
+AvatarMask:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: LowerBody
+  m_Mask: 01000000000000000000000001000000010000000000000000000000000000000000000001000000010000000100000000000000
+  m_Elements:
+  - m_Path: 
+    m_Weight: 1
+  - m_Path: game_rig
+    m_Weight: 1
+  - m_Path: game_rig/spine
+    m_Weight: 1
+  - m_Path: game_rig/spine/pelvis.L
+    m_Weight: 1
+  - m_Path: game_rig/spine/pelvis.R
+    m_Weight: 1
+  - m_Path: game_rig/spine/spine.001
+    m_Weight: 1
+  - m_Path: game_rig/spine/spine.001/spine.002
+    m_Weight: 1
+  - m_Path: game_rig/spine/spine.001/spine.002/spine.003
+    m_Weight: 1
+  - m_Path: game_rig/spine/spine.001/spine.002/spine.003/shoulder.L
+    m_Weight: 0
+  - m_Path: game_rig/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L
+    m_Weight: 0
+  - m_Path: game_rig/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L
+    m_Weight: 0
+  - m_Path: game_rig/spine/spine.001/spine.002/spine.003/shoulder.L/upper_arm.L/forearm.L/hand.L
+    m_Weight: 1
+  - m_Path: game_rig/spine/spine.001/spine.002/spine.003/shoulder.R
+    m_Weight: 0
+  - m_Path: game_rig/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R
+    m_Weight: 0
+  - m_Path: game_rig/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R
+    m_Weight: 0
+  - m_Path: game_rig/spine/spine.001/spine.002/spine.003/shoulder.R/upper_arm.R/forearm.R/hand.R
+    m_Weight: 0
+  - m_Path: game_rig/spine/spine.001/spine.002/spine.003/spine.004
+    m_Weight: 0
+  - m_Path: game_rig/spine/spine.001/spine.002/spine.003/spine.004/spine.006
+    m_Weight: 0
+  - m_Path: game_rig/spine/thigh.L
+    m_Weight: 1
+  - m_Path: game_rig/spine/thigh.L/shin.L
+    m_Weight: 1
+  - m_Path: game_rig/spine/thigh.L/shin.L/foot.L
+    m_Weight: 1
+  - m_Path: game_rig/spine/thigh.L/shin.L/foot.L/heel.02.L
+    m_Weight: 1
+  - m_Path: game_rig/spine/thigh.L/shin.L/foot.L/toe.L
+    m_Weight: 1
+  - m_Path: game_rig/spine/thigh.R
+    m_Weight: 1
+  - m_Path: game_rig/spine/thigh.R/shin.R
+    m_Weight: 1
+  - m_Path: game_rig/spine/thigh.R/shin.R/foot.R
+    m_Weight: 1
+  - m_Path: game_rig/spine/thigh.R/shin.R/foot.R/heel.02.R
+    m_Weight: 1
+  - m_Path: game_rig/spine/thigh.R/shin.R/foot.R/toe.R
+    m_Weight: 1
+  - m_Path: PlayerCharacter
+    m_Weight: 1
