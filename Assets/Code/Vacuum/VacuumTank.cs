@@ -62,10 +62,10 @@ public class VacuumTank : MonoBehaviour {
             return false;
         } 
         if (character.type == pookieType && gauge > 0) {
-            return GaugeAdd(pookieType == DamageElement.DamageType.BULLET ? 100 : 35);
+            return GaugeAdd(pookieType == DamageElement.DamageType.BULLET ? 25 : 35);
         }
         pookieType = character.type;
-        gauge = pookieType == DamageElement.DamageType.BULLET ? 100 : 35;
+        gauge = pookieType == DamageElement.DamageType.BULLET ? 25 : 35;
         vacuum.player.anim.animator.SetTrigger("vacuumKnockback");
         return true;
     }
@@ -118,7 +118,7 @@ public class VacuumTank : MonoBehaviour {
                 obj = Instantiate(waterPookiePrefab, vacuum.nozzle.transform.position, Quaternion.identity);
                 break;
             case DamageElement.DamageType.BULLET:
-                size = GaugeSubstract(100);
+                size = GaugeSubstract(25);
                 obj = Instantiate(bulletPookiePrefab, vacuum.nozzle.transform.position, Quaternion.identity);
                 break;
             default:
