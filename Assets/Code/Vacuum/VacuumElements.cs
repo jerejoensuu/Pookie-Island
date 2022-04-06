@@ -1,6 +1,6 @@
 using System.Collections; 
 using Bolt; 
-using UnityEngine; 
+using UnityEngine;
  
 public class VacuumElements : MonoBehaviour { 
  
@@ -14,7 +14,10 @@ public class VacuumElements : MonoBehaviour {
     [HideInInspector] public bool use; 
     bool timerRunning, watering; 
     public float timerSpeed = 20;
-    public float jetGravity = 1;
+
+    [SerializeField] float JetGravity = 0.225f;
+    [SerializeField] float JetForce = 70;
+    [HideInInspector] public float jetGravity = 1;
 
     void Update() { 
         if (use) Use(); 
@@ -106,14 +109,14 @@ public class VacuumElements : MonoBehaviour {
 
     IEnumerator DownwardJet() { 
         watering = true;
-        jetGravity = 0.225f;
+        jetGravity = JetGravity;
 
         while(use && vacuum.tank.gauge > 0) { 
             GameObject obj = Instantiate(waterCollider); 
             obj.transform.position = vacuum.nozzle.transform.position; 
  
             Rigidbody rb = obj.GetComponent<Rigidbody>(); 
-            float force = 70; 
+            float force = JetForce; 
             rb.AddForce(-vacuum.player.model.transform.up * force, ForceMode.Impulse);
 
             yield return new WaitForSeconds(.2f); 
