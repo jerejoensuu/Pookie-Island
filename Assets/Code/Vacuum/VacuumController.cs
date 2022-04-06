@@ -20,7 +20,7 @@ public class VacuumController : MonoBehaviour {
     public float pullForce = 1; 
     public float massCutOutPoint = 2; 
  
-    public Color baseColor = new Color(0.5f, 0.5f, 0.5f, 0.04f); 
+    public Color baseColor = new Color(0.5f, 0.5f, 0.5f, 0.08f); 
     public Color fireColor = new Color(1f, 0f, 0f, 0.08f); 
     public Color iceColor = new Color(0.42f, 0.6f, 0.9f, 0.08f); 
     List<Vector3> points; 
