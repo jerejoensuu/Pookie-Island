@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour {
     GameObject camTarget;
     [SerializeField] Transform groundCheck;
 
-    public Vector3 movement;
+    public Vector3 movement, momentum;
     private float accel = 0;
 
     internal bool moving, jumping, jumpPressed, autoTurningPlayer;
@@ -81,6 +81,7 @@ public class PlayerMovement : MonoBehaviour {
                 HandleJump();
                 HandleWalk();
             }
+            HandleMomentum();
             
         } else {
             player.knockbackHandler.HandleKnockback();
@@ -161,6 +162,15 @@ public class PlayerMovement : MonoBehaviour {
 
         // Movement in relation to the camera:
         movement = Quaternion.AngleAxis(camTarget.transform.eulerAngles.y, Vector3.up) * movement;
+    }
+
+    void HandleMomentum() {
+        movement += momentum;
+        if (grounded) {
+            momentum = Vector3.ClampMagnitude(momentum, momentum.magnitude * 0.1f);
+        } else {
+            momentum = Vector3.ClampMagnitude(momentum, momentum.magnitude * 0.98f);
+        }
     }
 
     public IEnumerator Roll() {
