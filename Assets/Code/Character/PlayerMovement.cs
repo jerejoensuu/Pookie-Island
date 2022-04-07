@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour {
     public Vector3 movement, momentum;
     private float accel = 0;
 
-    internal bool moving, jumping, jumpPressed, autoTurningPlayer;
+    internal bool moving, jumping, run, jumpPressed, autoTurningPlayer;
     public float rollingProgress = 0;
     public float rollSpeed = 25;
     public float rollEndSpeed = 5;
@@ -136,6 +136,8 @@ public class PlayerMovement : MonoBehaviour {
     void HandleWalk() {
         if (rollingProgress > 0) return;
 
+        float runMod = run ? 1.5f : 1;
+
         // dampen movement:
         if (moving) {
             if (grounded) {
@@ -151,8 +153,8 @@ public class PlayerMovement : MonoBehaviour {
             if (accel <= 0) accel = 0;
         }
 
-        movement.x = player.inputReader.directionInput.x * accel;
-        movement.z = player.inputReader.directionInput.y * accel;
+        movement.x = player.inputReader.directionInput.x * accel * runMod;
+        movement.z = player.inputReader.directionInput.y * accel * runMod;
         
         // Slow movement when vacuuming:
         if (player.vacuum.pull) {

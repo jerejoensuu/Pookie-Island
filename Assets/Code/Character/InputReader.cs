@@ -37,6 +37,8 @@ public class InputReader : MonoBehaviour {
         inputs.Player.Jump.performed += ReadJump;
         inputs.Player.Jump.canceled += ReadJump;
         inputs.Player.Roll.performed += ReadRoll;
+        inputs.Player.Run.performed += ReadRun;
+        inputs.Player.Run.canceled += ReadRun;
 
         inputs.Player.Pull.performed += ReadPullInput;
         inputs.Player.Pull.canceled += ReadPullInput;
@@ -64,6 +66,10 @@ public class InputReader : MonoBehaviour {
             player.anim.animator.SetBool("walking", true);
         }
         if (context.performed) rawInput = Vector2.ClampMagnitude(context.ReadValue<Vector2>(), 1);
+    }
+
+    void ReadRun(InputAction.CallbackContext context) {
+        player.movement.run = context.performed;
     }
 
     void ReadJump(InputAction.CallbackContext context) {
