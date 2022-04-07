@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7861d8c10f78ef14d81f03922e485eaf, type: 3}
+  m_Name: FarmAnimalQuestInitiate
+  m_EditorClassIdentifier: 
+  priority: 6
+  requiredFlags:
+  - FarmerGreeted
+  - CropsQuestCompleted
+  disabledByFlags:
+  - FarmAnimalQuestCompleted
+  dialogueBoxes:
+  - 'I''ve got another job for ya, if yer up for it! My precious pets have wandered
+    off again, those lil'' rascals! Poor thangs must be quaking in their boots, out
+    there alone...Could I count on ya to bring all 6 of ''em safely back home? '
+  FlagToSet: FarmAnimalQuestInitiated
