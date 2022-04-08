@@ -144,8 +144,8 @@ public class VacuumController : MonoBehaviour {
     void StoreHit(RaycastHit hit) { 
         GameObject newHitObject = hit.collider.gameObject; 
         if (onCooldown.ContainsKey(newHitObject)) return; 
-        if (newHitObject.TryGetComponent(out Rigidbody _)) { 
-            hitObjects.Add(newHitObject); 
+        if (newHitObject.TryGetComponent(out Rigidbody _)) {
+            if (newHitObject.GetComponent<Rigidbody>().isKinematic == false) hitObjects.Add(newHitObject); 
         } else if(newHitObject.TryGetComponent<PullableCharacter>(out PullableCharacter pullableCharacter)) { 
             hitCharacters.Add(pullableCharacter); 
         } 
