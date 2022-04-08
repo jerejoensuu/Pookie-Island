@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7861d8c10f78ef14d81f03922e485eaf, type: 3}
   m_Name: MeanwhileQuest
   m_EditorClassIdentifier: 
-  priority: 2
+  priority: 0
   requiredFlags:
-  - WaterJumpStart
+  - StartWaterJump
   disabledByFlags:
-  - 
+  - WaterJumpEnd
   dialogueBoxes:
-  - i told u to JUMP
+  - jump or else
   FlagToSet: 

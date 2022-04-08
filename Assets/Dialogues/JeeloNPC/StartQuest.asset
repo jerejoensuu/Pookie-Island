@@ -13,10 +13,9 @@ MonoBehaviour:
   m_Name: StartQuest
   m_EditorClassIdentifier: 
   priority: 1
-  requiredFlags:
-  - 
+  requiredFlags: []
   disabledByFlags:
-  - 
+  - StartWaterJump
   dialogueBoxes:
-  - jump or else
-  FlagToSet: WaterJumpStart
+  - yo jump
+  FlagToSet: StartWaterJump

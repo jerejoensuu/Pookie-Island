@@ -12,11 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7861d8c10f78ef14d81f03922e485eaf, type: 3}
   m_Name: EndQuest
   m_EditorClassIdentifier: 
-  priority: 3
+  priority: 0
   requiredFlags:
   - WaterJumpDone
-  disabledByFlags:
-  - 
+  disabledByFlags: []
   dialogueBoxes:
-  - good boi
-  FlagToSet: WaterJumpEnd
+  - nice jump fella
+  FlagToSet: 
