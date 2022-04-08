@@ -21,17 +21,25 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: StylizedWater
-  m_Shader: {fileID: -6465566751694194690, guid: 05a8f975e648fe74f833a690723b6167, type: 3}
+  m_Shader: {fileID: 4800000, guid: f24809d953f26f64b9c352c89807da80, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_a4efc9d5c37242c881046cb5281a499f:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_b8cf6a7d72e7492f9ded3ae648c42e2d:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -84,6 +92,14 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _SurfaceDistortion:
+        m_Texture: {fileID: 2800000, guid: 95f4dfa7090123a4490c084bb94423d9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SurfaceNoise:
+        m_Texture: {fileID: 2800000, guid: 92017c3b10cfb744aa3c2a76704f94df, type: 3}
+        m_Scale: {x: 1, y: 4}
+        m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -97,6 +113,14 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_133f6d772cdd4530a917425fc439ba70: 0.1
+    - Vector1_35b599b1ac2c4d4d98bcb0dc934a45c0: 0
+    - Vector1_4bda2bf0278f498a9b19181297678094: 1
+    - Vector1_5ab4c18de5494fca95e8b0d72dfe1400: 0
+    - Vector1_ac1b58ccee4942d4946943d443373425: 5
+    - Vector1_b3336049422043a79e66f3caa9bd7097: 7
+    - Vector1_c88badb889834ab5b125bd71f7f97513: 0
+    - Vector1_ce70e2cd35884fc9a221eba2e8a452aa: 5
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -105,6 +129,7 @@ Material:
     - _ClearCoatSmoothness: 0
     - _Cull: 2
     - _Cutoff: 0.5
+    - _DepthMaxDistance: 1
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -112,6 +137,8 @@ Material:
     - _FlowSpeed: 1.29
     - _FlowStrength: 0.0003
     - _FoamDistance: 0.21
+    - _FoamMaxDistance: 0.4
+    - _FoamMinDistance: 0.04
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -126,14 +153,23 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
+    - _SurfaceDistortionAmount: 0.27
+    - _SurfaceNoiseCutoff: 0.777
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_3123eddbaea04602913f4cfcdb515081: {r: 3.203814, g: 3.203814, b: 3.203814, a: 0}
+    - Color_84e18c13e1a149cc990b8a3dcee20244: {r: 0, g: 0, b: 0, a: 0}
+    - Color_f54ab532448e4fd89c5f4bbf627e1e1e: {r: 0.03921566, g: 0.5671724, b: 0.9529411, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DarkFoamColor: {r: 0.11454255, g: 0.413603, b: 0.6226415, a: 0}
+    - _DepthGradientDeep: {r: 0.08599999, g: 0.40699998, b: 1, a: 0.749}
+    - _DepthGradientShallow: {r: 0.32499996, g: 0.807, b: 0.971, a: 0.725}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FoamColor: {r: 1, g: 1, b: 1, a: 1}
     - _LightFoamColor: {r: 1, g: 1, b: 1, a: 0.29803923}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _SurfaceNoiseScroll: {r: 0.03, g: 0.03, b: 0, a: 0}
     - _WaterColor: {r: 0.21960783, g: 0.5522518, b: 0.7647059, a: 1}
   m_BuildTextureStacks: []
