@@ -196,8 +196,8 @@ Material:
     - _EnvironmentReflections: 1
     - _Fog: 1
     - _Fresnel: 1
-    - _FresnelSmoothness: 1
-    - _FresnelThickness: 0.493
+    - _FresnelSmoothness: 0
+    - _FresnelThickness: 0.2
     - _FurLength: 0.1
     - _FurStep: 0.1
     - _GlossMapScale: 0
@@ -215,9 +215,9 @@ Material:
     - _Parallax: 0.005
     - _PureShadowColor: 1
     - _QueueOffset: 3
-    - _Ramp0: -0.38
+    - _Ramp0: -0.14
     - _Ramp1: 0.5
-    - _RampSmoothness: 1.47
+    - _RampSmoothness: 0.8
     - _RampTriple: 0
     - _ReceiveShadows: 1
     - _ShadowMask: 0
@@ -249,9 +249,9 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
-    - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FresnelColor: {r: 1, g: 0.9192147, b: 0.7971698, a: 0.5019608}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _ShadowTint: {r: 0.062077247, g: 0.1477475, b: 0.4245283, a: 1}
+    - _ShadowTint: {r: 0.062077224, g: 0.14774746, b: 0.42452827, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
