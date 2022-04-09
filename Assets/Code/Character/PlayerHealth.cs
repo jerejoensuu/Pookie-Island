@@ -40,6 +40,7 @@ public class PlayerHealth : MonoBehaviour {
         if (onCooldown) return;
 
         if (hit.gameObject.TryGetComponent(out PlayerHealthAffect affectedBy)) {
+            Debug.Log("take damage");
             if (affectedBy.effectType == PlayerHealthAffect.EffectType.DAMAGE) {
                 TakeDamage(affectedBy.effectAmount);
             } else {
