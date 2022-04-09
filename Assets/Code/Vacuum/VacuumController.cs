@@ -146,7 +146,7 @@ public class VacuumController : MonoBehaviour {
         if (onCooldown.ContainsKey(newHitObject)) return; 
         if (newHitObject.TryGetComponent(out Rigidbody _)) {
             Rigidbody rb = newHitObject.GetComponent<Rigidbody>();
-            if (rb.isKinematic == false && rb.mass >= 10) hitObjects.Add(newHitObject); 
+            if (rb.isKinematic == false && rb.mass < 10) hitObjects.Add(newHitObject); 
         } else if(newHitObject.TryGetComponent<PullableCharacter>(out PullableCharacter pullableCharacter)) { 
             hitCharacters.Add(pullableCharacter); 
         } 
