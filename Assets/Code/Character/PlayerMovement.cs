@@ -178,6 +178,8 @@ public class PlayerMovement : MonoBehaviour {
         } else {
             momentum = Vector3.ClampMagnitude(momentum, momentum.magnitude * 0.98f);
         }
+        momentum.y *= 0.1f;
+        if (momentum.magnitude <= 0.1) momentum = Vector3.zero;
     }
 
     public IEnumerator Roll() {
