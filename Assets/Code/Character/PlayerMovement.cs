@@ -70,6 +70,11 @@ public class PlayerMovement : MonoBehaviour {
             coyoteTimeActive = false;
         }
 
+        float m = 0.01f;
+        if (new Vector3(movement.x, 0, movement.z).magnitude < m) {
+            movement.x = Random.Range(-m, m);
+            movement.z = Random.Range(-m, m);
+        } 
         if (!knockedBack) controller.Move(movement * Time.deltaTime);
 
         ApplyGravity();
@@ -274,6 +279,7 @@ public class PlayerMovement : MonoBehaviour {
 
     // void OnDrawGizmos() {
     //     Gizmos.color = grounded ? Color.green : Color.red;
+    //     if (knockedBack) Gizmos.DrawSphere(new Vector3(player.transform.position.x, controller.bounds.max.y, player.transform.position.z), 0.5f);
     //     Gizmos.DrawSphere(groundCheck.position, 0.3f);
     // }
 }
