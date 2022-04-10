@@ -62,6 +62,8 @@ public class PlayerMovement : MonoBehaviour {
     public void HandleMovement() {
         if (SaveUtils.health <= 0) return;
 
+        if (controller.height != 2 && rollTimer > rollLength) ResetHeight();
+
         if (!grounded && !coyoteTimeActive && jumps == 2) {
             StartCoroutine(CountCoyoteTime());
         } else if (grounded) {
@@ -185,6 +187,8 @@ public class PlayerMovement : MonoBehaviour {
     public IEnumerator Roll() {
         rollTimer = 0;
         float startingSpeed = Mathf.Abs(movement.magnitude);
+        controller.height = 1;
+        controller.center = new Vector3(0, -0.5f, 0);
 
         while(rollTimer <= rollLength) {
             if (rollTimer == 0) player.anim.animator.SetTrigger("roll");
@@ -206,6 +210,13 @@ public class PlayerMovement : MonoBehaviour {
             rollingProgress = rollTimer / rollLength;
         }
         rollingProgress = 0;
+    }
+
+    void ResetHeight() {
+        if (!Physics.Raycast(new Vector3(transform.position.x, transform.position.y, transform.position.z), Vector3.up, 1.1f, ~(1 << 5))) {
+            controller.height = 2;
+            controller.center = Vector3.zero;
+        }
     }
     
     public Vector3 GetTrueDirection() {
