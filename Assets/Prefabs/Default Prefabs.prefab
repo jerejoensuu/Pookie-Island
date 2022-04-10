@@ -278,7 +278,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 840, y: 420}
-  m_SizeDelta: {x: 60, y: 60}
+  m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4510759975671407316
 CanvasRenderer:
@@ -442,8 +442,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 644.6476, y: -405.12833}
-  m_SizeDelta: {x: 1289.2952, y: 36.161434}
+  m_AnchoredPosition: {x: 360, y: -141}
+  m_SizeDelta: {x: 720, y: 38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4510759975964664675
 CanvasRenderer:
@@ -466,7 +466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -475,7 +475,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 34
+    m_FontSize: 20
     m_FontStyle: 1
     m_BestFit: 0
     m_MinSize: 10
@@ -522,8 +522,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 705, y: 420}
-  m_SizeDelta: {x: 60, y: 60}
+  m_AnchoredPosition: {x: 665, y: 420}
+  m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4510759976033961496
 CanvasRenderer:
@@ -922,8 +922,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 779.99994, y: 420}
-  m_SizeDelta: {x: 70, y: 70}
+  m_AnchoredPosition: {x: 764, y: 420}
+  m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4510759976369130024
 CanvasRenderer:
@@ -1114,11 +1114,11 @@ RectTransform:
   m_Father: {fileID: 4510759976205134500}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.000061035156, y: -308}
-  m_SizeDelta: {x: -630.7047, y: -651.3022}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 0, y: 60}
+  m_SizeDelta: {x: 720, y: 160}
+  m_Pivot: {x: 0.5, y: 0}
 --- !u!222 &4510759976515661890
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1140,14 +1140,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: e6a006d5546214147b74fe8b5d238a7c, type: 3}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1174,12 +1174,12 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
+  m_ChildAlignment: 4
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
-  m_ChildControlWidth: 1
-  m_ChildControlHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
@@ -1215,7 +1215,7 @@ RectTransform:
   m_Father: {fileID: 4510759976396878744}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.78482985}
+  m_AnchorMin: {x: 0, y: 0.809375}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -1295,7 +1295,7 @@ RectTransform:
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 20, y: -0.000030518}
+  m_SizeDelta: {x: 15, y: -0.000030518}
   m_Pivot: {x: 1, y: 1}
 --- !u!222 &4510759976739106467
 CanvasRenderer:
@@ -1379,7 +1379,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 4510759976567015029}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.21517015
+  m_Size: 0.190625
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1418,8 +1418,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 636.1476, y: -899.39905}
-  m_SizeDelta: {x: 1252.2952, y: 1778.7981}
+  m_AnchoredPosition: {x: 354, y: -320}
+  m_SizeDelta: {x: 688, y: 620}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4510759976861896564
 CanvasRenderer:
@@ -1442,7 +1442,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1450,72 +1450,37 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 34
+    m_Font: {fileID: 12800000, guid: 6d619ac2b9a33724594df963af8feafe, type: 3}
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nunc urna,
+  m_Text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec nunc urna,
     maximus vel ante eget, volutpat molestie nulla. Integer in sapien sed massa euismod
     rutrum iaculis a risus. Vestibulum pretium nibh ornare felis feugiat, vehicula
-    blandit diam lobortis. Nam non tortor congue, sollicitudin sapien sed, accumsan
+    blandit diam lobortis. \n\nNam non tortor congue, sollicitudin sapien sed, accumsan
     lorem. Vivamus porta, orci ut malesuada faucibus, augue risus scelerisque dolor,
-    ac elementum orci dui nec risus. Etiam tempus in augue eget tristique. Vivamus
+    ac elementum orci dui nec risus. \n\nEtiam tempus in augue eget tristique. Vivamus
     auctor ornare risus, a accumsan augue. Orci varius natoque penatibus et magnis
     dis parturient montes, nascetur ridiculus mus. Mauris vitae interdum velit. Suspendisse
     non augue congue, euismod urna egestas, tristique orci. Curabitur accumsan ut
     dui eget accumsan. Sed lacinia diam non ex semper suscipit. Aenean metus enim,
-    dapibus vitae mauris id, fringilla malesuada tellus.
-
-
-
-    Mauris eu rutrum
-    metus. Vivamus nec sapien lacus. Donec sed massa faucibus dui interdum suscipit.
-    Integer a metus ut diam cursus ullamcorper. Suspendisse placerat est sollicitudin,
-    varius ipsum et, sollicitudin neque. Proin id massa interdum, rutrum erat nec,
-    suscipit eros. Fusce in tortor congue, vehicula est at, rutrum orci. Praesent
-    quam purus, ullamcorper eu libero id, ornare commodo est. Phasellus sodales consequat
-    ipsum quis aliquet. Nunc tincidunt justo ut justo lacinia, eu dignissim eros
-    laoreet. Donec cursus maximus vehicula. Phasellus sed ligula nec purus elementum
-    semper sed sed arcu.
-
-
-
-    Donec vulputate, augue venenatis euismod placerat,
-    nisl magna pellentesque risus, ut ornare diam turpis in libero. Vivamus sollicitudin
-    viverra nisl mattis pellentesque. Sed commodo ullamcorper tincidunt. Aenean vel
-    egestas mi. Phasellus scelerisque mi eget posuere aliquam. Nullam ut quam augue.
-    Donec faucibus mi erat, quis dapibus quam consequat vel. Lorem ipsum dolor sit
-    amet, consectetur adipiscing elit. Vestibulum sit amet rhoncus nulla. Aenean
-    felis orci, tincidunt eu metus id, porta malesuada enim. Mauris fermentum mi
-    quis feugiat sodales. Praesent faucibus sagittis tellus. Suspendisse nec ipsum
-    consequat, accumsan risus a, blandit velit.
-
-
-
-    Pellentesque vel urna non
-    nisi egestas sollicitudin vitae ac eros. Ut sit amet eros blandit, euismod mauris
-    eget, pulvinar lectus. Duis et enim a ipsum sollicitudin egestas. Suspendisse
-    potenti. Donec eu nisl velit. Ut eget porttitor dui. Pellentesque quis libero
-    hendrerit, venenatis enim ac, faucibus leo. In molestie posuere tortor id vestibulum.
-    Duis id justo at leo viverra fringilla. Pellentesque ac molestie enim, quis tincidunt
-    nisi.
-
-
-
-    Curabitur mauris neque, dignissim nec scelerisque vitae, auctor
-    eget purus. Etiam ut velit vehicula, rutrum nisl at, dictum lorem. Proin in lectus
-    a diam interdum fringilla. Maecenas commodo ipsum at fringilla venenatis. Etiam
-    justo est, ornare nec quam sed, ornare fermentum nisi. Ut accumsan leo id arcu
-    tincidunt molestie. Curabitur ut pharetra massa. Pellentesque nec sem nec lacus
-    viverra eleifend elementum ut metus. Donec ullamcorper orci nisl.'
+    dapibus vitae mauris id, fringilla malesuada tellus.\n\n\nMauris eu rutrum metus.
+    Vivamus nec sapien lacus. Donec sed massa faucibus dui interdum suscipit. Integer
+    a metus ut diam cursus ullamcorper. Suspendisse placerat est sollicitudin, varius
+    ipsum et, sollicitudin neque. Proin id massa interdum, rutrum erat nec, suscipit
+    eros. Fusce in tortor congue, vehicula est at, rutrum orci. Praesent quam purus,
+    ullamcorper eu libero id, ornare commodo est. Phasellus sodales consequat ipsum
+    quis aliquet. Nunc tincidunt justo ut justo lacinia, eu dignissim eros laoreet.
+    Donec cursus maximus vehicula. Phasellus sed ligula nec purus elementum semper
+    sed sed arcu.\n"
 --- !u!1 &4510759976863796749
 GameObject:
   m_ObjectHideFlags: 0
@@ -1552,7 +1517,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0.000030517578}
-  m_SizeDelta: {x: 0, y: 1798.7981}
+  m_SizeDelta: {x: 0, y: 640}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &4510759976863796750
 MonoBehaviour:
@@ -1628,8 +1593,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 653.6, y: 420}
-  m_SizeDelta: {x: 70, y: 70}
+  m_AnchoredPosition: {x: 613.6, y: 420}
+  m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4510759977047074407
 CanvasRenderer:
@@ -1706,8 +1671,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 644.6476, y: -193.5238}
-  m_SizeDelta: {x: 1289.2952, y: 387.0476}
+  m_AnchoredPosition: {x: 360, y: -61}
+  m_SizeDelta: {x: 500, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4510759977134281140
 CanvasRenderer:
@@ -1916,7 +1881,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -17, y: 0}
+  m_SizeDelta: {x: -12, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &4510759977396544852
 CanvasRenderer:
