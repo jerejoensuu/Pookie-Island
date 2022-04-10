@@ -37,8 +37,8 @@ public class InputReader : MonoBehaviour {
         inputs.Player.Jump.performed += ReadJump;
         inputs.Player.Jump.canceled += ReadJump;
         inputs.Player.Roll.performed += ReadRoll;
-        inputs.Player.Run.performed += ReadRun;
-        inputs.Player.Run.canceled += ReadRun;
+        // inputs.Player.Run.performed += ReadRun;
+        // inputs.Player.Run.canceled += ReadRun;
 
         inputs.Player.Pull.performed += ReadPullInput;
         inputs.Player.Pull.canceled += ReadPullInput;
@@ -79,6 +79,7 @@ public class InputReader : MonoBehaviour {
 
     void ReadRoll(InputAction.CallbackContext context) {
         if (!player.movement.controller.isGrounded
+            || player.movement.jumpPressed
             || player.vacuum.elements.use
             || player.vacuum.pull
             || player.vacuum.tank.carriedObject != null) return;
