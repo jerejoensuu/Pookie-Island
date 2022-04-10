@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour {
             coyoteTimeActive = false;
         }
 
-        float m = 0.01f;
+        float m = 0.05f;
         if (new Vector3(movement.x, 0, movement.z).magnitude < m) {
             movement.x = Random.Range(-m, m);
             movement.z = Random.Range(-m, m);
@@ -92,13 +92,13 @@ public class PlayerMovement : MonoBehaviour {
             player.knockbackHandler.HandleKnockback();
         }
         
-        if (knockedBack == true) knockedBack = !grounded;
+        if (knockedBack == true && movement.y <= 0) knockedBack = !grounded;
         camTarget.transform.position = player.transform.position + (Vector3.up * player.cameraHeight); // move camera to player:
     }
 
     void ApplyGravity() {
         bool falling = movement.y <= 0;
-        float gravity = !knockedBack ? player.gravity : player.gravity * 0.25f;
+        float gravity = !knockedBack ? player.gravity : player.gravity * 0.4f;
         if (grounded & falling) { //TODO Remove "falling" if it causes problems
             movement.y = player.groudedGravity;
         } else if (falling) {
