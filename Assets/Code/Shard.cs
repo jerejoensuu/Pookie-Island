@@ -5,6 +5,7 @@ public class Shard : MonoBehaviour {
     [SerializeField] float speed = 5f;
     [SerializeField] float height = 0.5f;
     Vector3 pos;
+    
     private int uid;
     public static Action<int> onShardPicked;
 
@@ -22,6 +23,7 @@ public class Shard : MonoBehaviour {
     {
         float newY = Mathf.Sin(Time.time * speed) * height + pos.y;
         transform.position = new Vector3(transform.position.x, newY, transform.position.z);
+        transform.Rotate(0, 0, 50 * Time.deltaTime); //rotates 50 degrees per second around z axis
     }
 
 
