@@ -10,7 +10,7 @@ Material:
   m_Name: T_Gradient_Unlit 4
   m_Shader: {fileID: 4800000, guid: 849dc4ff793a3f943ad21a3b6ee26456, type: 3}
   m_ShaderKeywords: _ADDITIONAL_LIGHTS_ENABLED _ENVIRONMENT_LIGHTING_ENABLED _FOG
-    _FRESNEL _GLOSSYREFLECTIONS_OFF _ZWRITE_ON
+    _FRESNEL _GLOSSYREFLECTIONS_OFF _PURE_SHADOW_COLOR _ZWRITE_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
@@ -186,9 +186,9 @@ Material:
     - _NumLayersCount: 1
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _PureShadowColor: 0
+    - _PureShadowColor: 1
     - _QueueOffset: 3
-    - _Ramp0: -0.16
+    - _Ramp0: -0.217
     - _Ramp1: 0.5
     - _RampSmoothness: 1.6
     - _RampTriple: 0
@@ -214,13 +214,13 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _BaseColor: {r: 0.8773585, g: 0.8321035, b: 0.7490655, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _Flip: {r: 1, g: 1, b: 1, a: 1}
     - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
     - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
-    - _ShadowTint: {r: 0.19090424, g: 0.29387146, b: 0.6226415, a: 1}
+    - _ShadowTint: {r: 0.1511659, g: 0.21131915, b: 0.4056604, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []

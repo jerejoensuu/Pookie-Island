@@ -61,13 +61,13 @@ Material:
     - _EnvironmentLightingEnabled: 1
     - _Fog: 1
     - _Fresnel: 1
-    - _FresnelSmoothness: 1
-    - _FresnelThickness: 0.135
+    - _FresnelSmoothness: 0.865
+    - _FresnelThickness: 0.377
     - _PureShadowColor: 0
     - _QueueOffset: 0
-    - _Ramp0: -0.14
+    - _Ramp0: -0.072
     - _Ramp1: 0.5
-    - _RampSmoothness: 0.8
+    - _RampSmoothness: 0.433
     - _RampTriple: 0
     - _ShadowMask: 0
     - _Specular: 0
@@ -83,7 +83,7 @@ Material:
     - _BaseColor: {r: 0.5411765, g: 0.8151738, b: 1, a: 1}
     - _Color: {r: 0.6431373, g: 0.92549026, b: 0.6509804, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 0}
-    - _FresnelColor: {r: 1, g: 1, b: 1, a: 1}
+    - _FresnelColor: {r: 0, g: 0.5149178, b: 0.23839766, a: 1}
     - _ShadowTint: {r: 0.0627451, g: 0.14901961, b: 0.42352942, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
