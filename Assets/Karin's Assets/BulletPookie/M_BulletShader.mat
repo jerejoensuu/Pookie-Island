@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: M_BulletShader
+  m_Shader: {fileID: -6465566751694194690, guid: 8db16cd07d746464ea36a1a86baefe30, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_73fa0e2568b3448cbc21005323f81fe1:
+        m_Texture: {fileID: 2800000, guid: f0959727b6d3a5d4b956b3294862132a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_7796153490764bbc868fc46003db4f05:
+        m_Texture: {fileID: 2800000, guid: 1c22e819442d4e54d912fbcebd643e78, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_3ab0d1b8d8af4b078f95af26bf9a1aab: 0.15
+    - Vector1_4617c4209f4b413aa7bd185287250e59: 1.45
+    - Vector1_617dc8c127c84dc4941f68c277493e50: 2.13
+    - Vector1_8166bce9abcd42e9a28ce5376b44213c: 0.6
+    - Vector1_e1419e57aaa14047a8328cc5373151fa: 0.02
+    - Vector1_fac5110e5abc43b9bb04d4001d44206e: 1.73
+    m_Colors:
+    - Color_722777cb13e74267baea5da304c66b49: {r: 0.4528302, g: 0.08322357, b: 0, a: 1}
+    - Color_95e78768a9444ec2b02f431fb70c8cb2: {r: 2.607968, g: 1.966325, b: 0.09314173, a: 1}
+    - Color_f95c0627520b428a9697449db93e5e23: {r: 3.9533494, g: 0.85691786, b: 0.08279258, a: 1}
+    - Vector2_a1e194b91230479db1cbf8944f163740: {r: 0.01, g: 0.008, b: 0, a: 0}
+  m_BuildTextureStacks: []

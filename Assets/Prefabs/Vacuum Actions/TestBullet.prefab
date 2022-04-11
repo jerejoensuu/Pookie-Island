@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2213930513361296030}
   - component: {fileID: 5824647125877158777}
   - component: {fileID: 6672089473139095178}
+  - component: {fileID: 4726879769890015730}
   m_Layer: 6
   m_Name: TestBullet
   m_TagString: PookieBullet
@@ -43,7 +44,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2213930513361296029}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 329628789801143105, guid: 4f115dd19a05a06478ce1e405bf1e64f, type: 3}
 --- !u!23 &2213930513361296024
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -63,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ed9648fddf2e1b446b7703e9a0c7ad3c, type: 2}
+  - {fileID: 2100000, guid: f1eee1b39f6e2b94d967dca1edad7650, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -139,3 +140,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5319b1adb083c46b0e059ae3b55801, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &4726879769890015730
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2213930513361296029}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a75fb652520b70c40a99296464723cbf, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
