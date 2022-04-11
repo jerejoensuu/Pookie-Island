@@ -39,6 +39,7 @@ public class PlayerMovement : MonoBehaviour {
 
     public GameObject LandingDust;
     public GameObject DustTrail;
+    ParticleSystem trail;
     float fallSpeed = 0;
 
     public int coyoteTime = 30;
@@ -54,6 +55,7 @@ public class PlayerMovement : MonoBehaviour {
         camTarget = player.vcamera.camTarget;
         SetupJumpVariables();
         rollTimer = rollSpeed;
+        trail = DustTrail.GetComponent<ParticleSystem>();
     }
 
     void SetupJumpVariables() {
@@ -175,7 +177,11 @@ public class PlayerMovement : MonoBehaviour {
 
         movement.x = player.inputReader.directionInput.x * accel * runMod;
         movement.z = player.inputReader.directionInput.y * accel * runMod;
-        
+
+        if (trail.isStopped && accel > 0.5f) trail.Play();
+        if (trail.isPlaying && accel < 0.5f) trail.Stop();
+        if (trail.isPlaying && !grounded) trail.Stop();
+
         // Slow movement when vacuuming:
         if (player.vacuum.pull) {
             movement.x *= player.vacuumSpeedMod;
