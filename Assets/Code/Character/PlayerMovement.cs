@@ -37,6 +37,10 @@ public class PlayerMovement : MonoBehaviour {
     RaycastHit f;
     RaycastHit r;
 
+    public GameObject LandingDust;
+    public GameObject DustTrail;
+    ParticleSystem trail;
+    float fallSpeed = 0;
 
     public int coyoteTime = 30;
     [SerializeField] int runningCoyoteTime = 0;
@@ -51,6 +55,7 @@ public class PlayerMovement : MonoBehaviour {
         camTarget = player.vcamera.camTarget;
         SetupJumpVariables();
         rollTimer = rollSpeed;
+        trail = DustTrail.GetComponent<ParticleSystem>();
     }
 
     void SetupJumpVariables() {
@@ -109,10 +114,20 @@ public class PlayerMovement : MonoBehaviour {
             movement.y += gravity * Time.deltaTime;
         }
         if (movement.y <= player.maxFallSpeed) movement.y = player.maxFallSpeed;
+
+        if (grounded && fallSpeed < -30) {
+            fallSpeed = 0;
+            jumping = false;
+            GameObject g = Instantiate(LandingDust, new Vector3(transform.position.x, controller.bounds.min.y, transform.position.z), Quaternion.identity);
+            g.SetActive(true);
+        }
+        if (fallSpeed > movement.y && !grounded) fallSpeed = movement.y;
+        else fallSpeed = 0;
     }
 
     void HandleJump() {
         if (jumpPressed && (grounded || jumps > 0)) {
+            jumping = true;
             if (jumps == 2) {
                 movement.y = player.jumpSpeed;
                 player.anim.animator.SetTrigger("jump");
@@ -162,7 +177,11 @@ public class PlayerMovement : MonoBehaviour {
 
         movement.x = player.inputReader.directionInput.x * accel * runMod;
         movement.z = player.inputReader.directionInput.y * accel * runMod;
-        
+
+        if (trail.isStopped && accel > 0.5f) trail.Play();
+        if (trail.isPlaying && accel < 0.5f) trail.Stop();
+        if (trail.isPlaying && !grounded) trail.Stop();
+
         // Slow movement when vacuuming:
         if (player.vacuum.pull) {
             movement.x *= player.vacuumSpeedMod;
