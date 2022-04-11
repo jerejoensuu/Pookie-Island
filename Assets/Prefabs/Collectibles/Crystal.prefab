@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7838230683703713048}
   - component: {fileID: 4331490752639221778}
   - component: {fileID: 2000098057937207311}
+  - component: {fileID: 1517960105716986720}
   m_Layer: 0
   m_Name: Crystal
   m_TagString: Untagged
@@ -30,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 5859556215591072454}
   m_LocalRotation: {x: -0.7069834, y: 0, z: 0, w: 0.7072302}
   m_LocalPosition: {x: -0.3690598, y: 11, z: -77.80552}
-  m_LocalScale: {x: 21, y: 21, z: 21}
+  m_LocalScale: {x: 62.634483, y: 62.634483, z: 62.634483}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -129,3 +130,22 @@ CapsuleCollider:
   m_Height: 0.028
   m_Direction: 2
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!95 &1517960105716986720
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5859556215591072454}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2e8e9f6c854a61141b818d94309cfb9b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
