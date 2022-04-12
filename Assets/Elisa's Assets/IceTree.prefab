@@ -173,6 +173,8 @@ GameObject:
   - component: {fileID: 3990204677617506863}
   - component: {fileID: 2013307617417341869}
   - component: {fileID: 4455764702349296870}
+  - component: {fileID: 424510178158646733}
+  - component: {fileID: 8996404342264656070}
   m_Layer: 0
   m_Name: IceTree
   m_TagString: Untagged
@@ -224,6 +226,54 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.3840504, y: 3.7819374, z: 3.9339447}
   m_Center: {x: -0.025409937, y: 4.0008903, z: -0.08403945}
+--- !u!205 &424510178158646733
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6182375599887806730}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0.000029921532, y: 2.8959818, z: -0.07065725}
+  m_Size: 5.7868156
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.6
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 5156380649149621886}
+    - renderer: {fileID: 6581265808081173830}
+    - renderer: {fileID: 1446317025198940470}
+  - screenRelativeHeight: 0.3
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 5156380649149621886}
+    - renderer: {fileID: 6581265808081173830}
+    - renderer: {fileID: 1446317025198940470}
+  - screenRelativeHeight: 0.1
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 5156380649149621886}
+    - renderer: {fileID: 1446317025198940470}
+  m_Enabled: 1
+--- !u!54 &8996404342264656070
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6182375599887806730}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &8603806673997099855
 GameObject:
   m_ObjectHideFlags: 0
