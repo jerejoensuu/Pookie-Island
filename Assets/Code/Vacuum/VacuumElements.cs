@@ -46,7 +46,7 @@ public class VacuumElements : MonoBehaviour {
     }  
   
     void ShootBullet() { 
-        // if (vacuum.tank.gauge < 25) return;  
+        if (vacuum.tank.gauge < 25) return;  
  
         vacuum.elements.use = false; 
         vacuum.player.anim.animator.SetTrigger("shoot");  
