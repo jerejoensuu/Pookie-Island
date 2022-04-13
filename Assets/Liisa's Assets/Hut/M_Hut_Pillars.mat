@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-1030145384148859735
+--- !u!114 &-7984487925947051359
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_TreeLeaves
+  m_Name: M_Hut_Pillars
   m_Shader: {fileID: 4800000, guid: 849dc4ff793a3f943ad21a3b6ee26456, type: 3}
   m_ShaderKeywords: _ADDITIONAL_LIGHTS_ENABLED _ENVIRONMENT_LIGHTING_ENABLED _FOG
     _FRESNEL _ZWRITE_ON
@@ -33,16 +33,8 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_a4efc9d5c37242c881046cb5281a499f:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_b8cf6a7d72e7492f9ded3ae648c42e2d:
-        m_Texture: {fileID: 2800000, guid: cdcafe69f3a4e7e49ab4e4b55b0b209e, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: cdcafe69f3a4e7e49ab4e4b55b0b209e, type: 3}
+        m_Texture: {fileID: 2800000, guid: cbd768fbc910da04f9893e632cbd474d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -102,10 +94,6 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_35b599b1ac2c4d4d98bcb0dc934a45c0: 0.03
-    - Vector1_5ab4c18de5494fca95e8b0d72dfe1400: 0.52
-    - Vector1_ac1b58ccee4942d4946943d443373425: 5
-    - Vector1_c88badb889834ab5b125bd71f7f97513: 0
     - _AdditionalLights: 1
     - _AdditionalLightsSpecular: 0
     - _AlphaClip: 0
@@ -124,8 +112,8 @@ Material:
     - _EnvironmentReflections: 1
     - _Fog: 1
     - _Fresnel: 1
-    - _FresnelSmoothness: 0
-    - _FresnelThickness: 0.512
+    - _FresnelSmoothness: 0.803
+    - _FresnelThickness: 0.466
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -134,9 +122,9 @@ Material:
     - _Parallax: 0.005
     - _PureShadowColor: 0
     - _QueueOffset: 0
-    - _Ramp0: -0.08
+    - _Ramp0: -0.474
     - _Ramp1: 0.5
-    - _RampSmoothness: 0
+    - _RampSmoothness: 0.16
     - _RampTriple: 0
     - _ReceiveShadows: 1
     - _ShadowMask: 0
@@ -154,12 +142,11 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - Color_84e18c13e1a149cc990b8a3dcee20244: {r: 0.56393087, g: 0, b: 0.5660378, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FresnelColor: {r: 0.93011117, g: 0.06847818, b: 0.07421358, a: 1}
-    - _ShadowTint: {r: 0.9686275, g: 0.2901961, b: 0.3019608, a: 1}
+    - _FresnelColor: {r: 1, g: 0.12210142, b: 0.10849059, a: 1}
+    - _ShadowTint: {r: 0, g: 0.028486414, b: 0.6981132, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
+    - _SpecularColor: {r: 0.81437737, g: 0.8867924, b: 0.7905838, a: 0.14117648}
   m_BuildTextureStacks: []
