@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class InteractByElement : Interactable {
 
+    public bool requiresReset;
+    private bool completed;
     public DamageElement.DamageType type = DamageElement.DamageType.WATER;
     private EventHook eventHook;
 
@@ -17,17 +19,28 @@ public class InteractByElement : Interactable {
         else if (type == DamageElement.DamageType.ICE) EventBus.Unregister(eventHook, (Action<CustomEventArgs>) DestroyIce);
     }
 
+    public void ResetState() {
+        completed = false;
+        OnReset?.Invoke(this);
+    }
+
+    private void Triggered() {
+        if (requiresReset && completed) return;
+        completed = true;
+        OnInteraction?.Invoke(this);
+    }
+
     private void DestroyFire(CustomEventArgs args) {
-        if (args.name == "DestroyFire") OnInteraction?.Invoke(this);
+        if (args.name == "DestroyFire") Triggered();
     }
     
     private void DestroyIce(CustomEventArgs args) {
-        if (args.name == "DestroyIce") OnInteraction?.Invoke(this);
+        if (args.name == "DestroyIce") Triggered();
     }
 
     private void OnCollisionEnter(Collision other) {
         if (other.gameObject.TryGetComponent(out DamageElement component) && component.damageType == type) {
-            OnInteraction?.Invoke(this);
+            Triggered();
         }
     }
 }
