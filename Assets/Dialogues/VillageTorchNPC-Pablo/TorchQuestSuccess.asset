@@ -15,7 +15,8 @@ MonoBehaviour:
   priority: 5
   requiredFlags:
   - HubIslandTorchesOn
-  disabledByFlags: []
+  disabledByFlags:
+  - TorchQuestCompleted
   dialogueBoxes:
   - You did it, the lights are back on! Guess you can have my precious rock then.
   FlagToSet: TorchQuestCompleted
