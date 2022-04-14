@@ -99,7 +99,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 8a37f1c51a17651439ae22f8af1dc96e, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -249,7 +249,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2724807113729552196}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -262,7 +262,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 836bc4a6e954283488e7aa0dc5fa9694, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 49f22f70be639c846bb53999706056e7, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -3054,13 +3054,25 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 8599456341566640806}
     - target: {fileID: 3811880172904060626, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: mask
+      value: 
+      objectReference: {fileID: 6314634256891093871}
+    - target: {fileID: 3811880172904060626, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
       propertyPath: GaugeUI
       value: 
       objectReference: {fileID: 5636875039530081040}
     - target: {fileID: 3811880172904060626, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: PookieAmount
+      value: 
+      objectReference: {fileID: 5578096364858381986}
+    - target: {fileID: 3811880172904060626, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
       propertyPath: icePookiePrefab
       value: 
       objectReference: {fileID: 8428730678319281074, guid: 9418441cf96b10c4586bd63a3e1ae663, type: 3}
+    - target: {fileID: 3811880172904060626, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: firePookieMaskUI
+      value: 
+      objectReference: {fileID: 21300000, guid: 8a37f1c51a17651439ae22f8af1dc96e, type: 3}
     - target: {fileID: 3811880172904060626, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
       propertyPath: firePookiePrefab
       value: 
@@ -3072,7 +3084,11 @@ PrefabInstance:
     - target: {fileID: 3811880172904060626, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
       propertyPath: firePookieUIImage
       value: 
-      objectReference: {fileID: 21300000, guid: 8a37f1c51a17651439ae22f8af1dc96e, type: 3}
+      objectReference: {fileID: 21300000, guid: 49f22f70be639c846bb53999706056e7, type: 3}
+    - target: {fileID: 3811880172904060626, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: waterPookieMaskUI
+      value: 
+      objectReference: {fileID: 21300000, guid: 4390c26edeab2cf41878951008dd58af, type: 3}
     - target: {fileID: 3811880172904060626, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
       propertyPath: waterPookiePrefab
       value: 
@@ -3082,17 +3098,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3221070547257569108}
     - target: {fileID: 3811880172904060626, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: bulletPookieMaskUI
+      value: 
+      objectReference: {fileID: 21300000, guid: 239c7f14ebca52e45be93da5c87cfa67, type: 3}
+    - target: {fileID: 3811880172904060626, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
       propertyPath: bulletPookiePrefab
       value: 
       objectReference: {fileID: 2274104037700983121, guid: 2c6d695d3b7c8ea4f9fd37f0df98de2b, type: 3}
     - target: {fileID: 3811880172904060626, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
       propertyPath: waterPookieUIImage
       value: 
-      objectReference: {fileID: 21300000, guid: 4390c26edeab2cf41878951008dd58af, type: 3}
+      objectReference: {fileID: 21300000, guid: ea3f49b410f6a314aa36d4c12fb21188, type: 3}
     - target: {fileID: 3811880172904060626, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
       propertyPath: bulletPookieUIImage
       value: 
-      objectReference: {fileID: 21300000, guid: 239c7f14ebca52e45be93da5c87cfa67, type: 3}
+      objectReference: {fileID: 21300000, guid: 2411963026734c842986a7df00f6370a, type: 3}
     - target: {fileID: 4510759976462465981, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
       propertyPath: m_RootOrder
       value: 4
