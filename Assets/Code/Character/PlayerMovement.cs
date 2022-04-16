@@ -115,7 +115,7 @@ public class PlayerMovement : MonoBehaviour {
         }
         if (movement.y <= player.maxFallSpeed) movement.y = player.maxFallSpeed;
 
-        if (grounded && fallSpeed < -30) {
+        if (grounded && fallSpeed < -25) {
             fallSpeed = 0;
             jumping = false;
             GameObject g = Instantiate(LandingDust, new Vector3(transform.position.x, controller.bounds.min.y, transform.position.z), Quaternion.identity);
