@@ -66,7 +66,6 @@ public class InputReader : MonoBehaviour {
             player.anim.animator.SetBool("walking", true);
         }
         if (context.performed) rawInput = Vector2.ClampMagnitude(context.ReadValue<Vector2>(), 1);
-        Debug.Log(rawInput);
     }
 
     void ReadRun(InputAction.CallbackContext context) {
