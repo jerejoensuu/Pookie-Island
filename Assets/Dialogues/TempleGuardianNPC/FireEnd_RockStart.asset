@@ -14,11 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   priority: 3
   requiredFlags:
-  - GuardianGreeted
   - SawWater_ShowMeFire
   - ShowingFire
   disabledByFlags:
-  - SawFire_ShowMeRock
+  - ShowingBullet
   dialogueBoxes:
   - yass fire, now rock pookie
-  FlagToSet: SawFire_ShowMeRock
+  FlagToSet: SawFire_ShowMeBullet

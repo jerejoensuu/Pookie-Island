@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   priority: 3
   requiredFlags:
-  - SawFire_ShowMeRock
-  - ShowingRock
+  - SawFire_ShowMeBullet
+  - ShowingBullet
   disabledByFlags:
-  - SawRock_ShowMeIce
+  - ShowingIce
   dialogueBoxes:
   - yass rock, now ice pookie
-  FlagToSet: SawRock_ShowMeIce
+  FlagToSet: SawBullet_ShowMeIce

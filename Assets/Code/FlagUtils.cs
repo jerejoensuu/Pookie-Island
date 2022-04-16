@@ -10,6 +10,8 @@ public class FlagUtils {
     private static HashSet<GameObject> listenersToBeRemoved = new HashSet<GameObject>();
     private static bool iterating;
 
+    public static Action<string> OnFlagSet;
+
     public static bool IsFlagOn(string flagName) {
         return SaveUtils.currentSaveGame.Flags.Contains(flagName);
     }
@@ -20,6 +22,7 @@ public class FlagUtils {
             SaveUtils.currentSaveGame.Flags.Add(flagName);
             foreach (GameObject listener in listeners) {
                 CustomEvent.Trigger(listener, "OnFlagChanged", flagName);
+                OnFlagSet?.Invoke(flagName);
             }
         }
         foreach (GameObject toBeRemoved in listenersToBeRemoved) {

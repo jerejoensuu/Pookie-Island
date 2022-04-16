@@ -14,15 +14,18 @@ public class VacuumTank : MonoBehaviour {
             switch (value) {
                 case DamageElement.DamageType.FIRE:
                     GaugePookieDisplay.sprite = firePookieUIImage;
+                    PookieAmount.sprite = firePookieMaskUI;
                     break;
                 case DamageElement.DamageType.ICE:
                     GaugePookieDisplay.sprite = icePookieUIImage;
                     break;
                 case DamageElement.DamageType.WATER:
                     GaugePookieDisplay.sprite = waterPookieUIImage;
+                    PookieAmount.sprite = waterPookieMaskUI;
                     break;
                 case DamageElement.DamageType.BULLET:
                     GaugePookieDisplay.sprite = bulletPookieUIImage;
+                    PookieAmount.sprite = bulletPookieMaskUI;
                     break;
             }
         }
@@ -32,29 +35,49 @@ public class VacuumTank : MonoBehaviour {
         //making sure correct values are displayed on scene load
         gauge = gauge;
         pookieType = pookieType;
+        originalSize = mask.rectTransform.rect.height;
+        //Debug.Log("Start: original size = " + originalSize);
+        initialized = true;
+        mask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 0);
+
     }
 
     public TextMeshProUGUI GaugeUI;
     public Image GaugePookieDisplay;
+    public Image mask;
+    public Image PookieAmount;
+    float originalSize;
     public Sprite firePookieUIImage;
     public Sprite icePookieUIImage;
     public Sprite waterPookieUIImage;
     public Sprite bulletPookieUIImage;
+    public Sprite firePookieMaskUI;
+    public Sprite waterPookieMaskUI;
+    public Sprite bulletPookieMaskUI;
     public GameObject firePookiePrefab;
     public GameObject icePookiePrefab;
     public GameObject waterPookiePrefab;
     public GameObject bulletPookiePrefab;
     public GameObject currentlyHeldInTank; //only use for non pookies
-
     public GameObject carriedObject;
-
+    private bool initialized = false;
     public int gauge {
         get => SaveUtils.currentSaveGame.gauge;
         private set {
             GaugePookieDisplay.enabled = value != 0;
+            PookieAmount.enabled = value != 0;
             SaveUtils.currentSaveGame.gauge = value;
             GaugeUI.text = value.ToString();
+            SetValue(value);
         }
+    }
+
+        public void SetValue(float value)
+    {
+        if (!initialized) return;
+        if (value > 100) value = 100;
+        mask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, originalSize * value/100);
+        //Debug.Log("setting my mask to " + value + " originalSize = " + originalSize);
     }
 
     public bool AddCharacterToTank(PullableCharacter character) {
