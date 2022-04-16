@@ -87,6 +87,7 @@ public class VacuumTank : MonoBehaviour {
         if (character.type == pookieType && gauge > 0) {
             return GaugeAdd(pookieType == DamageElement.DamageType.BULLET ? 25 : 35);
         }
+        Eject(false);
         pookieType = character.type;
         gauge = pookieType == DamageElement.DamageType.BULLET ? 25 : 35;
         vacuum.player.anim.animator.SetTrigger("vacuumKnockback");
@@ -117,13 +118,13 @@ public class VacuumTank : MonoBehaviour {
         return true;
     }
 
-    public void Eject() {
+    public void Eject(bool playAnimation = true) {
         if (carriedObject != null) DropObject();
-        else if (currentlyHeldInTank == null) EjectPookie();
-        else EjectObject();
+        else if (currentlyHeldInTank == null) EjectPookie(playAnimation);
+        else EjectObject(playAnimation);
     }
 
-    public void EjectPookie() {
+    public void EjectPookie(bool playAnimation = true) {
         if (gauge == 0) return;
         int size;
         GameObject obj;
@@ -147,11 +148,11 @@ public class VacuumTank : MonoBehaviour {
             default:
                 return;
         }
-        vacuum.player.anim.animator.SetTrigger("shoot");
+        if (playAnimation) vacuum.player.anim.animator.SetTrigger("shoot");
         obj.SetActive(true);
         vacuum.PutOnCooldown(obj, 120);
     }
-    public void EjectObject() {
+    public void EjectObject(bool playAnimation = true) {
         gauge = 0;
         currentlyHeldInTank.transform.position = vacuum.nozzle.transform.position;
         currentlyHeldInTank.SetActive(true);
@@ -161,7 +162,7 @@ public class VacuumTank : MonoBehaviour {
         float force = 5;
         rb.AddForce(vacuum.player.model.transform.forward * force, ForceMode.Impulse);
         currentlyHeldInTank = null;
-        vacuum.player.anim.animator.SetTrigger("shoot");
+        if (playAnimation) vacuum.player.anim.animator.SetTrigger("shoot");
     }
 
     void DropObject() {
