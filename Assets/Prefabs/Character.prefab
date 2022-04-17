@@ -132,7 +132,7 @@ Transform:
   m_GameObject: {fileID: 5400902743268753249}
   m_LocalRotation: {x: 1, y: 0, z: 0, w: 0}
   m_LocalPosition: {x: 0, y: -0.82, z: 0}
-  m_LocalScale: {x: 8.8245, y: 10.754, z: 10.0975}
+  m_LocalScale: {x: 18, y: 35, z: 19.5}
   m_Children: []
   m_Father: {fileID: 8215064959487701044}
   m_RootOrder: 4
@@ -545,6 +545,8 @@ MonoBehaviour:
   back: {fileID: 648879175270675597}
   front: {fileID: 8859306818757217983}
   right: {fileID: 8127240611574772358}
+  LandingDust: {fileID: 0}
+  DustTrail: {fileID: 0}
   coyoteTime: 30
   runningCoyoteTime: 0
 --- !u!114 &2370099968389096281
@@ -648,10 +650,15 @@ MonoBehaviour:
   vacuum: {fileID: 2831179270947530452}
   GaugeUI: {fileID: 0}
   GaugePookieDisplay: {fileID: 0}
+  mask: {fileID: 0}
+  PookieAmount: {fileID: 0}
   firePookieUIImage: {fileID: 0}
   icePookieUIImage: {fileID: 0}
   waterPookieUIImage: {fileID: 0}
   bulletPookieUIImage: {fileID: 0}
+  firePookieMaskUI: {fileID: 0}
+  waterPookieMaskUI: {fileID: 0}
+  bulletPookieMaskUI: {fileID: 0}
   firePookiePrefab: {fileID: 0}
   icePookiePrefab: {fileID: 0}
   waterPookiePrefab: {fileID: 0}

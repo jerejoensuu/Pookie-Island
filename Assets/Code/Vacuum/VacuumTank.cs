@@ -85,8 +85,9 @@ public class VacuumTank : MonoBehaviour {
             return false;
         } 
         if (character.type == pookieType && gauge > 0) {
-            return GaugeAdd(pookieType == DamageElement.DamageType.BULLET ? 25 : 35);
+            return GaugeAdd(pookieType == DamageElement.DamageType.BULLET ? 25 : (int)(35 * character.gameObject.transform.localScale.x));
         }
+        EjectAll();
         pookieType = character.type;
         gauge = pookieType == DamageElement.DamageType.BULLET ? 25 : 35;
         vacuum.player.anim.animator.SetTrigger("vacuumKnockback");
@@ -117,28 +118,41 @@ public class VacuumTank : MonoBehaviour {
         return true;
     }
 
-    public void Eject() {
-        if (carriedObject != null) DropObject();
-        else if (currentlyHeldInTank == null) EjectPookie();
-        else EjectObject();
+    void EjectAll() {
+        int toSub = pookieType == DamageElement.DamageType.BULLET ? 25 : 35;
+        while (gauge > 0) {
+            Eject(false);
+        }
     }
 
-    public void EjectPookie() {
+    public void Eject(bool playAnimation = true) {
+        if (carriedObject != null) DropObject();
+        else if (currentlyHeldInTank == null) EjectPookie(playAnimation);
+        else EjectObject(playAnimation);
+    }
+
+    public void EjectPookie(bool playAnimation = true) {
         if (gauge == 0) return;
         int size;
-        GameObject obj;
+        GameObject obj = new GameObject();
         switch (pookieType) {
             case DamageElement.DamageType.FIRE:
                 size = GaugeSubstract(35);
+                if (size <= 5) break;
                 obj = Instantiate(firePookiePrefab, vacuum.nozzle.transform.position, Quaternion.identity);
+                obj.transform.localScale = new Vector3(size / 35f, size / 35f, size / 35f);
                 break;
             case DamageElement.DamageType.ICE:
                 size = GaugeSubstract(35);
+                if (size <= 5) break;
                 obj = Instantiate(icePookiePrefab, vacuum.nozzle.transform.position, Quaternion.identity);
+                obj.transform.localScale = new Vector3(size / 35f, size / 35f, size / 35f);
                 break;
             case DamageElement.DamageType.WATER:
                 size = GaugeSubstract(35);
+                if (size <= 5) break;
                 obj = Instantiate(waterPookiePrefab, vacuum.nozzle.transform.position, Quaternion.identity);
+                obj.transform.localScale = new Vector3(size / 35f, size / 35f, size / 35f);
                 break;
             case DamageElement.DamageType.BULLET:
                 size = GaugeSubstract(25);
@@ -147,11 +161,11 @@ public class VacuumTank : MonoBehaviour {
             default:
                 return;
         }
-        vacuum.player.anim.animator.SetTrigger("shoot");
+        if (playAnimation) vacuum.player.anim.animator.SetTrigger("shoot");
         obj.SetActive(true);
-        vacuum.PutOnCooldown(obj, 120);
+        vacuum.PutOnCooldown(obj, 50);
     }
-    public void EjectObject() {
+    public void EjectObject(bool playAnimation = true) {
         gauge = 0;
         currentlyHeldInTank.transform.position = vacuum.nozzle.transform.position;
         currentlyHeldInTank.SetActive(true);
@@ -161,7 +175,7 @@ public class VacuumTank : MonoBehaviour {
         float force = 5;
         rb.AddForce(vacuum.player.model.transform.forward * force, ForceMode.Impulse);
         currentlyHeldInTank = null;
-        vacuum.player.anim.animator.SetTrigger("shoot");
+        if (playAnimation) vacuum.player.anim.animator.SetTrigger("shoot");
     }
 
     void DropObject() {
