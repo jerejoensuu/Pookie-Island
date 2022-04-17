@@ -352,7 +352,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5235960323513726137}
   - component: {fileID: 4079462194032871062}
-  - component: {fileID: 240906284778026407}
   - component: {fileID: 7828995495323818297}
   m_Layer: 0
   m_Name: StateDrivenCamera
@@ -425,19 +424,6 @@ MonoBehaviour:
     m_ParentHash: 756556552
   - m_Hash: 1362266976
     m_ParentHash: 756556552
---- !u!114 &240906284778026407
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7566766719588228938}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a323c521c0ec154a9840531e72a15aa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 7828995495323818297}
 --- !u!95 &7828995495323818297
 Animator:
   serializedVersion: 3
