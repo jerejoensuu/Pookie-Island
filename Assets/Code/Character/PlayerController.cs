@@ -25,9 +25,10 @@ public class PlayerController : MonoBehaviour {
     internal float vacuumSpeedMod = 0.5f; 
      
     public float accelSpeed = 0.0025f; 
-    public float decelSpeed = 0.005f; 
- 
-    [Header("Camera")] 
+    public float decelSpeed = 0.005f;
+
+    [Header("Camera")]
+    public Animator CameraAnimator;
     private Transform originalParent; 
     public float stickSensitivity = 2; 
     public float mouseSensitivity = 2; 
@@ -49,7 +50,7 @@ public class PlayerController : MonoBehaviour {
     void Update() { 
         vcamera.RotateCamera(); 
         vcamera.AutoRotateCamera(); 
-        movement.HandleMovement(); 
+        if (CameraAnimator.GetCurrentAnimatorStateInfo(0).IsName("Player")) movement.HandleMovement(); 
         vcamera.Aim(); 
         CheckSoftRespawn(); 
     } 
