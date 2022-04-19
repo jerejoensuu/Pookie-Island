@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.15559563, g: 0.4112047, b: 1.0113113, a: 1}
+  m_IndirectSpecularColor: {r: 0.13932796, g: 0.4194898, b: 1.0875847, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -409,15 +409,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4510759977629497183, guid: f77ed31f946cfcd4a8e9062f8d5aab2f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.619003
+      value: 43.097298
       objectReference: {fileID: 0}
     - target: {fileID: 4510759977629497183, guid: f77ed31f946cfcd4a8e9062f8d5aab2f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.8500018
+      value: 3.3586082
       objectReference: {fileID: 0}
     - target: {fileID: 4510759977629497183, guid: f77ed31f946cfcd4a8e9062f8d5aab2f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -25.141468
+      value: 281.46848
       objectReference: {fileID: 0}
     - target: {fileID: 4510759977629497183, guid: f77ed31f946cfcd4a8e9062f8d5aab2f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2007,8 +2007,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 319103bbb83406e43891f971f5466795, type: 2}
-  - {fileID: 2100000, guid: 134f22124338e4148a56a4375914b042, type: 2}
+  - {fileID: 2100000, guid: fe41fe0794c50464981a0d7eb897edef, type: 2}
+  - {fileID: 2100000, guid: 81ee7cf662ff88143a8b79747f9240d1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2033,7 +2033,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 4091017712968048590, guid: a18a1e391582c6d4aa68fb6f370b0fd0, type: 3}
+  m_Mesh: {fileID: 4091017712968048590, guid: 7e6ac7695962f3345872ca0f03311f48, type: 3}
   m_Bones:
   - {fileID: 5942452092905571353}
   - {fileID: 2735411147251294484}
