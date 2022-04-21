@@ -76,13 +76,19 @@ public class PlayerController : MonoBehaviour {
     void OnTriggerEnter(Collider col) { 
         if (col.gameObject.layer == 10) { 
             unsafeSpawn = true; 
+        }
+        if (col.gameObject.CompareTag("Water")) {
+            movement.inWater = true;
         } 
     } 
  
-    void OntriggerExit(Collider col) { 
+    void OnTriggerExit(Collider col) {
         if (col.gameObject.layer == 10) { 
-            unsafeSpawn = false; 
-        } 
+            unsafeSpawn = false;
+        }
+        if (col.gameObject.CompareTag("Water")) {
+            movement.inWater = false;
+        }
     } 
  
     // void OnDrawGizmos() { 
