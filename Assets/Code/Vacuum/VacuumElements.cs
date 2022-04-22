@@ -113,8 +113,9 @@ public class VacuumElements : MonoBehaviour {
     IEnumerator DownwardJet() {  
         watering = true; 
         jetGravity = JetGravity; 
-        waterEffectDown.SetActive(true); 
- 
+        waterEffectDown.SetActive(true);
+        vacuum.player.anim.animator.SetBool("hovering", true);
+
         while(use && vacuum.tank.gauge > 0) {  
             GameObject obj = Instantiate(waterCollider);  
             obj.transform.position = vacuum.nozzle.transform.position;  
@@ -126,7 +127,8 @@ public class VacuumElements : MonoBehaviour {
             yield return new WaitForSeconds(.2f);  
         }  
   
-        watering = false; 
+        vacuum.player.anim.animator.SetBool("hovering", false);
+        watering = false;
         jetGravity = 1; 
     }  
   

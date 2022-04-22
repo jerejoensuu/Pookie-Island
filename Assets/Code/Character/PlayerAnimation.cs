@@ -6,7 +6,6 @@ public class PlayerAnimation : MonoBehaviour {
 
     internal Animator animator;
 
-
     void Start() {
         animator = player.model.GetComponent<Animator>();
     }

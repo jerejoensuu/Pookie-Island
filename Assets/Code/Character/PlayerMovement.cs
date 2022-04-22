@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour {
     public Vector3 movement, momentum;
     private float accel = 0;
 
-    internal bool moving, jumping, run, jumpPressed, autoTurningPlayer;
+    internal bool moving, jumping, run, jumpPressed, autoTurningPlayer, inWater;
     public float rollingProgress = 0;
     public float rollSpeed = 25;
     public float rollEndSpeed = 5;
@@ -115,6 +115,7 @@ public class PlayerMovement : MonoBehaviour {
         }
         if (movement.y <= player.maxFallSpeed) movement.y = player.maxFallSpeed;
 
+        player.anim.animator.SetBool("falling", movement.y < -5 && !grounded);
         if (grounded && fallSpeed < -25) {
             fallSpeed = 0;
             jumping = false;
@@ -126,13 +127,14 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void HandleJump() {
+        float waterMod = inWater ? .7f : 1;
         if (jumpPressed && (grounded || jumps > 0)) {
             jumping = true;
             if (jumps == 2) {
-                movement.y = player.jumpSpeed;
+                movement.y = player.jumpSpeed * waterMod;
                 player.anim.animator.SetTrigger("jump");
             } else {
-                movement.y = player.jumpSpeed * 0.75f;
+                movement.y = player.jumpSpeed * 0.75f * waterMod;
                 player.anim.animator.SetTrigger("doubleJump");
             }
             jumpPressed = false;
@@ -158,7 +160,7 @@ public class PlayerMovement : MonoBehaviour {
     void HandleWalk() {
         if (rollingProgress > 0) return;
 
-        float runMod = run ? 1.5f : 1;
+        float waterMod = inWater ? .6f : 1;
 
         // dampen movement:
         if (moving) {
@@ -174,9 +176,10 @@ public class PlayerMovement : MonoBehaviour {
             accel -= player.decelSpeed;
             if (accel <= 0) accel = 0;
         }
+        if (accel > 0) player.anim.animator.SetFloat("VacuumBlend", accel);
 
-        movement.x = player.inputReader.directionInput.x * accel * runMod;
-        movement.z = player.inputReader.directionInput.y * accel * runMod;
+        movement.x = player.inputReader.directionInput.x * accel * waterMod;
+        movement.z = player.inputReader.directionInput.y * accel * waterMod;
 
         if (trail.isStopped && accel > 0.5f) trail.Play();
         if (trail.isPlaying && accel < 0.5f) trail.Stop();
