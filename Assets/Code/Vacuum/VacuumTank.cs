@@ -6,6 +6,13 @@ using UnityEngine.UI;
 public class VacuumTank : MonoBehaviour {
     
     [SerializeField] VacuumController vacuum;
+    public GameObject model;
+    private SkinnedMeshRenderer smRenderer;
+    public Material MaterialEmpty;
+    public Material MaterialBullet;
+    public Material MaterialFire;
+    public Material MaterialWater;
+    private Material[] rendererMats;
 
     public DamageElement.DamageType pookieType {
         get => SaveUtils.currentSaveGame.type;
@@ -31,7 +38,7 @@ public class VacuumTank : MonoBehaviour {
         }
     }
 
-    private void Start() {
+    private void Awake() {
         //making sure correct values are displayed on scene load
         gauge = gauge;
         pookieType = pookieType;
@@ -40,7 +47,33 @@ public class VacuumTank : MonoBehaviour {
         initialized = true;
         mask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 0);
 
+        
+        if (model) {
+            smRenderer = model.GetComponent<SkinnedMeshRenderer>();
+            rendererMats = smRenderer.materials;
+        } 
+        rendererMats[1] = MaterialEmpty;
+        switch (pookieType) {
+            case DamageElement.DamageType.BULLET:
+                rendererMats[1] = MaterialBullet;
+                break;
+            case DamageElement.DamageType.FIRE:
+                rendererMats[1] = MaterialFire;
+                break;
+            case DamageElement.DamageType.WATER:
+                rendererMats[1] = MaterialWater;
+                break;
+        }
+        smRenderer.materials = rendererMats;
     }
+
+    void Update() {
+        if (gauge == 0 && rendererMats[1] != MaterialEmpty) {
+            rendererMats[1] = MaterialEmpty;
+            smRenderer.materials = rendererMats;
+        }
+    }
+
 
     public TextMeshProUGUI GaugeUI;
     public Image GaugePookieDisplay;
@@ -91,6 +124,18 @@ public class VacuumTank : MonoBehaviour {
         pookieType = character.type;
         gauge = pookieType == DamageElement.DamageType.BULLET ? 25 : 35;
         vacuum.player.anim.animator.SetTrigger("vacuumKnockback");
+        switch (pookieType) {
+            case DamageElement.DamageType.BULLET:
+                rendererMats[1] = MaterialBullet;
+                break;
+            case DamageElement.DamageType.FIRE:
+                rendererMats[1] = MaterialFire;
+                break;
+            case DamageElement.DamageType.WATER:
+                rendererMats[1] = MaterialWater;
+                break;
+        }
+        smRenderer.materials = rendererMats;
         return true;
     }
 
