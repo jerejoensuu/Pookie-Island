@@ -266,7 +266,7 @@ public class PlayerMovement : MonoBehaviour {
         //         || controller.collisionFlags == CollisionFlags.CollidedBelow
         //         || controller.isGrounded);
 
-        bool g = Physics.CheckSphere(groundCheck.position, 0.3f, 1 << 0);
+        bool g = Physics.CheckSphere(groundCheck.position, 0.3f, (1 << 0 | 1 << 16));
 
         // if (movement.y <= 0) {
             if (g && Physics.Raycast(groundCheck.position + player.up * 0.3f, -player.up, out groundCheckInfo, 15, 1 << 0, QueryTriggerInteraction.Ignore)) {
