@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.13932796, g: 0.4194898, b: 1.0875847, a: 1}
+  m_IndirectSpecularColor: {r: 0.13907468, g: 0.41935894, b: 1.0875677, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -211,7 +211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9070832290929867077, guid: bea452a7fd1d08a4abb67b9c8104c032, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9070832290929867077, guid: bea452a7fd1d08a4abb67b9c8104c032, type: 3}
       propertyPath: m_StaticEditorFlags
@@ -223,7 +223,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9070832290929867078, guid: bea452a7fd1d08a4abb67b9c8104c032, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -9
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 9070832290929867078, guid: bea452a7fd1d08a4abb67b9c8104c032, type: 3}
       propertyPath: m_LocalPosition.y
@@ -267,15 +267,27 @@ PrefabInstance:
       objectReference: {fileID: 1910754135}
     - target: {fileID: 9070832290929867082, guid: bea452a7fd1d08a4abb67b9c8104c032, type: 3}
       propertyPath: m_Size.x
-      value: 30
+      value: 9.9415
       objectReference: {fileID: 0}
     - target: {fileID: 9070832290929867082, guid: bea452a7fd1d08a4abb67b9c8104c032, type: 3}
       propertyPath: m_Size.y
-      value: 20
+      value: 5.1177273
       objectReference: {fileID: 0}
     - target: {fileID: 9070832290929867082, guid: bea452a7fd1d08a4abb67b9c8104c032, type: 3}
       propertyPath: m_Size.z
-      value: 30
+      value: 13.617093
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070832290929867082, guid: bea452a7fd1d08a4abb67b9c8104c032, type: 3}
+      propertyPath: m_Center.x
+      value: 13.649453
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070832290929867082, guid: bea452a7fd1d08a4abb67b9c8104c032, type: 3}
+      propertyPath: m_Center.y
+      value: -7.4411364
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070832290929867082, guid: bea452a7fd1d08a4abb67b9c8104c032, type: 3}
+      propertyPath: m_Center.z
+      value: -7.085756
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bea452a7fd1d08a4abb67b9c8104c032, type: 3}
