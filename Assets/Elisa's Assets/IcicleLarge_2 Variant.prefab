@@ -91,33 +91,6 @@ MeshRenderer:
   m_CorrespondingSourceObject: {fileID: -7511558181221131132, guid: 0df0e7e4cd90e8348a630cdd38a1b9a6, type: 3}
   m_PrefabInstance: {fileID: 6830142143333189214}
   m_PrefabAsset: {fileID: 0}
---- !u!205 &8897845139305741498
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5911224953130318607}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: -0.22703123, y: 8.5687475, z: 0.07661247}
-  m_Size: 17.137495
-  m_FadeMode: 1
-  m_AnimateCrossFading: 1
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.29763916
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 5262491033952738010}
-  - screenRelativeHeight: 0.102122396
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 5262491033952738010}
-  - screenRelativeHeight: 0.046046223
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 5262491033952738010}
-  m_Enabled: 1
 --- !u!136 &5620190232459909659
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -146,3 +119,30 @@ CapsuleCollider:
   m_Height: 14.0656395
   m_Direction: 1
   m_Center: {x: 0.054208867, y: 10.191184, z: 1.9586561}
+--- !u!205 &8897845139305741498
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5911224953130318607}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.22703123, y: 8.5687475, z: 0.07661247}
+  m_Size: 17.137495
+  m_FadeMode: 1
+  m_AnimateCrossFading: 1
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.29763916
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 5262491033952738010}
+  - screenRelativeHeight: 0.102122396
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 5262491033952738010}
+  - screenRelativeHeight: 0.046046223
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 5262491033952738010}
+  m_Enabled: 1
