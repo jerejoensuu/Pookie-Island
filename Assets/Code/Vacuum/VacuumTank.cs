@@ -25,6 +25,7 @@ public class VacuumTank : MonoBehaviour {
                     break;
                 case DamageElement.DamageType.ICE:
                     GaugePookieDisplay.sprite = icePookieUIImage;
+                    PookieAmount.sprite = icePookieMaskUI;
                     break;
                 case DamageElement.DamageType.WATER:
                     GaugePookieDisplay.sprite = waterPookieUIImage;
@@ -85,6 +86,7 @@ public class VacuumTank : MonoBehaviour {
     public Sprite waterPookieUIImage;
     public Sprite bulletPookieUIImage;
     public Sprite firePookieMaskUI;
+    public Sprite icePookieMaskUI;
     public Sprite waterPookieMaskUI;
     public Sprite bulletPookieMaskUI;
     public GameObject firePookiePrefab;

@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 331095989433833968}
   - component: {fileID: 2557126795691453754}
   - component: {fileID: 3800238622107562429}
+  - component: {fileID: 531016866944310195}
+  - component: {fileID: 4502634758995628951}
   m_Layer: 0
   m_Name: ice tree03 (1)
   m_TagString: Untagged
@@ -111,3 +113,29 @@ LODGroup:
     renderers:
     - renderer: {fileID: 2557126795691453754}
   m_Enabled: 1
+--- !u!65 &531016866944310195
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4070199861415103727}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.9117259, y: 4.074312, z: 2.7278032}
+  m_Center: {x: 0.00000027509836, y: 4.4403143, z: 0.05358696}
+--- !u!65 &4502634758995628951
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4070199861415103727}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.48520595, y: 2.5685759, z: 0.46791077}
+  m_Center: {x: 0.009313627, y: 1.2871673, z: -0.013094942}
