@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3dae4bc0707193a46940cd34900086c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  requiresReset: 1
   type: 0
 --- !u!114 &6501574406318696118
 MonoBehaviour:
@@ -160,6 +161,7 @@ MonoBehaviour:
   value: 
   animator: {fileID: 0}
   child: {fileID: 8528306017431845404}
+  timer: 0
 --- !u!1 &8528306017431845404
 GameObject:
   m_ObjectHideFlags: 0
