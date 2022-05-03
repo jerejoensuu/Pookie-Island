@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7484429339979788626}
   - component: {fileID: 4961276461598287343}
   - component: {fileID: 2991066044018261686}
+  - component: {fileID: 5597662759204846471}
   m_Layer: 0
   m_Name: FLOWER
   m_TagString: Untagged
@@ -84,6 +85,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5597662759204846471
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3796014241678499049}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3445279530814619158, guid: f71b63baa98ab5f4e91c8a2ff4a939b3, type: 3}
 --- !u!1 &4043356274725582270
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,7 +109,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3699482481824444164}
   m_Layer: 0
-  m_Name: obj_FarmHut
+  m_Name: FarmHut
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -129,6 +144,7 @@ GameObject:
   - component: {fileID: 5063755047584654944}
   - component: {fileID: 7604704588776473535}
   - component: {fileID: 3587296290152210192}
+  - component: {fileID: 7122951302006695991}
   m_Layer: 0
   m_Name: Bases
   m_TagString: Untagged
@@ -200,6 +216,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7122951302006695991
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5885440043436847379}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4112811770529918861, guid: f71b63baa98ab5f4e91c8a2ff4a939b3, type: 3}
 --- !u!1 &6144054937041601044
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,6 +241,7 @@ GameObject:
   - component: {fileID: 7481870891709288520}
   - component: {fileID: 9104330788243857815}
   - component: {fileID: 2453335308311391507}
+  - component: {fileID: 202901864693454870}
   m_Layer: 0
   m_Name: Leaves
   m_TagString: Untagged
@@ -282,6 +313,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &202901864693454870
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6144054937041601044}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 766207002214816160, guid: f71b63baa98ab5f4e91c8a2ff4a939b3, type: 3}
 --- !u!1 &7800578436855757923
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,6 +338,7 @@ GameObject:
   - component: {fileID: 4500648047250928167}
   - component: {fileID: 901299267442585757}
   - component: {fileID: 1408672421520878810}
+  - component: {fileID: 8890623259108085783}
   m_Layer: 0
   m_Name: Pillars.001
   m_TagString: Untagged
@@ -364,3 +410,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8890623259108085783
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7800578436855757923}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -6809153160570947467, guid: f71b63baa98ab5f4e91c8a2ff4a939b3, type: 3}
