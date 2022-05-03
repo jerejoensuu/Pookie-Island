@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -2876907455577854966}
   - component: {fileID: 4458899227663849207}
   - component: {fileID: -9177332174708428660}
+  - component: {fileID: 3169762790274316135}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -116,7 +117,7 @@ MonoBehaviour:
   _data:
     _json: '{"nest":{"source":"Macro","macro":0,"embed":null}}'
     _objectReferences:
-    - {fileID: 11400000, guid: 286c6c0712d060b40a14b31cbf2a6110, type: 2}
+    - {fileID: 11400000, guid: 6e72044a111b0f745a1a37a8143588f5, type: 2}
 --- !u!114 &-9177332174708428660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132,3 +133,16 @@ MonoBehaviour:
   destroyOnPlayerCollision: 0
   effectType: 1
   effectAmount: 1
+--- !u!65 &3169762790274316135
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6268579364385807596}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7209984, y: 0.7481347, z: 0.8680456}
+  m_Center: {x: 0.0000038443204, y: 0.39449367, z: -0.008021863}
