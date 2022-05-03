@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: StylizedWater_WaterJet
+  m_Name: StylizedWater_Enemy
   m_Shader: {fileID: -6465566751694194690, guid: 05a8f975e648fe74f833a690723b6167, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -61,7 +61,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _FoamTexture:
-        m_Texture: {fileID: 2800000, guid: df9e8fde5863f2842a0596a298b275bb, type: 3}
+        m_Texture: {fileID: -5289818731287295538, guid: a4503dc03081cd84aa03d1a3fb0dc910, type: 2}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
@@ -100,7 +100,7 @@ Material:
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
-    - _Choppiness: -0.01
+    - _Choppiness: 0.07
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _Cull: 2
@@ -109,9 +109,9 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
     - _EnvironmentReflections: 1
-    - _FlowSpeed: 0.59
+    - _FlowSpeed: 1
     - _FlowStrength: 0
-    - _FoamDistance: 0.41
+    - _FoamDistance: 2.12
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -120,7 +120,7 @@ Material:
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Size: 0.14
+    - _Size: 1.19
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -131,9 +131,9 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _DarkFoamColor: {r: 0.11454255, g: 0.413603, b: 0.6226415, a: 0}
+    - _DarkFoamColor: {r: 0.24586153, g: 0.36970153, b: 0.8018868, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _LightFoamColor: {r: 1, g: 1, b: 1, a: 0.29803923}
+    - _LightFoamColor: {r: 0.23361236, g: 0.14070839, b: 0.5849056, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _WaterColor: {r: 0.21960783, g: 0.5522518, b: 0.7647059, a: 1}
+    - _WaterColor: {r: 0.17816292, g: 0.10586509, b: 0.5754717, a: 1}
   m_BuildTextureStacks: []
