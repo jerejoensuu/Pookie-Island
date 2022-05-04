@@ -34,7 +34,7 @@ public class VacuumElements : MonoBehaviour {
                 SprayFire();  
                 break;  
             case DamageElement.DamageType.ICE:  
-                SprayIce();  
+                //SprayIce();  
                 break;  
             case DamageElement.DamageType.WATER:  
                 SprayWater();  
