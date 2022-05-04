@@ -8,21 +8,21 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BeachGrass
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_ShaderKeywords: 
+  m_Shader: {fileID: 4800000, guid: 849dc4ff793a3f943ad21a3b6ee26456, type: 3}
+  m_ShaderKeywords: _ADDITIONAL_LIGHTS_ENABLED _ENVIRONMENT_LIGHTING_ENABLED _FOG
+    _FRESNEL _PURE_SHADOW_COLOR _ZWRITE_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
-  stringTagMap:
-    RenderType: Opaque
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 07824c8fe4fb8f74e990af1bb1e6dd20, type: 3}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: 5e37dd4cba46f8944948ff8dd1687d71, type: 3}
+        m_Scale: {x: 0.1, y: 0.1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 0}
@@ -60,6 +60,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _RampMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _SpecGlossMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -77,7 +81,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - _AdditionalLights: 1
+    - _AdditionalLightsSpecular: 0
     - _AlphaClip: 0
+    - _AnisoSpecular: 0
     - _Blend: 0
     - _BumpScale: 1
     - _ClearCoatMask: 0
@@ -87,27 +94,48 @@ Material:
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
+    - _Emission: 0
+    - _EnvironmentLightingEnabled: 1
     - _EnvironmentReflections: 1
+    - _Fog: 1
+    - _Fresnel: 1
+    - _FresnelSmoothness: 0.339
+    - _FresnelThickness: 0.19
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
+    - _PureShadowColor: 1
     - _QueueOffset: 0
+    - _Ramp0: 0.08
+    - _Ramp1: 0.5
+    - _RampSmoothness: 0
+    - _RampTriple: 0
     - _ReceiveShadows: 1
+    - _ShadowMask: 0
     - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
+    - _Specular: 0
+    - _SpecularExponent: 200
     - _SpecularHighlights: 1
+    - _SpecularSmoothness: 0.025
+    - _SpecularThreshold: 0.8
     - _SrcBlend: 1
     - _Surface: 0
+    - _UseRampMap: 0
+    - _VertexColor: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FresnelColor: {r: 0.8974602, g: 1, b: 0.30588233, a: 0.078431375}
+    - _ShadowTint: {r: 0, g: 0.254717, b: 0.0609106, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
+    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
 --- !u!114 &376980049708425761
 MonoBehaviour:
