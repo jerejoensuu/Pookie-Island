@@ -23,7 +23,7 @@ Material:
   m_Name: M_PalmLeaves
   m_Shader: {fileID: 4800000, guid: 849dc4ff793a3f943ad21a3b6ee26456, type: 3}
   m_ShaderKeywords: _ADDITIONAL_LIGHTS_ENABLED _ENVIRONMENT_LIGHTING_ENABLED _FOG
-    _FRESNEL _ZWRITE_ON
+    _FRESNEL _PURE_SHADOW_COLOR _ZWRITE_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -124,19 +124,19 @@ Material:
     - _EnvironmentReflections: 1
     - _Fog: 1
     - _Fresnel: 1
-    - _FresnelSmoothness: 0.1
-    - _FresnelThickness: 0.45
+    - _FresnelSmoothness: 0
+    - _FresnelThickness: 0.42
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
     - _Metallic: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.005
-    - _PureShadowColor: 0
+    - _PureShadowColor: 1
     - _QueueOffset: 0
-    - _Ramp0: -0.08
+    - _Ramp0: -0.17
     - _Ramp1: 0.5
-    - _RampSmoothness: 0.05
+    - _RampSmoothness: 0
     - _RampTriple: 0
     - _ReceiveShadows: 1
     - _ShadowMask: 0
@@ -158,8 +158,8 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FresnelColor: {r: 0, g: 0.67244333, b: 0.29613832, a: 1}
-    - _ShadowTint: {r: 0.022071911, g: 0.025142418, b: 0.1509434, a: 1}
+    - _FresnelColor: {r: 0.53726095, g: 1, b: 0.19339621, a: 0.5529412}
+    - _ShadowTint: {r: 0, g: 0.026150748, b: 0.24528301, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
