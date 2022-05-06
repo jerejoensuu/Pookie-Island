@@ -174,7 +174,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 26
+      m_SerializableObject: 20
     m_Space: 2147483647
   m_Property:
     name: Rate
@@ -549,7 +549,7 @@ MonoBehaviour:
   - {fileID: 8926484042661614583}
   - {fileID: 8926484042661614605}
   dataType: 0
-  capacity: 26
+  capacity: 20
   stripCapacity: 16
   particlePerStripCount: 16
   m_Space: 0
@@ -974,7 +974,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.8
+      m_SerializableObject: 1
     m_Space: 2147483647
   m_Property:
     name: A
@@ -1008,7 +1008,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 1.2
+      m_SerializableObject: 1.5
     m_Space: 2147483647
   m_Property:
     name: B
@@ -1470,7 +1470,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
           PublicKeyToken=b77a5c561934e089
-      m_SerializableObject: 0.4
+      m_SerializableObject: 0.3
     m_Space: 2147483647
   m_Property:
     name: B
@@ -1533,7 +1533,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.AnimationCurve, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"frames":[{"time":0.0,"value":0.381500244140625,"inTangent":0.9519541263580322,"outTangent":0.9519541263580322,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":1.0,"value":1.0,"inTangent":0.0899074599146843,"outTangent":0.0899074599146843,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
+      m_SerializableObject: '{"frames":[{"time":0.0,"value":0.999969482421875,"inTangent":-0.1877485066652298,"outTangent":-0.1877485066652298,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false},{"time":1.00286865234375,"value":0.3795166015625,"inTangent":-0.7878514528274536,"outTangent":-0.7878514528274536,"tangentMode":0,"leftTangentMode":0,"rightTangentMode":0,"broken":false}],"preWrapMode":8,"postWrapMode":8,"version":1}'
     m_Space: 2147483647
   m_Property:
     name: Size
@@ -1590,7 +1590,7 @@ MonoBehaviour:
       m_Type:
         m_SerializableType: UnityEngine.Gradient, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
-      m_SerializableObject: '{"colorKeys":[{"color":{"r":0.9911022186279297,"g":0.05612849444150925,"b":0.023153364658355714,"a":1.0},"time":0.382360577583313},{"color":{"r":1.562214970588684,"g":0.8075775504112244,"b":0.22843708097934724,"a":1.0},"time":1.0}],"alphaKeys":[{"alpha":1.0,"time":0.2735332250595093},{"alpha":1.0,"time":1.0}],"gradientMode":0}'
+      m_SerializableObject: '{"colorKeys":[{"color":{"r":1.3543401956558228,"g":0.6303341388702393,"b":0.12137952446937561,"a":1.0},"time":0.0},{"color":{"r":1.0129716396331788,"g":0.08490341901779175,"b":0.031014204025268556,"a":1.0},"time":0.5176470875740051},{"color":{"r":0.9911022186279297,"g":0.05612849444150925,"b":0.023153364658355714,"a":1.0},"time":0.6441138386726379},{"color":{"r":1.0008941888809205,"g":0.08248422294855118,"b":0.031153012067079545,"a":1.0},"time":0.7411764860153198},{"color":{"r":1.0330713987350464,"g":0.1690913885831833,"b":0.057440534234046939,"a":1.0},"time":0.7823605537414551},{"color":{"r":1.122456431388855,"g":0.4096774756908417,"b":0.13046464323997498,"a":1.0},"time":0.852948784828186},{"color":{"r":1.515716552734375,"g":1.4681646823883057,"b":0.4517429769039154,"a":1.0},"time":0.9882352948188782}],"alphaKeys":[{"alpha":1.0,"time":0.0},{"alpha":1.0,"time":0.8411840796470642},{"alpha":1.0,"time":1.0}],"gradientMode":0}'
     m_Space: 2147483647
   m_Property:
     name: gradient
