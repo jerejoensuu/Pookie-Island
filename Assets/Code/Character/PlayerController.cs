@@ -44,6 +44,7 @@ public class PlayerController : MonoBehaviour {
     public Vector3 up => transform.up; 
  
     void Start() { 
+        Cursor.lockState = CursorLockMode.Locked;
         spawnPoint = softSpawnPoint = transform.position; 
     } 
  

@@ -19,11 +19,13 @@ public class OverlayMenuHandler : MonoBehaviour {
     }
 
     public void CloseOverlayMenu() {
+        Cursor.lockState = CursorLockMode.Locked;
         overlay.SetActive(false);
         GlobalEvent.UnpauseGame();
     }
 
     public void OpenOverlayMenu() {
+        Cursor.lockState = CursorLockMode.Confined;
         overlay.SetActive(true);
         GlobalEvent.PauseGame();
     }
