@@ -10,11 +10,11 @@ public class OverlayMenuHandler : MonoBehaviour {
     private void Start() {
         inputs = new Inputs();
         inputs.Enable();
-        inputs.UI.Cancel.performed += CancelOnperformed;
+        inputs.UI.Menu.performed += CancelOnperformed;
     }
 
     private void OnDestroy() {
-        inputs.UI.Cancel.performed -= CancelOnperformed;
+        inputs.UI.Menu.performed -= CancelOnperformed;
         inputs.Dispose();
     }
 
