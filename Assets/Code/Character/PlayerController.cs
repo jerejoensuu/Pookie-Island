@@ -77,19 +77,25 @@ public class PlayerController : MonoBehaviour {
         if (col.gameObject.layer == 10) { 
             unsafeSpawn = true; 
         }
-        if (col.gameObject.CompareTag("Water")) {
-            movement.inWater = true;
-        } 
+        // if (col.gameObject.CompareTag("Water")) {
+        //     movement.inWater = true;
+        // } 
     } 
  
     void OnTriggerExit(Collider col) {
         if (col.gameObject.layer == 10) { 
             unsafeSpawn = false;
         }
-        if (col.gameObject.CompareTag("Water")) {
-            movement.inWater = false;
-        }
-    } 
+        // if (col.gameObject.CompareTag("Water")) {
+        //     movement.inWater = false;
+        // }
+    }
+
+    public void CrystalGot() {
+        anim.animator.SetTrigger("crystalGot");
+        movement.movementBlocked = true;
+        anim.camAnimator.SetTrigger("CrystalGot");
+    }
  
     // void OnDrawGizmos() { 
     //     Gizmos.color = Color.cyan; 
