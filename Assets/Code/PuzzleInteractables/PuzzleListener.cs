@@ -16,7 +16,7 @@ public class PuzzleListener : MonoBehaviour {
 
     public enum State { ON, OFF }
 
-    public enum Action { ANIMATOR_TRIGGER, SET_FLAG, ACTIVATE_CHILD, DEACTIVATE_CHILD, SELF_DESTROY, SOFT_RESET_ON_TIMER }
+    public enum Action { ANIMATOR_TRIGGER, SET_FLAG, ACTIVATE_CHILD, DEACTIVATE_CHILD, SELF_DESTROY, SOFT_RESET_ON_TIMER, DESTROY_AFTER_TIME }
 
     public Action action = Action.ANIMATOR_TRIGGER;
     
@@ -26,9 +26,9 @@ public class PuzzleListener : MonoBehaviour {
     public string value;
     [ShowIf("@action==Action.ANIMATOR_TRIGGER")]
     public Animator animator;
-    [ShowIf("@action==Action.ACTIVATE_CHILD || action==Action.DEACTIVATE_CHILD")]
+    [ShowIf("@action==Action.ACTIVATE_CHILD || action==Action.DEACTIVATE_CHILD || action==Action.DESTROY_AFTER_TIME")]
     public GameObject child;
-    [ShowIf("@action==Action.SOFT_RESET_ON_TIMER")]
+    [ShowIf("@action==Action.SOFT_RESET_ON_TIMER || action==Action.DESTROY_AFTER_TIME")]
     public float timer;
     
     
@@ -66,6 +66,9 @@ public class PuzzleListener : MonoBehaviour {
                 break;
             case Action.SOFT_RESET_ON_TIMER:
                 StartCoroutine(OnTimerDone());
+                break;
+            case Action.DESTROY_AFTER_TIME:
+                Destroy(child, timer);
                 break;
         }
     }
