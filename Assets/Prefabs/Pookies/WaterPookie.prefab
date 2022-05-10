@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 1954535536972279759}
   - component: {fileID: 1954535536972277813}
   - component: {fileID: -4126812124827321438}
+  - component: {fileID: 6352664517963278878}
+  - component: {fileID: 6259624574291382422}
   m_Layer: 0
   m_Name: WaterPookie
   m_TagString: PookieWater
@@ -133,6 +135,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   type: 2
+--- !u!135 &6352664517963278878
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954535536972277812}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.62
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &6259624574291382422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1954535536972277812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d959c791f34aab499dfa0181779da81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  characterParent: {fileID: 1954535536972277813}
+  behaviour: {fileID: 1954535536972279759}
+  type: 1
 --- !u!1001 &6632522906648301879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -225,7 +255,7 @@ SphereCollider:
   m_GameObject: {fileID: 5821498043566189670}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 1.1189548
   m_Center: {x: 0, y: 0, z: 0}
@@ -248,18 +278,3 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &7291898787871855305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5821498043566189670}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d959c791f34aab499dfa0181779da81, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  characterParent: {fileID: 1954535536972277813}
-  behaviour: {fileID: 1954535536972279759}
-  type: 1
