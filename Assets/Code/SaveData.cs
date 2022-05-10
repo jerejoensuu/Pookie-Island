@@ -8,6 +8,7 @@ public class SaveData : ScriptableObject {
 
     public int Shards;
     public int Crystal;
+    public int Exchanges;
     public int Health;
     public int gauge;
     public DamageElement.DamageType type;

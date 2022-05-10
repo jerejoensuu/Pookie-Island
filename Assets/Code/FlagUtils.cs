@@ -6,6 +6,9 @@ using UnityEngine;
 
 public class FlagUtils {
     
+    // dumb temp code
+    public GameObject CrystalCounter;
+
     private static HashSet<GameObject> listeners = new HashSet<GameObject>();
     private static HashSet<GameObject> listenersToBeRemoved = new HashSet<GameObject>();
     private static bool iterating;
