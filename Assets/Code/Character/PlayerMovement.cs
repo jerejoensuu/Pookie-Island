@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour {
     public Vector3 movement, momentum;
     private float accel = 0;
 
-    internal bool moving, jumping, run, jumpPressed, autoTurningPlayer, inWater;
+    internal bool moving, jumping, run, jumpPressed, autoTurningPlayer, inWater, movementBlocked;
     public float rollingProgress = 0;
     public float rollSpeed = 25;
     public float rollEndSpeed = 5;
@@ -65,7 +65,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     public void HandleMovement() {
-        if (SaveUtils.health <= 0) return;
+        if (SaveUtils.health <= 0 || movementBlocked) return;
 
         if (controller.height != 2 && rollTimer > rollLength) ResetHeight();
 

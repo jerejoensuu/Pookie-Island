@@ -10,20 +10,22 @@ public class OverlayMenuHandler : MonoBehaviour {
     private void Start() {
         inputs = new Inputs();
         inputs.Enable();
-        inputs.UI.Cancel.performed += CancelOnperformed;
+        inputs.UI.Menu.performed += CancelOnperformed;
     }
 
     private void OnDestroy() {
-        inputs.UI.Cancel.performed -= CancelOnperformed;
+        inputs.UI.Menu.performed -= CancelOnperformed;
         inputs.Dispose();
     }
 
     public void CloseOverlayMenu() {
+        Cursor.lockState = CursorLockMode.Locked;
         overlay.SetActive(false);
         GlobalEvent.UnpauseGame();
     }
 
     public void OpenOverlayMenu() {
+        Cursor.lockState = CursorLockMode.Confined;
         overlay.SetActive(true);
         GlobalEvent.PauseGame();
     }
