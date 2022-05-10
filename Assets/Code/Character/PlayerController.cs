@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     public void CrystalGot() {
-        anim.animator.SetTrigger("crystalGot");
+        anim.camAnimator.SetTrigger("CrystalGot");
         movement.movementBlocked = true;
         anim.camAnimator.SetTrigger("CrystalGot");
     }
