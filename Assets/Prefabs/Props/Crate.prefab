@@ -30,7 +30,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1252325048201878320}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 25, y: 24, z: -152}
   m_LocalScale: {x: 0.582056, y: 0.582056, z: 0.582056}
   m_Children:
@@ -246,6 +246,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: a2febb57365d3d740b0914d935a28132, type: 3}
       propertyPath: m_Name
       value: crate2
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a2febb57365d3d740b0914d935a28132, type: 3}
+      propertyPath: m_Layer
+      value: 16
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2febb57365d3d740b0914d935a28132, type: 3}
