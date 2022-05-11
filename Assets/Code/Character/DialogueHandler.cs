@@ -13,6 +13,7 @@ public class DialogueHandler : MonoBehaviour {
     public GameObject hoveringText;
     [SerializeField] AudioClip dialogueOpenSFX;
     [SerializeField] AudioClip dialogueCloseSFX;
+    [SerializeField] AudioClip dialogueContinueSFX;
 
     private Inputs inputs;
     private Dialogue target;
@@ -31,6 +32,7 @@ public class DialogueHandler : MonoBehaviour {
 
     private void OnDisable() {
         inputs.Player.Jump.performed -= ContinueDialogue;
+        GetComponent<AudioSource>().PlayOneShot(dialogueContinueSFX);
         inputs.Player.Interact.performed -= Interaction;
         if (dialoguePanel != null) dialoguePanel.SetActive(false);
         if (hoveringText != null) hoveringText.SetActive(false);
