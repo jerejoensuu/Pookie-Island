@@ -11,7 +11,10 @@ public class DialogueHandler : MonoBehaviour {
     public GameObject dialoguePanel;
     public InputReader playerControls;
     public GameObject hoveringText;
-    
+    [SerializeField] AudioClip dialogueOpenSFX;
+    [SerializeField] AudioClip dialogueCloseSFX;
+    [SerializeField] AudioClip dialogueContinueSFX;
+
     private Inputs inputs;
     private Dialogue target;
     private PieceOfDialogue currentDialogue;
@@ -29,6 +32,7 @@ public class DialogueHandler : MonoBehaviour {
 
     private void OnDisable() {
         inputs.Player.Jump.performed -= ContinueDialogue;
+        GetComponent<AudioSource>().PlayOneShot(dialogueContinueSFX);
         inputs.Player.Interact.performed -= Interaction;
         if (dialoguePanel != null) dialoguePanel.SetActive(false);
         if (hoveringText != null) hoveringText.SetActive(false);
@@ -45,6 +49,7 @@ public class DialogueHandler : MonoBehaviour {
             if (!String.IsNullOrEmpty(currentDialogue.FlagToSet)) FlagUtils.SetFlag(currentDialogue.FlagToSet);
             Pauser.ResumeAll();
             playerControls.enabled = true;
+            GetComponent<AudioSource>().PlayOneShot(dialogueCloseSFX);
             CustomEvent.Trigger(target.behaviour.gameObject, "DialogueEnded");
         } else {
             dialogueText.text = currentDialogue.dialogueBoxes[currentDialoguePosition];
@@ -89,6 +94,7 @@ public class DialogueHandler : MonoBehaviour {
 
         if (validDialogue != null) {
             state = State.IN_DIALOGUE;
+            GetComponent<AudioSource>().PlayOneShot(dialogueOpenSFX);
             dialoguePanel.SetActive(true);
             inputs.Player.Interact.performed -= Interaction;
             inputs.Player.Jump.performed += ContinueDialogue;

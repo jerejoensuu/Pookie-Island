@@ -10,8 +10,9 @@ public class PlayerController : MonoBehaviour {
     public PlayerAnimation anim; 
     public VacuumController vacuum; 
     public PlayerHealth playerHealth; 
-    public KnockbackHandler knockbackHandler;  
- 
+    public KnockbackHandler knockbackHandler;
+    [SerializeField] AudioClip CrystalSFX;
+
     [Header("Movement")] 
     public GameObject model; 
     internal float gravity; 
@@ -94,6 +95,7 @@ public class PlayerController : MonoBehaviour {
 
     public void CrystalGot() {
         anim.animator.SetTrigger("crystalGot");
+        GetComponent<AudioSource>().PlayOneShot(CrystalSFX);
         movement.movementBlocked = true;
         anim.camAnimator.SetTrigger("CrystalGot");
     }
