@@ -634,6 +634,7 @@ MonoBehaviour:
   vacuum: {fileID: 2831179270947530452}
   playerHealth: {fileID: 2955313067329111445}
   knockbackHandler: {fileID: 4788587711425383612}
+  CrystalSFX: {fileID: 8300000, guid: 571bbc52333fd5a428be6be81ea0eec0, type: 3}
   model: {fileID: 0}
   maxJumpHeight: 4
   maxJumpTime: 0.7
@@ -753,6 +754,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8215064960512089256}
+  Camera: {fileID: 0}
   playerHitSFX: {fileID: 8300000, guid: 28892a9176497584fb80667c7e05425b, type: 3}
   gameOverSFX: {fileID: 8300000, guid: 8db9e32af9e7bf245938d67ac87974d3, type: 3}
   healthBar: {fileID: 0}
