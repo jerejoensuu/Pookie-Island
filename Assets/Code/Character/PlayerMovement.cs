@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] Transform groundCheck;
     [SerializeField] AudioClip jumpSFX;
     [SerializeField] AudioClip doubleJumpSFX;
-    [SerializeField] AudioClip shardSFX;
+    //[SerializeField] AudioClip shardSFX;
 
     public Vector3 movement, momentum;
     private float accel = 0;
