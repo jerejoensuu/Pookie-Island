@@ -774,6 +774,7 @@ MonoBehaviour:
   tank: {fileID: 3811880172904060626}
   elements: {fileID: 7416931811492516458}
   vacuumEffect: {fileID: 0}
+  successfulSuckSFX: {fileID: 8300000, guid: c500a336fe4dcaa449527613f6d598f3, type: 3}
   nozzleSize: 0.2
   rayDensity: 20
   spread: 14
@@ -925,7 +926,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
