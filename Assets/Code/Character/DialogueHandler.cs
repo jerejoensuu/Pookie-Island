@@ -64,7 +64,7 @@ public class DialogueHandler : MonoBehaviour {
     private void DisplayHoveringText(Transform parent) {
         hoveringText.SetActive(true);
         hoveringText.transform.SetParent(parent);
-        hoveringText.transform.localPosition = new Vector3(0, 2, 0);
+        hoveringText.transform.localPosition = new Vector3(0, 1, 0);
     }
 
     private void HideHoveringText() {
