@@ -19,8 +19,8 @@ public class PullableCharacter : MonoBehaviour {
 #if UNITY_EDITOR
     [Sirenix.OdinInspector.OnInspectorInit]
     void Bind() {
-        characterParent = GetComponentInParent<Pauser>();
-        behaviour = GetComponentInParent<StateMachine>();
+        characterParent = GetComponent<Pauser>();
+        behaviour = GetComponent<StateMachine>();
         if (gameObject.tag.Contains("Fire")) {
             type = DamageElement.DamageType.FIRE;
         } else if (gameObject.tag.Contains("Ice")) {
