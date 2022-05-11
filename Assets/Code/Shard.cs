@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class Shard : MonoBehaviour {
     [SerializeField] float speed = 5f;
-    [SerializeField] float height = 0.5f;
-    //[SerializeField] private AudioSource pickupShardSFX;
+    [SerializeField] float height = 0.5f; 
     Vector3 pos;
     
     private int uid;
@@ -32,7 +31,6 @@ public class Shard : MonoBehaviour {
         if (!other.CompareTag("Player")) return;
         SaveUtils.currentSaveGame.PickedShards.Add(uid);
         onShardPicked?.Invoke(++SaveUtils.currentSaveGame.Shards);
-        //pickupShardSFX.Play();
         Destroy(gameObject);
     }
 }
