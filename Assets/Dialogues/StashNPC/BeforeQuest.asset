@@ -14,6 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   priority: 0
   requiredFlags: []
-  disabledByFlags: []
-  dialogueBoxes: []
-  FlagToSet: 
+  disabledByFlags:
+  - ShardQuestInitiated
+  dialogueBoxes:
+  - Hey, you finally reached me! I've seen your spaceship crash, sad stuff mate.
+  - Me? Oh some people around call me a hermit cause I don't live down there, but
+    here's a better place to watch over them!
+  - Especially over Baba, the farmer downhill. I've always had a crush on her, I'll
+    admit..
+  - She looked in a pickle this morning.. This sad pout under her hat breaks my froggy
+    heart.
+  - I'm too shy to help her myself, but could you go check on her and help with the
+    farm?
+  - 'You''re in for a *shiny* treat if you make Baba smile again: my shard stash
+    uphill will be all yours!'
+  FlagToSet: ShardQuestInitiated
