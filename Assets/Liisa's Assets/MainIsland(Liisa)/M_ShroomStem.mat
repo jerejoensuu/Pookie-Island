@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7984487925947051359
+--- !u!114 &-1030145384148859735
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Hut_Leaf
+  m_Name: M_ShroomStem
   m_Shader: {fileID: 4800000, guid: 849dc4ff793a3f943ad21a3b6ee26456, type: 3}
   m_ShaderKeywords: _ADDITIONAL_LIGHTS_ENABLED _ENVIRONMENT_LIGHTING_ENABLED _FOG
     _FRESNEL _SPECULAR _ZWRITE_ON
@@ -33,8 +33,16 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_a4efc9d5c37242c881046cb5281a499f:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_b8cf6a7d72e7492f9ded3ae648c42e2d:
+        m_Texture: {fileID: 2800000, guid: cdcafe69f3a4e7e49ab4e4b55b0b209e, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 8ebb49f86cf38f241b847dff213336f3, type: 3}
+        m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
@@ -94,6 +102,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_35b599b1ac2c4d4d98bcb0dc934a45c0: 0.03
+    - Vector1_5ab4c18de5494fca95e8b0d72dfe1400: 0.52
+    - Vector1_ac1b58ccee4942d4946943d443373425: 5
+    - Vector1_c88badb889834ab5b125bd71f7f97513: 0
     - _AdditionalLights: 1
     - _AdditionalLightsSpecular: 0
     - _AlphaClip: 0
@@ -112,8 +124,8 @@ Material:
     - _EnvironmentReflections: 1
     - _Fog: 1
     - _Fresnel: 1
-    - _FresnelSmoothness: 0.012
-    - _FresnelThickness: 0.441
+    - _FresnelSmoothness: 0
+    - _FresnelThickness: 0.457
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -122,7 +134,7 @@ Material:
     - _Parallax: 0.005
     - _PureShadowColor: 0
     - _QueueOffset: 0
-    - _Ramp0: 0
+    - _Ramp0: 0.256
     - _Ramp1: 0.5
     - _RampSmoothness: 0
     - _RampTriple: 0
@@ -131,10 +143,10 @@ Material:
     - _Smoothness: 0.5
     - _SmoothnessTextureChannel: 0
     - _Specular: 1
-    - _SpecularExponent: 78
+    - _SpecularExponent: 55
     - _SpecularHighlights: 1
     - _SpecularSmoothness: 0
-    - _SpecularThreshold: 0.527
+    - _SpecularThreshold: 0.783
     - _SrcBlend: 1
     - _Surface: 0
     - _UseRampMap: 0
@@ -142,11 +154,12 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
-    - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - Color_84e18c13e1a149cc990b8a3dcee20244: {r: 0.56393087, g: 0, b: 0.5660378, a: 0}
+    - _BaseColor: {r: 1, g: 0.9918482, b: 0.8443396, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _FresnelColor: {r: 0.45411012, g: 0.6886792, b: 0.30210927, a: 0.16862746}
-    - _ShadowTint: {r: 0.10849057, g: 0.35165635, b: 0.4339623, a: 1}
+    - _FresnelColor: {r: 1, g: 1, b: 1, a: 0.27058825}
+    - _ShadowTint: {r: 0.10165028, g: 0.057271272, b: 0.3679245, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
-    - _SpecularColor: {r: 0.27049786, g: 0.5457247, b: 0.1811643, a: 1}
+    - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
