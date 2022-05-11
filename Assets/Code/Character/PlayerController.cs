@@ -98,6 +98,7 @@ public class PlayerController : MonoBehaviour {
         GetComponent<AudioSource>().PlayOneShot(CrystalSFX);
         movement.movementBlocked = true;
         anim.camAnimator.SetTrigger("CrystalGot");
+        anim.CrystalAnimation();
     }
  
     // void OnDrawGizmos() { 
