@@ -1122,6 +1122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CrystalCounter: {fileID: 4510759975671407339}
+  shardSFX: {fileID: 0}
 --- !u!1 &4510759976125388153
 GameObject:
   m_ObjectHideFlags: 0
@@ -4362,6 +4363,10 @@ PrefabInstance:
       propertyPath: vacuumEffect
       value: 
       objectReference: {fileID: 462580126616080185}
+    - target: {fileID: 2955313067329111445, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
+      propertyPath: Camera
+      value: 
+      objectReference: {fileID: 4355277965079305909}
     - target: {fileID: 2955313067329111445, guid: ba096914e2b1f0144b489a4145fc1b2d, type: 3}
       propertyPath: cooldown
       value: 150

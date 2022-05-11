@@ -6,7 +6,9 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour {
 
     [SerializeField] PlayerController player;
+    [SerializeField] GameObject Camera;
     [SerializeField] AudioClip playerHitSFX;
+    [SerializeField] AudioClip gameOverSFX;
     public HealthBar healthBar;
     public SkinnedMeshRenderer playerMesh;
     public int cooldown = 300;
@@ -32,6 +34,8 @@ public class PlayerHealth : MonoBehaviour {
 
     public IEnumerator KillPlayer() {
         player.anim.animator.SetTrigger("death");
+        Camera.GetComponent<AudioSource>().Stop();
+        GetComponent<AudioSource>().PlayOneShot(gameOverSFX);
         yield return new WaitForSeconds(3);
         GameObject.Find("Root").GetComponent<SceneRoot>().parent.GetComponent<SceneLoader>().GameOver();
     }
