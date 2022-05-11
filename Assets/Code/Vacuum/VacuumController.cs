@@ -10,9 +10,11 @@ public class VacuumController : MonoBehaviour {
     public GameObject nozzle; 
     public VacuumTank tank; 
     public VacuumElements elements; 
-    public GameObject vacuumEffect; 
- 
- 
+    public GameObject vacuumEffect;
+
+    [SerializeField] AudioClip successfulSuckSFX;
+
+
     public float nozzleSize = 0.3f; 
     public float rayDensity = 20; 
     public float spread = 5; 
@@ -115,7 +117,8 @@ public class VacuumController : MonoBehaviour {
             hitCharacter.characterParent.transform.position = Vector3.MoveTowards(hitCharacter.characterParent.transform.position, nozzle.transform.position, pullForce * Time.deltaTime); 
              
             // Transition to tank: 
-            if (Vector3.Distance(hitCharacter.GetComponent<Collider>().ClosestPointOnBounds(nozzle.transform.position), nozzle.transform.position) < 0.5f) { 
+            if (Vector3.Distance(hitCharacter.GetComponent<Collider>().ClosestPointOnBounds(nozzle.transform.position), nozzle.transform.position) < 0.5f) {
+                GetComponent<AudioSource>().PlayOneShot(successfulSuckSFX);
                 forTankCharacter.Add(hitCharacter); 
             } 
         } 

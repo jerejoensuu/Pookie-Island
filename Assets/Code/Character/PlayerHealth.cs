@@ -6,6 +6,7 @@ using UnityEngine;
 public class PlayerHealth : MonoBehaviour {
 
     [SerializeField] PlayerController player;
+    [SerializeField] AudioClip playerHitSFX;
     public HealthBar healthBar;
     public SkinnedMeshRenderer playerMesh;
     public int cooldown = 300;
@@ -22,6 +23,7 @@ public class PlayerHealth : MonoBehaviour {
 
     public void TakeDamage(int damageAmount = 1) {
         SaveUtils.health -= damageAmount;
+        GetComponent<AudioSource>().PlayOneShot(playerHitSFX);
         if (SaveUtils.health <= 0) {
             StartCoroutine(KillPlayer());
         }

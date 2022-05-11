@@ -678,6 +678,7 @@ MonoBehaviour:
   groundCheck: {fileID: 2006565947799592353}
   jumpSFX: {fileID: 8300000, guid: 0c720547bbcdae04587e35dafa84ab1f, type: 3}
   doubleJumpSFX: {fileID: 8300000, guid: 564d2799c4dc37e4580b13b4d4b6c699, type: 3}
+  rollSFX: {fileID: 8300000, guid: b73cd7c3908a1164580ce516a599124a, type: 3}
   movement: {x: 0, y: 0, z: 0}
   momentum: {x: 0, y: 0, z: 0}
   rollingProgress: 0
@@ -752,6 +753,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 8215064960512089256}
+  playerHitSFX: {fileID: 8300000, guid: 28892a9176497584fb80667c7e05425b, type: 3}
   healthBar: {fileID: 0}
   playerMesh: {fileID: 0}
   cooldown: 300
@@ -773,6 +775,7 @@ MonoBehaviour:
   tank: {fileID: 3811880172904060626}
   elements: {fileID: 7416931811492516458}
   vacuumEffect: {fileID: 0}
+  successfulSuckSFX: {fileID: 8300000, guid: c500a336fe4dcaa449527613f6d598f3, type: 3}
   nozzleSize: 0.2
   rayDensity: 20
   spread: 14
@@ -924,7 +927,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
