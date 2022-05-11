@@ -15,7 +15,7 @@ public static class SaveUtils {
 
         int totalCrystalAmount = 10;
         if (currentSaveGame.Crystal == totalCrystalAmount) {
-            Debug.Log("asdf");
+            GameObject.Find("Root").GetComponent<SceneRoot>().parent.GetComponent<SceneLoader>().GameComplete();
         }
     }
 

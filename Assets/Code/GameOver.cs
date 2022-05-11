@@ -13,12 +13,13 @@ public class GameOver : MonoBehaviour {
             SceneLoader.StaticLoadCurrentSave();
         }
 
-        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Confined;
         gameObject.SetActive(false);
+        GlobalEvent.UnpauseGame();
     }
 
     public void Exit() {
-
+        Application.Quit();
     }
 
 }
