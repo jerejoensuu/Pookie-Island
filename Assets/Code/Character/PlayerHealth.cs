@@ -33,9 +33,7 @@ public class PlayerHealth : MonoBehaviour {
     public IEnumerator KillPlayer() {
         player.anim.animator.SetTrigger("death");
         yield return new WaitForSeconds(3);
-        player.vacuum.tank.ResetTank();
-        SaveUtils.health = healthBar.MaximumHearts;
-        SceneLoader.StaticLoadCurrentSave();
+        GameObject.Find("Root").GetComponent<SceneRoot>().parent.GetComponent<SceneLoader>().GameOver();
     }
 
     private void OnControllerColliderHit(ControllerColliderHit hit) {
