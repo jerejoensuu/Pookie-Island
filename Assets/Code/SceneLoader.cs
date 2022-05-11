@@ -21,6 +21,12 @@ public class SceneLoader : MonoBehaviour {
 
     private static SceneLoader instance;
 
+
+    // Last minute code
+    public GameObject gameOver;
+    public GameObject gameComplete;
+
+
     private void Awake() {
         instance = this;
     }
@@ -100,5 +106,17 @@ public class SceneLoader : MonoBehaviour {
                 DynamicGI.UpdateEnvironment();
             };
         };
+    }
+
+    public void GameOver() {
+        Cursor.lockState = CursorLockMode.Confined;
+        gameOver.SetActive(true);
+        GlobalEvent.PauseGame();
+    }
+
+    public void GameComplete() {
+        Cursor.lockState = CursorLockMode.Confined;
+        gameComplete.SetActive(true);
+        GlobalEvent.PauseGame();
     }
 }
