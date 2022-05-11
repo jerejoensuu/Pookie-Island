@@ -8,6 +8,9 @@ public class PlayerMovement : MonoBehaviour {
     internal CharacterController controller;
     GameObject camTarget;
     [SerializeField] Transform groundCheck;
+    [SerializeField] AudioClip jumpSFX;
+    [SerializeField] AudioClip doubleJumpSFX;
+    //[SerializeField] AudioClip shardSFX;
 
     public Vector3 movement, momentum;
     private float accel = 0;
@@ -129,12 +132,15 @@ public class PlayerMovement : MonoBehaviour {
     void HandleJump() {
         float waterMod = inWater ? .7f : 1;
         if (jumpPressed && (grounded || jumps > 0)) {
+            
             jumping = true;
             if (jumps == 2) {
                 movement.y = player.jumpSpeed * waterMod;
+                GetComponent<AudioSource>().PlayOneShot(jumpSFX);
                 player.anim.animator.SetTrigger("jump");
             } else {
                 movement.y = player.jumpSpeed * 0.75f * waterMod;
+                GetComponent<AudioSource>().PlayOneShot(doubleJumpSFX);
                 player.anim.animator.SetTrigger("doubleJump");
             }
             jumpPressed = false;
