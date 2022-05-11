@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour {
     [SerializeField] AudioClip jumpSFX;
     [SerializeField] AudioClip doubleJumpSFX;
     //[SerializeField] AudioClip shardSFX;
+    [SerializeField] AudioClip rollSFX;
+
 
     public Vector3 movement, momentum;
     private float accel = 0;
@@ -219,7 +221,11 @@ public class PlayerMovement : MonoBehaviour {
         controller.center = new Vector3(0, -0.5f, 0);
 
         while(rollTimer <= rollLength) {
-            if (rollTimer == 0) player.anim.animator.SetTrigger("roll");
+            if (rollTimer == 0)
+            {
+                player.anim.animator.SetTrigger("roll");
+                GetComponent<AudioSource>().PlayOneShot(rollSFX);
+            }
             if (rollTimer <= rollLength / 2) {
                 // increase speed
                 movement.z = rollSpeed * (rollTimer / (rollLength / 2));
