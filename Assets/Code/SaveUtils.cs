@@ -12,6 +12,11 @@ public static class SaveUtils {
 
     public static void IncrementCrystal() {
         currentSaveGame.Crystal++;
+
+        int totalCrystalAmount = 10;
+        if (currentSaveGame.Crystal == totalCrystalAmount) {
+            Debug.Log("asdf");
+        }
     }
 
     public static int health {
