@@ -14,7 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   priority: 1
   requiredFlags: []
-  disabledByFlags: []
+  disabledByFlags:
+  - PookieQuestInitiate
+  - PookieQuestCompleteAll
   dialogueBoxes:
   - Oh hi! Haven't seen your type around before...
   - If you're here to explore, could you find my friends for me? This place is too
