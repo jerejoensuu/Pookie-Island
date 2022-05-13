@@ -43,10 +43,11 @@ public class VacuumTank : MonoBehaviour {
         //making sure correct values are displayed on scene load
         gauge = gauge;
         pookieType = pookieType;
+
         originalSize = mask.rectTransform.rect.height;
-        //Debug.Log("Start: original size = " + originalSize);
+        //Debug.Log("Any Awake: original size = " + originalSize);
         initialized = true;
-        mask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, 0);
+        mask.rectTransform.SetSizeWithCurrentAnchors(RectTransform.Axis.Vertical, originalSize * gauge/100);
 
         
         if (model) {
