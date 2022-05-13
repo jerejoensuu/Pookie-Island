@@ -30,7 +30,8 @@ Transform:
   m_LocalRotation: {x: -0.70213264, y: 0.08372439, z: -0.08372439, w: -0.70213264}
   m_LocalPosition: {x: 0, y: -0.98, z: 2.45}
   m_LocalScale: {x: 1.1, y: 1.1, z: 0.78}
-  m_Children: []
+  m_Children:
+  - {fileID: 1671642879006348138}
   m_Father: {fileID: 3469453236230964386}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 90, y: 346.4, z: 0}
@@ -315,7 +316,6 @@ Transform:
   m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
   m_Children:
   - {fileID: 5135865325338083192}
-  - {fileID: 1671642879006348138}
   m_Father: {fileID: 3469453236855053231}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: -180, z: 0}
@@ -395,11 +395,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _data:
-    _json: '{"declarations":{"collection":{"$content":[{"name":"TriggerByElement","value":{"$content":"WATER","$type":"DamageElement+DamageType"},"$version":"A"},{"name":"ToAnimate","value":{"$content":[0,1],"$type":"System.Collections.Generic.List`1[[UnityEngine.Animator,
-      UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"$version":"A"},{"name":"IncreasePerHit","value":{"$content":0.5,"$type":"System.Single"},"$version":"A"},{"name":"Buffer","value":{"$content":2.0,"$type":"System.Single"},"$version":"A"},{"name":"DecreasePerSecond","value":{"$content":-0.5,"$type":"System.Single"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
+    _json: '{"declarations":{"collection":{"$content":[{"name":"TriggerByElement","value":{"$content":"WATER","$type":"DamageElement+DamageType"},"$version":"A"},{"name":"ToAnimate","value":{"$content":[0,1,2],"$type":"System.Collections.Generic.List`1[[UnityEngine.Animator,
+      UnityEngine.AnimationModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null]]"},"$version":"A"},{"name":"IncreasePerHit","value":{"$content":0.4,"$type":"System.Single"},"$version":"A"},{"name":"Buffer","value":{"$content":1.0,"$type":"System.Single"},"$version":"A"},{"name":"DecreasePerSecond","value":{"$content":-0.9,"$type":"System.Single"},"$version":"A"}],"$version":"A"},"$version":"A"}}'
     _objectReferences:
     - {fileID: 3469453235735220003}
     - {fileID: 3469453236230964393}
+    - {fileID: 2407702393159164947}
 --- !u!114 &3469453236230964396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -523,7 +524,6 @@ GameObject:
   - component: {fileID: 4369031295079557743}
   - component: {fileID: 1335772657130682463}
   - component: {fileID: 4265107839019215520}
-  - component: {fileID: 5472006904781616894}
   m_Layer: 0
   m_Name: Propel (1)
   m_TagString: Untagged
@@ -538,12 +538,12 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8932799257838047530}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.96, z: 2.45}
-  m_LocalScale: {x: 1.1, y: 1.1, z: 0.78}
+  m_LocalRotation: {x: 0.9929655, y: -0.118404165, z: -0, w: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -2.4871757}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 3469453236230964386}
-  m_RootOrder: 1
+  m_Father: {fileID: 5135865325338083192}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!33 &4369031295079557743
 MeshFilter:
@@ -609,22 +609,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -462981019419857548, guid: bfc4370eef15de7448adf8fbb09c25da, type: 3}
---- !u!95 &5472006904781616894
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8932799257838047530}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 8f751a73db213c142b6fd11497c312f6, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
