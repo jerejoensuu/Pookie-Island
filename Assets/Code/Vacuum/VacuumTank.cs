@@ -120,11 +120,28 @@ public class VacuumTank : MonoBehaviour {
             return false;
         } 
         if (character.type == pookieType && gauge > 0) {
-            return GaugeAdd(pookieType == DamageElement.DamageType.BULLET ? 25 : (int)(35 * character.gameObject.transform.localScale.x));
+            switch (pookieType) {
+                case DamageElement.DamageType.BULLET:
+                    return GaugeAdd(25);
+                case DamageElement.DamageType.FIRE:
+                    return GaugeAdd((int)(35 * character.gameObject.transform.localScale.x * 1.54));
+                default:
+                    return GaugeAdd((int)(35 * character.gameObject.transform.localScale.x));
+            }
         }
         EjectAll();
         pookieType = character.type;
-        gauge = pookieType == DamageElement.DamageType.BULLET ? 25 : 35;
+        switch (pookieType) {
+            case DamageElement.DamageType.BULLET:
+                gauge = 25;
+                break;
+            case DamageElement.DamageType.FIRE:
+                gauge = (int)(35 * character.gameObject.transform.localScale.x * 1.54f);
+                break;
+            default:
+                gauge = (int)(35 * character.gameObject.transform.localScale.x);
+                break;
+        }
         vacuum.player.anim.animator.SetTrigger("vacuumKnockback");
         switch (pookieType) {
             case DamageElement.DamageType.BULLET:
@@ -185,9 +202,9 @@ public class VacuumTank : MonoBehaviour {
         switch (pookieType) {
             case DamageElement.DamageType.FIRE:
                 size = GaugeSubstract(35);
-                if (size <= 5) break;
+                if (size < 10) break;
                 obj = Instantiate(firePookiePrefab, vacuum.nozzle.transform.position, Quaternion.identity);
-                obj.transform.localScale = new Vector3(size / 35f, size / 35f, size / 35f);
+                obj.transform.localScale = new Vector3(size / 35f * 0.65f, size / 35f * 0.65f, size / 35f * 0.65f);
                 break;
             case DamageElement.DamageType.ICE:
                 size = GaugeSubstract(35);
