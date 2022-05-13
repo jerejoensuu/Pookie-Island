@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class GameOver : MonoBehaviour {
 
+    void OnEnable() {
+        GameObject.Find("Menu Handler").GetComponent<OverlayMenuHandler>().inputs.Disable();
+    }
+
     public void Continue() {
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -16,6 +20,7 @@ public class GameOver : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Confined;
         gameObject.SetActive(false);
         GlobalEvent.UnpauseGame();
+        GameObject.Find("Menu Handler").GetComponent<OverlayMenuHandler>().inputs.Enable();
     }
 
     public void Exit() {
