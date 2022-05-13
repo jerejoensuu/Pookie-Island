@@ -13,7 +13,7 @@ public static class SaveUtils {
     public static void IncrementCrystal() {
         currentSaveGame.Crystal++;
 
-        int totalCrystalAmount = 1;
+        int totalCrystalAmount = 10;
         if (currentSaveGame.Crystal == totalCrystalAmount) {
             GameObject.Find("Root").GetComponent<SceneRoot>().parent.GetComponent<SceneLoader>().GameComplete();
         }

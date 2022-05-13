@@ -69,6 +69,7 @@ public class PlayerController : MonoBehaviour {
         movement.controller.enabled = false; 
         transform.position = softSpawnPoint; 
         movement.controller.enabled = true; 
+        unsafeSpawn = false;
     } 
  
     public void ResetParent() { 
@@ -101,9 +102,9 @@ public class PlayerController : MonoBehaviour {
         anim.CrystalAnimation();
     }
  
-    // void OnDrawGizmos() { 
-    //     Gizmos.color = Color.cyan; 
-    //     Gizmos.DrawSphere(softSpawnPoint, 0.3f); 
-    // } 
+    void OnDrawGizmos() { 
+        Gizmos.color = Color.cyan; 
+        Gizmos.DrawSphere(softSpawnPoint, 0.3f); 
+    } 
      
 } 
