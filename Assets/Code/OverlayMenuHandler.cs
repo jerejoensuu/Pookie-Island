@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 
 public class OverlayMenuHandler : MonoBehaviour {
 
-    private Inputs inputs;
+    public Inputs inputs;
     public SceneLoader loader;
     public GameObject overlay;
 
