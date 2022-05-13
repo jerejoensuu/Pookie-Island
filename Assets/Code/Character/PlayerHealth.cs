@@ -47,12 +47,14 @@ public class PlayerHealth : MonoBehaviour {
             Debug.Log("take damage");
             if (affectedBy.effectType == PlayerHealthAffect.EffectType.DAMAGE) {
                 TakeDamage(affectedBy.effectAmount);
+                StartCoroutine(DamageCooldown());
+                player.knockbackHandler.SetKnockback(hit);
+                player.knockbackHandler.HandleKnockback();
             } else {
                 GainHealth(affectedBy.effectAmount);
             }
-            StartCoroutine(DamageCooldown());
-            player.knockbackHandler.SetKnockback(hit);
-            player.knockbackHandler.HandleKnockback();
+            
+            
 
             affectedBy.OnPlayerHit();
         }
