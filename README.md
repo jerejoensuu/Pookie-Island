@@ -1,7 +1,9 @@
 <br />
 <div align="center">
 <h1>Pookie Island</h1>
-<a href="https://nedrichard.itch.io/pookie-island">Itch.io link</a>
+<a href="https://nedrichard.itch.io/pookie-island">Itch.io link
+<img src="./images/Z98wF9.png" alt="Banner">
+</a>
 </div>
 <br />
 
@@ -11,13 +13,13 @@ In Pookie Island, you step into the moon boots of Space Kitty, whose adventure d
 
 ## Screenshots
 <p align="center">
-  <img src="./images/ss1.png" alt="Screenshot" width="49%" >
-  <img src="./images/ss2.png" alt="Screenshot" width="49%" >
+  <img src="./images/6p8XK6.png" alt="Screenshot" width="49%" >
+  <img src="./images/MUu18Z.png" alt="Screenshot" width="49%" >
 <p/>
 
 <p align="center">
-  <img src="./images/ss3.png" alt="Screenshot" width="49%" >
-  <img src="./images/ss4.png" alt="Screenshot" width="49%" >
+  <img src="./images/QwYfZr.png" alt="Screenshot" width="49%" >
+  <img src="./images/tl2QKt.png" alt="Screenshot" width="49%" >
 <p/>
 
 ## Features
