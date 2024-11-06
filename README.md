@@ -10,6 +10,13 @@
 ## Description
 In Pookie Island, you step into the moon boots of Space Kitty, whose adventure didn’t start quite as planned. You find yourself on a planet with islands inhabited by frogs and their elemental companions: Pookies, which will help you on your journey through these islands. Take on quests, solve puzzles & gather crystals to get back to your planet!
 
+<details>
+<summary> Summary for portfolio </summary>
+  
+  - School project
+  - Responsible for all player related mechanics such as movement and vacuum mechanics
+    
+</details>
 
 ## Screenshots
 <p align="center">
