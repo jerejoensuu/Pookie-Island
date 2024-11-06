@@ -14,6 +14,7 @@ In Pookie Island, you step into the moon boots of Space Kitty, whose adventure d
 <summary> Summary for portfolio </summary>
   
   - School project
+  - Complete game
   - Responsible for:<ul>
     - player movement
     - cameras/cutscenes
