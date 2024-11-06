@@ -14,7 +14,10 @@ In Pookie Island, you step into the moon boots of Space Kitty, whose adventure d
 <summary> Summary for portfolio </summary>
   
   - School project
-  - Responsible for all player related mechanics such as movement and vacuum mechanics
+  - Responsible for:<ul>
+    - player movement
+    - cameras/cutscenes
+    - vacuum and powerup mechanics</ul>
     
 </details>
 
